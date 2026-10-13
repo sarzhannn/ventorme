@@ -1,0 +1,31 @@
+- generic [active] [ref=e1]:
+  - link "Негізгі мазмұнға өту" [ref=e85] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - link "Ventorme — басты бетке" [ref=e86] [cursor=pointer]:
+      - /url: "#start"
+      - text: V•ntorme
+    - group "Тілді таңдаңыз" [ref=e87]:
+      - button "RU" [ref=e6] [cursor=pointer]
+      - button "KZ" [pressed] [ref=e7] [cursor=pointer]
+      - button "EN" [ref=e8] [cursor=pointer]
+  - main [ref=e9]:
+    - generic [ref=e280]:
+      - paragraph [ref=e281]: Бірге анықтайық
+      - generic [ref=e282]:
+        - generic [ref=e283]: 3-қадам / 3
+        - generic [ref=e284]: Өткізіп жіберуге болады
+      - heading "Алдымен қандай нәтиже алғың келеді?" [level=1] [ref=e287]
+      - paragraph [ref=e288]: Бір түсінікті келесі қадамды көрсетеміз.
+      - generic [ref=e289]:
+        - button "Қызығушылықтарымды түсіну" [ref=e290] [cursor=pointer]
+        - button "Лайықты университеттерді табу" [ref=e291] [cursor=pointer]
+        - button "Гранттар мен оқу құнын білу" [ref=e292] [cursor=pointer]
+        - button "Емтиханға қалай дайындалуды түсіну" [ref=e293] [cursor=pointer]
+        - button "Оқуға түсу жоспарын құру" [ref=e294] [cursor=pointer]
+        - button "Әлі білмеймін — таңдауға көмектесіңіз" [ref=e295] [cursor=pointer]
+      - paragraph [ref=e296]
+      - generic [ref=e297]:
+        - button "Артқа" [ref=e298] [cursor=pointer]
+        - button "Өткізіп жіберу" [ref=e299] [cursor=pointer]
+        - button "Келесі қадамымды көрсету" [ref=e300] [cursor=pointer]

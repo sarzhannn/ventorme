@@ -1,0 +1,30 @@
+- generic [ref=e1]:
+  - link "Өткізіп жіберу" [ref=e83] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - link "Ventorme — на главную" [ref=e4] [cursor=pointer]:
+      - /url: "#start"
+      - text: V•ntorme
+    - group "Выберите язык" [ref=e5]:
+      - button "RU" [ref=e6] [cursor=pointer]
+      - button "KZ" [pressed] [ref=e7] [cursor=pointer]
+      - button "EN" [ref=e8] [cursor=pointer]
+  - main [active] [ref=e9]:
+    - generic [ref=e157]:
+      - paragraph [ref=e158]: Давай разберёмся
+      - generic [ref=e159]:
+        - generic [ref=e160]: Шаг 1 из 3
+        - generic [ref=e161]: Можно пропустить
+      - heading "Сколько времени у тебя до поступления?" [level=1] [ref=e164]
+      - paragraph [ref=e165]: Это поможет нам показать подходящий следующий шаг.
+      - generic [ref=e166]:
+        - button "7–8 класс — Пока изучаю свои интересы" [ref=e167] [cursor=pointer]
+        - button "9 класс — Думаю, что делать после девятого" [ref=e168] [cursor=pointer]
+        - button "10 класс — Начинаю готовиться к поступлению" [ref=e169] [cursor=pointer]
+        - button "11 класс — Поступление уже близко" [ref=e170] [cursor=pointer]
+        - button "Другое — Укажу свой вариант" [ref=e171] [cursor=pointer]
+      - paragraph
+      - generic [ref=e172]:
+        - button "Артқа" [ref=e173] [cursor=pointer]
+        - button "Өткізіп жіберу" [ref=e174] [cursor=pointer]
+        - button "Әрі қарай" [ref=e175] [cursor=pointer]

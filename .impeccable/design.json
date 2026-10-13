@@ -1,0 +1,396 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-12T18:29:43.671Z",
+  "title": "Design System: Ventorme",
+  "extensions": {
+    "colorMeta": {
+      "midnight": {
+        "role": "neutral",
+        "displayName": "Midnight",
+        "tonalRamp": [
+          "oklch(15.00% 0.0758 282.82)",
+          "oklch(26.43% 0.0758 282.82)",
+          "oklch(37.86% 0.0758 282.82)",
+          "oklch(49.29% 0.0758 282.82)",
+          "oklch(60.71% 0.0758 282.82)",
+          "oklch(72.14% 0.0758 282.82)",
+          "oklch(83.57% 0.0758 282.82)",
+          "oklch(95.00% 0.0758 282.82)"
+        ]
+      },
+      "ultramarine": {
+        "role": "secondary",
+        "displayName": "Ultramarine",
+        "tonalRamp": [
+          "oklch(15.00% 0.1909 274.94)",
+          "oklch(26.43% 0.1909 274.94)",
+          "oklch(37.86% 0.1909 274.94)",
+          "oklch(49.29% 0.1909 274.94)",
+          "oklch(60.71% 0.1909 274.94)",
+          "oklch(72.14% 0.1909 274.94)",
+          "oklch(83.57% 0.1909 274.94)",
+          "oklch(95.00% 0.1909 274.94)"
+        ]
+      },
+      "electric": {
+        "role": "secondary",
+        "displayName": "Electric Violet",
+        "tonalRamp": [
+          "oklch(15.00% 0.2207 293.55)",
+          "oklch(26.43% 0.2207 293.55)",
+          "oklch(37.86% 0.2207 293.55)",
+          "oklch(49.29% 0.2207 293.55)",
+          "oklch(60.71% 0.2207 293.55)",
+          "oklch(72.14% 0.2207 293.55)",
+          "oklch(83.57% 0.2207 293.55)",
+          "oklch(95.00% 0.2207 293.55)"
+        ]
+      },
+      "lime": {
+        "role": "primary",
+        "displayName": "Lime",
+        "tonalRamp": [
+          "oklch(15.00% 0.1786 121.38)",
+          "oklch(26.43% 0.1786 121.38)",
+          "oklch(37.86% 0.1786 121.38)",
+          "oklch(49.29% 0.1786 121.38)",
+          "oklch(60.71% 0.1786 121.38)",
+          "oklch(72.14% 0.1786 121.38)",
+          "oklch(83.57% 0.1786 121.38)",
+          "oklch(95.00% 0.1786 121.38)"
+        ]
+      },
+      "coral": {
+        "role": "tertiary",
+        "displayName": "Coral",
+        "tonalRamp": [
+          "oklch(15.00% 0.1237 33.88)",
+          "oklch(26.43% 0.1237 33.88)",
+          "oklch(37.86% 0.1237 33.88)",
+          "oklch(49.29% 0.1237 33.88)",
+          "oklch(60.71% 0.1237 33.88)",
+          "oklch(72.14% 0.1237 33.88)",
+          "oklch(83.57% 0.1237 33.88)",
+          "oklch(95.00% 0.1237 33.88)"
+        ]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Cream",
+        "tonalRamp": [
+          "oklch(15.00% 0.0070 88.64)",
+          "oklch(26.43% 0.0070 88.64)",
+          "oklch(37.86% 0.0070 88.64)",
+          "oklch(49.29% 0.0070 88.64)",
+          "oklch(60.71% 0.0070 88.64)",
+          "oklch(72.14% 0.0070 88.64)",
+          "oklch(83.57% 0.0070 88.64)",
+          "oklch(95.00% 0.0070 88.64)"
+        ]
+      },
+      "lilac": {
+        "role": "tertiary",
+        "displayName": "Lilac",
+        "tonalRamp": [
+          "oklch(15.00% 0.0611 297.63)",
+          "oklch(26.43% 0.0611 297.63)",
+          "oklch(37.86% 0.0611 297.63)",
+          "oklch(49.29% 0.0611 297.63)",
+          "oklch(60.71% 0.0611 297.63)",
+          "oklch(72.14% 0.0611 297.63)",
+          "oklch(83.57% 0.0611 297.63)",
+          "oklch(95.00% 0.0611 297.63)"
+        ]
+      },
+      "hero-muted": {
+        "role": "neutral",
+        "displayName": "Quiet Lilac",
+        "tonalRamp": [
+          "oklch(15.00% 0.0361 294.44)",
+          "oklch(26.43% 0.0361 294.44)",
+          "oklch(37.86% 0.0361 294.44)",
+          "oklch(49.29% 0.0361 294.44)",
+          "oklch(60.71% 0.0361 294.44)",
+          "oklch(72.14% 0.0361 294.44)",
+          "oklch(83.57% 0.0361 294.44)",
+          "oklch(95.00% 0.0361 294.44)"
+        ]
+      },
+      "exam-surface": {
+        "role": "secondary",
+        "displayName": "Exams Violet",
+        "tonalRamp": [
+          "oklch(15.00% 0.1270 278.45)",
+          "oklch(26.43% 0.1270 278.45)",
+          "oklch(37.86% 0.1270 278.45)",
+          "oklch(49.29% 0.1270 278.45)",
+          "oklch(60.71% 0.1270 278.45)",
+          "oklch(72.14% 0.1270 278.45)",
+          "oklch(83.57% 0.1270 278.45)",
+          "oklch(95.00% 0.1270 278.45)"
+        ]
+      },
+      "selection-bg": {
+        "role": "neutral",
+        "displayName": "Selection Lilac",
+        "tonalRamp": [
+          "oklch(15.00% 0.0488 301.06)",
+          "oklch(26.43% 0.0488 301.06)",
+          "oklch(37.86% 0.0488 301.06)",
+          "oklch(49.29% 0.0488 301.06)",
+          "oklch(60.71% 0.0488 301.06)",
+          "oklch(72.14% 0.0488 301.06)",
+          "oklch(83.57% 0.0488 301.06)",
+          "oklch(95.00% 0.0488 301.06)"
+        ]
+      },
+      "selection-ink": {
+        "role": "neutral",
+        "displayName": "Selection Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.1109 291.25)",
+          "oklch(26.43% 0.1109 291.25)",
+          "oklch(37.86% 0.1109 291.25)",
+          "oklch(49.29% 0.1109 291.25)",
+          "oklch(60.71% 0.1109 291.25)",
+          "oklch(72.14% 0.1109 291.25)",
+          "oklch(83.57% 0.1109 291.25)",
+          "oklch(95.00% 0.1109 291.25)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Unbounded display",
+        "purpose": "Hero headline at weight 800; use locale and viewport-specific fits."
+      },
+      "body": {
+        "displayName": "Golos Text",
+        "purpose": "Global local-font body family, variable weights 400–900."
+      },
+      "slogan": {
+        "displayName": "Supportive statement",
+        "purpose": "Hero story."
+      },
+      "title": {
+        "displayName": "Choice prompt",
+        "purpose": "Hero interaction heading."
+      },
+      "label": {
+        "displayName": "Concern label",
+        "purpose": "Readable text on each concern card."
+      },
+      "action": {
+        "displayName": "Primary action",
+        "purpose": "Dominant hero CTA."
+      }
+    },
+    "shadows": [
+      {
+        "name": "cta-glow",
+        "value": "0 7px 18px -8px #b9ed4670",
+        "purpose": "Lime primary action."
+      },
+      {
+        "name": "concern-depth",
+        "value": "0 12px 22px -16px #09071fc9",
+        "purpose": "Light concern cards; exams uses no shadow."
+      }
+    ],
+    "motion": [
+      {
+        "name": "quick",
+        "value": "160ms",
+        "purpose": "Concern outline feedback."
+      },
+      {
+        "name": "headline-enter",
+        "value": "640ms",
+        "purpose": "Once per page session, 65ms stagger."
+      },
+      {
+        "name": "card-enter",
+        "value": "600ms",
+        "purpose": "80ms stagger, each card triggered on viewport entry."
+      },
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Entrance and arrow direction."
+      },
+      {
+        "name": "ease-spring",
+        "value": "cubic-bezier(.22,1.35,.5,1)",
+        "purpose": "Tactile CTA/card feedback."
+      },
+      {
+        "name": "mesh-violet",
+        "value": "16s",
+        "purpose": "Pausable ambient transform loop."
+      },
+      {
+        "name": "mesh-coral",
+        "value": "13s",
+        "purpose": "Pausable ambient transform/opacity loop."
+      },
+      {
+        "name": "orbit-rings",
+        "value": "9s",
+        "purpose": "Pausable HTML artwork-layer transform loop."
+      },
+      {
+        "name": "orbit-satellite",
+        "value": "7s",
+        "purpose": "Pausable HTML artwork-layer transform loop."
+      },
+      {
+        "name": "orbit-star",
+        "value": "6s",
+        "purpose": "Pausable HTML artwork-layer transform loop."
+      },
+      {
+        "name": "press",
+        "value": "90ms",
+        "purpose": "CTA/card press response."
+      },
+      {
+        "name": "view-exit",
+        "value": "200ms",
+        "purpose": "Optional View Transition."
+      },
+      {
+        "name": "view-enter",
+        "value": "300ms",
+        "purpose": "Optional View Transition; fallback is 260ms."
+      },
+      {
+        "name": "reduced-outline-declaration",
+        "value": "120ms",
+        "purpose": "Declared opacity transition is overridden by legacy global transition:none!important; rendered reduced state is immediate."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow-max",
+        "value": "359px"
+      },
+      {
+        "name": "tablet-min",
+        "value": "600px"
+      },
+      {
+        "name": "desktop-min",
+        "value": "1000px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Mobile baseline; opens the existing quiz without requiring a concern.",
+      "html": "<div class=\"ds-dark\"><button class=\"ds-cta\" type=\"button\"><span>Найти свой первый шаг</span><span class=\"ds-cta-arrow\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></button></div>",
+      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-cta{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:58px;padding:10px 12px 10px 18px;border:0;border-radius:12px;background:var(--cta-bg,#d6fa64);color:var(--cta-fg,#18143d);font-size:16px;font-weight:700;line-height:1.3;letter-spacing:-.025em;cursor:pointer;box-shadow:0 7px 18px -8px #b9ed4670;transition:transform 240ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));}.ds-cta-arrow{display:grid;flex:none;place-items:center;width:35px;height:35px;border-radius:50%;background:var(--cta-fg,#18143d);color:var(--cta-bg,#d6fa64);}.ds-cta-arrow svg{width:21px;height:21px;transition:transform 240ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));}.ds-cta:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-cta:hover{transform:translateY(-3px);}.ds-cta:hover svg{transform:translateX(3px);}}.ds-cta:active{transform:translateY(3px) scale(.985);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-cta,.ds-cta svg{transform:none!important;transition:none!important;}}"
+    },
+    {
+      "name": "Catalog bypass",
+      "kind": "button",
+      "refersTo": "button-catalog",
+      "description": "A visible alternative to the quiz, below the primary action and promise.",
+      "html": "<div class=\"ds-dark\"><button class=\"ds-catalog\" type=\"button\">Не хочу проходить вопросы — просто покажите возможности</button></div>",
+      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-catalog{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);display:block;width:100%;min-height:44px;padding:8px 0;border:0;background:transparent;color:var(--hero-fg,#f8f6f1);font-size:13px;line-height:1.5;text-align:center;text-decoration:underline;text-decoration-color:#a099be;text-underline-offset:4px;white-space:normal;overflow-wrap:break-word;cursor:pointer;}.ds-catalog:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-catalog:hover{color:var(--color-lime,#d6fa64);}}"
+    },
+    {
+      "name": "Career concern",
+      "kind": "card",
+      "refersTo": "concern-career",
+      "description": "Mobile concern button; selection adds a check and lime outline, updates the ring and stays in the hero. CTA enters the existing quiz with the choice.",
+      "html": "<div class=\"ds-dark\"><button class=\"ds-card-career\" type=\"button\" aria-pressed=\"false\"><span class=\"ds-art\"><svg viewBox=\"0 0 120 100\" fill=\"none\" aria-hidden=\"true\"><path d=\"M61 84V53M61 53L29 23M61 53L93 23\" stroke=\"currentColor\" stroke-width=\"15\" stroke-linecap=\"round\"/><path d=\"M22 43V17H48M74 17H100V43\" stroke=\"currentColor\" stroke-width=\"12\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span><span class=\"ds-direction\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg><svg class=\"ds-check\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m5 12 4 4 10-10\"/></svg></span><span class=\"ds-label\">Не могу выбрать профессию</span></button></div>",
+      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-card-career{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;width:100%;min-width:0;min-height:145px;padding:14px;border:0;border-radius:12px 34px 12px 12px;background:var(--color-cream,#f8f6f1);color:var(--color-midnight,#18143d);text-align:left;transform:rotate(-2deg);transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));box-shadow:0 12px 22px -16px #09071fc9;cursor:pointer;}.ds-card-career::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--color-lime,#d6fa64);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 160ms;}.ds-card-career .ds-art{position:absolute;top:11px;right:13px;width:44px;height:37px;transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));}.ds-card-career .ds-art svg{width:100%;height:100%;}.ds-card-career .ds-direction{position:absolute;bottom:13px;right:10px;display:grid;place-items:center;width:23px;height:23px;}.ds-card-career .ds-direction svg{width:19px;height:19px;transform:rotate(-45deg);transition:transform 220ms var(--ease-out,cubic-bezier(.16,1,.3,1));}.ds-card-career .ds-check{display:none;transform:none!important;}.ds-card-career .ds-label{display:block;max-width:100%;padding-right:17px;margin-top:48px;font-size:14px;line-height:1.25;font-weight:600;letter-spacing:-.02em;}.ds-card-career[aria-pressed=\"true\"]{transform:rotate(0) scale(1.025);}.ds-card-career[aria-pressed=\"true\"]::after{opacity:1;}.ds-card-career[aria-pressed=\"true\"] .ds-direction>svg:first-child{display:none;}.ds-card-career[aria-pressed=\"true\"] .ds-check{display:block;}.ds-card-career:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-card-career:hover{transform:translateY(-6px) rotate(0) scale(1.025);}.ds-card-career:hover::after{opacity:1;}.ds-card-career:hover .ds-art{transform:rotate(-12deg) scale(1.1);}.ds-card-career:hover .ds-direction svg{transform:rotate(0);}}.ds-card-career:active{transform:scale(.95) rotate(0);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-card-career,.ds-card-career .ds-art,.ds-card-career svg{transform:none!important;transition:none!important;}.ds-card-career::after{transition:none!important;}}"
+    },
+    {
+      "name": "Universities concern",
+      "kind": "card",
+      "refersTo": "concern-universities",
+      "description": "Mobile concern button; selection adds a check and lime outline, updates the ring and stays in the hero. CTA enters the existing quiz with the choice.",
+      "html": "<div class=\"ds-dark\"><button class=\"ds-card-universities\" type=\"button\" aria-pressed=\"false\"><span class=\"ds-art\"><svg viewBox=\"0 0 120 100\" fill=\"none\" aria-hidden=\"true\"><ellipse cx=\"61\" cy=\"50\" rx=\"46\" ry=\"29\" transform=\"rotate(-30 61 50)\" stroke=\"currentColor\" stroke-width=\"7\"/><ellipse cx=\"61\" cy=\"50\" rx=\"46\" ry=\"29\" transform=\"rotate(30 61 50)\" stroke=\"currentColor\" stroke-width=\"7\"/><circle cx=\"61\" cy=\"50\" r=\"12\" fill=\"currentColor\"/><circle cx=\"102\" cy=\"29\" r=\"8\" fill=\"#ff754f\"/></svg></span><span class=\"ds-direction\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg><svg class=\"ds-check\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m5 12 4 4 10-10\"/></svg></span><span class=\"ds-label\">Не знаю, куда поступать</span></button></div>",
+      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-card-universities{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;width:100%;min-width:0;min-height:145px;padding:14px;border:0;border-radius:28px 12px 12px 12px;background:var(--color-coral,#ff9c85);color:var(--color-midnight,#18143d);text-align:left;transform:rotate(3deg);transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));box-shadow:0 12px 22px -16px #09071fc9;cursor:pointer;}.ds-card-universities::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--color-lime,#d6fa64);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 160ms;}.ds-card-universities .ds-art{position:absolute;top:11px;right:13px;width:44px;height:37px;transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));}.ds-card-universities .ds-art svg{width:100%;height:100%;}.ds-card-universities .ds-direction{position:absolute;bottom:13px;right:10px;display:grid;place-items:center;width:23px;height:23px;}.ds-card-universities .ds-direction svg{width:19px;height:19px;transform:rotate(-45deg);transition:transform 220ms var(--ease-out,cubic-bezier(.16,1,.3,1));}.ds-card-universities .ds-check{display:none;transform:none!important;}.ds-card-universities .ds-label{display:block;max-width:100%;padding-right:17px;margin-top:48px;font-size:14px;line-height:1.25;font-weight:600;letter-spacing:-.02em;}.ds-card-universities[aria-pressed=\"true\"]{transform:rotate(0) scale(1.025);}.ds-card-universities[aria-pressed=\"true\"]::after{opacity:1;}.ds-card-universities[aria-pressed=\"true\"] .ds-direction>svg:first-child{display:none;}.ds-card-universities[aria-pressed=\"true\"] .ds-check{display:block;}.ds-card-universities:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-card-universities:hover{transform:translateY(-6px) rotate(0) scale(1.025);}.ds-card-universities:hover::after{opacity:1;}.ds-card-universities:hover .ds-art{transform:rotate(-12deg) scale(1.1);}.ds-card-universities:hover .ds-direction svg{transform:rotate(0);}}.ds-card-universities:active{transform:scale(.95) rotate(0);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-card-universities,.ds-card-universities .ds-art,.ds-card-universities svg{transform:none!important;transition:none!important;}.ds-card-universities::after{transition:none!important;}}"
+    },
+    {
+      "name": "Grants concern",
+      "kind": "card",
+      "refersTo": "concern-grants",
+      "description": "Mobile concern button; selection adds a check and lime outline, updates the ring and stays in the hero. CTA enters the existing quiz with the choice.",
+      "html": "<div class=\"ds-dark\"><button class=\"ds-card-grants\" type=\"button\" aria-pressed=\"false\"><span class=\"ds-art\"><svg viewBox=\"0 0 120 100\" fill=\"none\" aria-hidden=\"true\"><path d=\"M60 6L73 32L101 37L81 57L85 85L60 72L35 85L39 57L19 37L47 32Z\" fill=\"currentColor\"/><path d=\"M48 46L57 55L74 37\" stroke=\"#eeeaff\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span><span class=\"ds-direction\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg><svg class=\"ds-check\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m5 12 4 4 10-10\"/></svg></span><span class=\"ds-label\">Боюсь не получить грант</span></button></div>",
+      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-card-grants{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;width:100%;min-width:0;min-height:145px;padding:14px;border:0;border-radius:12px 12px 32px 12px;background:var(--color-lilac,#dfd3ff);color:var(--color-midnight,#18143d);text-align:left;transform:rotate(-3deg);transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));box-shadow:0 12px 22px -16px #09071fc9;cursor:pointer;}.ds-card-grants::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--color-lime,#d6fa64);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 160ms;}.ds-card-grants .ds-art{position:absolute;top:11px;right:13px;width:44px;height:37px;transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));}.ds-card-grants .ds-art svg{width:100%;height:100%;}.ds-card-grants .ds-direction{position:absolute;bottom:13px;right:10px;display:grid;place-items:center;width:23px;height:23px;}.ds-card-grants .ds-direction svg{width:19px;height:19px;transform:rotate(-45deg);transition:transform 220ms var(--ease-out,cubic-bezier(.16,1,.3,1));}.ds-card-grants .ds-check{display:none;transform:none!important;}.ds-card-grants .ds-label{display:block;max-width:100%;padding-right:17px;margin-top:48px;font-size:14px;line-height:1.25;font-weight:600;letter-spacing:-.02em;}.ds-card-grants[aria-pressed=\"true\"]{transform:rotate(0) scale(1.025);}.ds-card-grants[aria-pressed=\"true\"]::after{opacity:1;}.ds-card-grants[aria-pressed=\"true\"] .ds-direction>svg:first-child{display:none;}.ds-card-grants[aria-pressed=\"true\"] .ds-check{display:block;}.ds-card-grants:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-card-grants:hover{transform:translateY(-6px) rotate(0) scale(1.025);}.ds-card-grants:hover::after{opacity:1;}.ds-card-grants:hover .ds-art{transform:rotate(-12deg) scale(1.1);}.ds-card-grants:hover .ds-direction svg{transform:rotate(0);}}.ds-card-grants:active{transform:scale(.95) rotate(0);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-card-grants,.ds-card-grants .ds-art,.ds-card-grants svg{transform:none!important;transition:none!important;}.ds-card-grants::after{transition:none!important;}}"
+    },
+    {
+      "name": "Exams concern",
+      "kind": "card",
+      "refersTo": "concern-exams",
+      "description": "Mobile concern button; selection adds a check and lime outline, updates the ring and stays in the hero. CTA enters the existing quiz with the choice.",
+      "html": "<div class=\"ds-dark\"><button class=\"ds-card-exams\" type=\"button\" aria-pressed=\"false\"><span class=\"ds-art\"><svg viewBox=\"0 0 120 100\" fill=\"none\" aria-hidden=\"true\"><rect x=\"23\" y=\"39\" width=\"25\" height=\"45\" rx=\"6\" fill=\"currentColor\" opacity=\".45\"/><rect x=\"50\" y=\"25\" width=\"25\" height=\"59\" rx=\"6\" fill=\"currentColor\" opacity=\".7\"/><rect x=\"77\" y=\"11\" width=\"25\" height=\"73\" rx=\"6\" fill=\"currentColor\"/><path d=\"M84 35L90 41L99 28\" stroke=\"#ffdfd3\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span><span class=\"ds-direction\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg><svg class=\"ds-check\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m5 12 4 4 10-10\"/></svg></span><span class=\"ds-label\">Не знаю, как подготовиться к экзаменам</span></button></div>",
+      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-card-exams{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;width:100%;min-width:0;min-height:145px;padding:14px;border:1px solid #8e83c5;border-radius:12px;background:#31307d;color:var(--color-cream,#f8f6f1);text-align:left;transform:rotate(2deg);transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));box-shadow:none;cursor:pointer;}.ds-card-exams::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--color-lime,#d6fa64);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 160ms;}.ds-card-exams .ds-art{position:absolute;top:11px;right:13px;width:44px;height:37px;transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));}.ds-card-exams .ds-art svg{width:100%;height:100%;}.ds-card-exams .ds-direction{position:absolute;bottom:13px;right:10px;display:grid;place-items:center;width:23px;height:23px;}.ds-card-exams .ds-direction svg{width:19px;height:19px;transform:rotate(-45deg);transition:transform 220ms var(--ease-out,cubic-bezier(.16,1,.3,1));}.ds-card-exams .ds-check{display:none;transform:none!important;}.ds-card-exams .ds-label{display:block;max-width:100%;padding-right:17px;margin-top:48px;font-size:14px;line-height:1.25;font-weight:600;letter-spacing:-.02em;}.ds-card-exams[aria-pressed=\"true\"]{transform:rotate(0) scale(1.025);}.ds-card-exams[aria-pressed=\"true\"]::after{opacity:1;}.ds-card-exams[aria-pressed=\"true\"] .ds-direction>svg:first-child{display:none;}.ds-card-exams[aria-pressed=\"true\"] .ds-check{display:block;}.ds-card-exams:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-card-exams:hover{transform:translateY(-6px) rotate(0) scale(1.025);}.ds-card-exams:hover::after{opacity:1;}.ds-card-exams:hover .ds-art{transform:rotate(-12deg) scale(1.1);}.ds-card-exams:hover .ds-direction svg{transform:rotate(0);}}.ds-card-exams:active{transform:scale(.95) rotate(0);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-card-exams,.ds-card-exams .ds-art,.ds-card-exams svg{transform:none!important;transition:none!important;}.ds-card-exams::after{transition:none!important;}}"
+    },
+    {
+      "name": "Language navigation — home",
+      "kind": "nav",
+      "refersTo": "language-selected",
+      "description": "Home-view RU/KZ/EN controls; selected language is reversed on cream.",
+      "html": "<div class=\"ds-dark\"><div class=\"ds-languages\" role=\"group\" aria-label=\"Выберите язык\"><button type=\"button\" aria-pressed=\"true\">RU</button><button type=\"button\" aria-pressed=\"false\">KZ</button><button type=\"button\" aria-pressed=\"false\">EN</button></div></div>",
+      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-languages{display:inline-flex;gap:2px;padding:3px;border:1px solid #5b537d;border-radius:12px;}.ds-languages button{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);min-width:44px;min-height:44px;padding:6px 8px;border:0;border-radius:8px;background:transparent;color:var(--hero-fg,#f8f6f1);font-size:13px;font-weight:600;cursor:pointer;}.ds-languages button[aria-pressed=\"true\"]{background:var(--hero-fg,#f8f6f1);color:var(--hero-bg,#18143d);}.ds-languages button:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:3px;}"
+    },
+    {
+      "name": "Motion control",
+      "kind": "button",
+      "refersTo": "motion-toggle",
+      "description": "Pause/resume visual states; the live reduced-motion state is disabled with a localized motion-off label.",
+      "html": "<div class=\"ds-dark\"><button class=\"ds-motion\" type=\"button\" aria-pressed=\"false\"><span class=\"ds-motion-icon\" aria-hidden=\"true\"></span><span>Остановить движение</span></button></div>",
+      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-motion{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);display:flex;align-items:center;gap:8px;min-height:44px;max-width:100%;padding:5px 0;background:none;border:0;color:var(--hero-muted,#d0cbe5);font-size:11px;line-height:1.3;cursor:pointer;}.ds-motion-icon{display:block;width:10px;height:11px;border-inline:3px solid currentColor;}.ds-motion[aria-pressed=\"true\"] .ds-motion-icon{border:0;border-left:9px solid currentColor;border-top:5px solid transparent;border-bottom:5px solid transparent;}.ds-motion:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}.ds-motion:disabled{cursor:default;}@media(hover:hover) and (pointer:fine){.ds-motion:hover{color:var(--color-lime,#d6fa64);}}"
+    },
+    {
+      "name": "Selected concern",
+      "kind": "chip",
+      "refersTo": "selected-concern",
+      "description": "Noninteractive context above the existing quiz; shown after choosing a concern.",
+      "html": "<p class=\"ds-selection\"><svg class=\"ds-check\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m5 12 4 4 10-10\"/></svg><span>Не могу выбрать профессию</span></p>",
+      "css": ".ds-selection{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);display:flex;align-items:center;gap:9px;width:fit-content;max-width:100%;padding:8px 12px;background:#e8dcff;color:#342264;border-radius:8px;font-size:13px;line-height:1.4;}.ds-selection svg{flex:none;width:18px;height:18px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Unexplored universe",
+    "overview": "The approved world is BOLD EDITORIAL × COLORFUL FUTURE × KINETIC TYPOGRAPHY × PLAYFUL MOTION. Strong display lettering, a midnight ground, bright directional accents and tactile abstract geometry make uncertainty feel open and approachable. Movement supports attention and feedback while every choice remains usable with motion disabled.\n\nThis documents the implemented hero/header system and the selected-concern feedback chip entering the existing quiz. Golos Text is global; selection, scrollbar and caret accents also cross the hero boundary. Supporting sections, quiz fields, route views and registration buttons retain their existing layouts and legacy palette in `site/styles.css`. Their migration is a separate stage. Header geometry is shared; its dark colors apply only on the home view. Exact hero composition and visitor sequence belong in [the surface brief](docs/HERO_DIRECTION.md).",
+    "keyCharacteristics": [
+      "Oversized local display type with language-specific fitting.",
+      "Midnight atmosphere with lime action and distinct concern colors.",
+      "Asymmetric corners and authored SVG geometry.",
+      "Visible defaults, controllable ambient motion and immediate feedback."
+    ],
+    "rules": [
+      {
+        "name": "The Scoped Palette Rule",
+        "body": "Apply this palette to the hero and its documented shared components; do not silently replace the legacy supporting-section palette.",
+        "section": "colors"
+      },
+      {
+        "name": "The User-Controlled Motion Rule",
+        "body": "Ambient loops stop when the user pauses, the document is hidden, the hero is offscreen, or reduced motion is requested.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do preserve local fonts and all three language-specific headline fits.",
+      "Do keep the primary action and catalog bypass before the scene on phones.",
+      "Do retain distinct concern colors, meaningful text and selected-state checks.",
+      "Do keep content visible and motion pausable, with live reduced-motion support.",
+      "Do preserve the legacy supporting sections until their redesign is explicitly scoped."
+    ],
+    "donts": [
+      "Don't reintroduce the rejected cream/pastel hero as the new visual world.",
+      "Don't make decorative SVG geometry interactive or necessary to understand a choice.",
+      "Don't turn the hero's exact composition into a universal page template.",
+      "Don't invent product capabilities, research findings or conversion metrics."
+    ]
+  }
+}

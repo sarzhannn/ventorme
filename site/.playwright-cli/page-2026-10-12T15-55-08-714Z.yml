@@ -1,0 +1,38 @@
+- generic [ref=e1]:
+  - link "Skip to main content" [ref=e401] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - link "Ventorme — home" [ref=e402] [cursor=pointer]:
+      - /url: "#start"
+      - text: V•ntorme
+    - group "Choose language" [ref=e403]:
+      - button "RU" [ref=e6] [cursor=pointer]
+      - button "KZ" [ref=e7] [cursor=pointer]
+      - button "EN" [pressed] [ref=e8] [cursor=pointer]
+  - main [active] [ref=e9]:
+    - generic [ref=e479]:
+      - paragraph [ref=e480]: Ventorme
+      - heading "Just show me the options" [level=1] [ref=e481]
+      - paragraph [ref=e482]: Choose a direction without answering questions — every card has a clear next step.
+      - generic [ref=e483]:
+        - article [ref=e484]:
+          - heading "Career exploration test" [level=2] [ref=e485]
+          - paragraph [ref=e486]: Explore interests and directions instead of choosing a career at random.
+          - button "Open details" [ref=e487] [cursor=pointer]
+        - article [ref=e488]:
+          - heading "University and programme finder" [level=2] [ref=e489]
+          - paragraph [ref=e490]: Compare options by subject, requirements and your academic profile.
+          - button "Open details" [ref=e491] [cursor=pointer]
+        - article [ref=e492]:
+          - heading "Grant and scholarship search" [level=2] [ref=e493]
+          - paragraph [ref=e494]: Understand programmes, criteria and what may be needed for an application.
+          - button "Open details" [ref=e495] [cursor=pointer]
+        - article [ref=e496]:
+          - heading "IELTS/SAT level check and practice" [level=2] [ref=e497]
+          - paragraph [ref=e498]: Assess your level first, then choose the areas to prepare.
+          - button "Open details" [ref=e499] [cursor=pointer]
+        - article [ref=e500]:
+          - heading "Admission plan and task tracker" [level=2] [ref=e501]
+          - paragraph [ref=e502]: You do not have to hold exams, documents, deadlines, essays and grants in your head at once.
+          - button "Open details" [ref=e503] [cursor=pointer]
+      - button "Back" [ref=e504] [cursor=pointer]

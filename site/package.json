@@ -1,0 +1,8 @@
+{
+  "name": "ventorme-first-step",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/registration-url.test.mjs && node tests/content-model.test.mjs"
+  }
+}

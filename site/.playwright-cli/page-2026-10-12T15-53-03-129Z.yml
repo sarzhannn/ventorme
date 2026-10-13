@@ -1,0 +1,36 @@
+- generic [active] [ref=e1]:
+  - link "Негізгі мазмұнға өту" [ref=e85] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - link "Ventorme — басты бетке" [ref=e86] [cursor=pointer]:
+      - /url: "#start"
+      - text: V•ntorme
+    - group "Тілді таңдаңыз" [ref=e87]:
+      - button "RU" [ref=e6] [cursor=pointer]
+      - button "KZ" [pressed] [ref=e7] [cursor=pointer]
+      - button "EN" [ref=e8] [cursor=pointer]
+  - main [ref=e9]:
+    - generic [ref=e252]:
+      - paragraph [ref=e253]: Бірге анықтайық
+      - generic [ref=e254]:
+        - generic [ref=e255]: 2-қадам / 3
+        - generic [ref=e256]: Өткізіп жіберуге болады
+      - heading "Қазір шешім қабылдауға не кедергі?" [level=1] [ref=e259]
+      - paragraph [ref=e260]: Жағдайыңа ең жақын нұсқаны таңда.
+      - generic [ref=e261]:
+        - button "Көп мамандық ұнайды, біреуін таңдай алмаймын" [ref=e262] [cursor=pointer]
+        - button "Маған не қызық екенін мүлде түсінбеймін" [ref=e263] [cursor=pointer]
+        - button "Ұнайтын мамандығым бар, бірақ оны қайда оқу керегін білмеймін" [ref=e264] [cursor=pointer]
+        - button "Баллым немесе қаражатым жетпей қала ма деп қорқамын" [ref=e265] [cursor=pointer]
+        - button "Қандай емтихандар керек екенін түсінбеймін" [ref=e266] [cursor=pointer]
+        - button "Менің жағдайым басқа" [pressed] [ref=e267] [cursor=pointer]
+      - generic [ref=e268]:
+        - generic [ref=e269]: Жағдайыңды өз сөзіңмен жаз
+        - textbox "Жағдайыңды өз сөзіңмен жаз" [ref=e270]
+        - paragraph [ref=e271]: Бір сөйлем жеткілікті. 200 таңбаға дейін.
+        - paragraph [ref=e272]: "Қалған таңба: 200"
+      - paragraph [ref=e273]
+      - generic [ref=e274]:
+        - button "Артқа" [ref=e275] [cursor=pointer]
+        - button "Өткізіп жіберу" [ref=e276] [cursor=pointer]
+        - button "Әрі қарай" [ref=e277] [cursor=pointer]

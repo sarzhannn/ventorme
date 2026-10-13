@@ -1,0 +1,93 @@
+- generic [active] [ref=e1]:
+  - link "Перейти к содержанию" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - link "Ventorme — на главную" [ref=e4] [cursor=pointer]:
+      - /url: "#start"
+      - text: Ventorme
+    - group "Выберите язык" [ref=e6]:
+      - button "RU" [pressed] [ref=e7] [cursor=pointer]
+      - button "KZ" [ref=e8] [cursor=pointer]
+      - button "EN" [ref=e9] [cursor=pointer]
+  - main [ref=e10]:
+    - region [ref=e11]:
+      - generic [ref=e12]:
+        - heading "А ЧТО ПОСЛЕ ШКОЛЫ?" [level=1] [ref=e15]:
+          - generic [ref=e17]: А ЧТО
+          - generic [ref=e19]: ПОСЛЕ
+          - generic [ref=e21]: ШКОЛЫ?
+        - generic [ref=e25]:
+          - paragraph [ref=e26]:
+            - generic [ref=e27]: Необязательно знать своё будущее.
+            - generic [ref=e28]: Достаточно понять, с чего начать.
+          - paragraph [ref=e29]: Все спрашивают, кем ты станешь. А ты пока не знаешь?
+          - button "Найти свой первый шаг" [ref=e30] [cursor=pointer]
+          - paragraph [ref=e35]:
+            - generic [ref=e36]: Бесплатно начать
+            - generic [ref=e37]: •Без сложных терминов
+            - generic [ref=e38]: •В своём темпе
+          - button "Не хочу проходить вопросы — просто покажите возможности" [ref=e39] [cursor=pointer]
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - heading "Что сейчас сложнее всего?" [level=2] [ref=e42]
+            - paragraph [ref=e43]: Выбери, что волнует тебя сейчас, и найди свой первый шаг с Ventorme.
+          - group "Что сейчас сложнее всего?" [ref=e44]:
+            - button "Не могу выбрать профессию" [ref=e45] [cursor=pointer]
+            - button "Не знаю, куда поступать" [ref=e54] [cursor=pointer]
+            - button "Боюсь не получить грант" [ref=e65] [cursor=pointer]
+            - button "Не знаю, как подготовиться к экзаменам" [ref=e74] [cursor=pointer]
+        - generic [ref=e85]:
+          - generic [ref=e86]: VENTORME / HACKNEXT 113
+          - button "Остановить движение" [ref=e87] [cursor=pointer]
+    - generic [ref=e90]:
+      - generic [ref=e91]:
+        - heading "Сначала попробуй небольшой вопрос" [level=2] [ref=e92]
+        - paragraph [ref=e93]: Это только демонстрация, а не профориентационный диагноз.
+        - generic [ref=e94]:
+          - paragraph [ref=e95]: 1 / 1
+          - heading "Какое занятие тебе интереснее?" [level=3] [ref=e96]
+          - generic [ref=e97]:
+            - button "Общаться с людьми и помогать им" [ref=e98] [cursor=pointer]
+            - button "Разбираться в технологиях и решать задачи" [ref=e99] [cursor=pointer]
+            - button "Придумывать, рисовать и создавать новое" [ref=e100] [cursor=pointer]
+            - button "Исследовать, анализировать и искать ответы" [ref=e101] [cursor=pointer]
+            - button "У меня свой вариант" [ref=e102] [cursor=pointer]
+      - generic [ref=e103]:
+        - generic [ref=e104]:
+          - heading "А откуда Ventorme знает, что мне подходит?" [level=2] [ref=e105]
+          - paragraph [ref=e106]: Рекомендации помогают исследовать интересы и направления; они не определяют судьбу и не гарантируют зачисление.
+        - group [ref=e108]:
+          - generic "Как проверить информацию?" [ref=e109]
+      - generic [ref=e110]:
+        - heading "Зачем создавать аккаунт, если я ещё не определился?" [level=2] [ref=e111]
+        - paragraph [ref=e112]: Начни с одного инструмента. В плане указаны бесплатные мини-тесты по профориентации, IELTS и SAT, а также образовательный профиль. Другие инструменты могут требовать подписку — актуальные условия проверяй на Ventorme.
+        - link "Перейти к бесплатной регистрации" [ref=e114] [cursor=pointer]:
+          - /url: https://ventorme.ai/register?utm_source=hacknext&utm_campaign=team-113
+      - generic [ref=e117]:
+        - heading "Твой путь не должен начинаться с сотни открытых вкладок" [level=2] [ref=e118]
+        - list [ref=e119]:
+          - listitem [ref=e120]: Выбери главный вопрос.
+          - listitem [ref=e121]: Найди подходящий инструмент.
+          - listitem [ref=e122]: Создай аккаунт и попробуй доступные возможности.
+          - listitem [ref=e123]: Постепенно составь план.
+        - button "Хочу начать со своей проблемы" [ref=e124] [cursor=pointer]
+      - generic [ref=e125]:
+        - heading "Вопросы, которые можно задать" [level=2] [ref=e126]
+        - group [ref=e127]:
+          - generic "Я вообще не знаю, кем хочу стать. Мне подходит Ventorme?" [ref=e128] [cursor=pointer]
+        - group [ref=e129]:
+          - generic "У меня плохие оценки. Есть смысл пробовать?" [ref=e130] [cursor=pointer]
+        - group [ref=e131]:
+          - generic "Я не знаю английский. Смогу пользоваться лендингом?" [ref=e132] [cursor=pointer]
+        - group [ref=e133]:
+          - generic "Рекомендации точно правильные?" [ref=e134] [cursor=pointer]
+        - group [ref=e135]:
+          - generic "Нужно сразу платить?" [ref=e136] [cursor=pointer]
+        - group [ref=e137]:
+          - generic "Что будет с моими ответами?" [ref=e138] [cursor=pointer]
+      - generic [ref=e139]:
+        - heading "Тебе не нужно решать всё будущее сегодня" [level=2] [ref=e140]
+        - paragraph [ref=e141]: После клика ты перейдёшь на официальный сайт Ventorme, где сможешь создать аккаунт и начать пользоваться доступными инструментами.
+        - link "Начать бесплатно" [ref=e143] [cursor=pointer]:
+          - /url: https://ventorme.ai/register?utm_source=hacknext&utm_campaign=team-113
+      - generic [ref=e146]: Ventorme · Регистрация проходит на официальном сайте Ventorme.

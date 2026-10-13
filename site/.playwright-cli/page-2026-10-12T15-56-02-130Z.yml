@@ -1,0 +1,38 @@
+- generic [ref=e1]:
+  - link "Негізгі мазмұнға өту" [ref=e505] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - link "Ventorme — басты бетке" [ref=e506] [cursor=pointer]:
+      - /url: "#start"
+      - text: V•ntorme
+    - group "Тілді таңдаңыз" [ref=e507]:
+      - button "RU" [ref=e6] [cursor=pointer]
+      - button "KZ" [active] [pressed] [ref=e7] [cursor=pointer]
+      - button "EN" [ref=e8] [cursor=pointer]
+  - main [ref=e9]:
+    - generic [ref=e508]:
+      - paragraph [ref=e509]: Ventorme
+      - heading "Мүмкіндіктерді ғана көрсетіңіз" [level=1] [ref=e510]
+      - paragraph [ref=e511]: Сұрақтарға жауап бермей-ақ бағытты таңда — әр бөлімде келесі қадам бар.
+      - generic [ref=e512]:
+        - article [ref=e513]:
+          - heading "Кәсіптік бағдар тесті" [level=2] [ref=e514]
+          - paragraph [ref=e515]: Мамандықты кездейсоқ таңдамай, қызығушылықтар мен бағыттарды зерттеуден баста.
+          - button "Сипаттаманы ашу" [ref=e516] [cursor=pointer]
+        - article [ref=e517]:
+          - heading "Университеттер мен оқу бағыттарын таңдау" [level=2] [ref=e518]
+          - paragraph [ref=e519]: Нұсқаларды оқу бағыты, талаптар және білім профилің бойынша салыстыр.
+          - button "Сипаттаманы ашу" [ref=e520] [cursor=pointer]
+        - article [ref=e521]:
+          - heading "Гранттар мен шәкіртақыларды іздеу" [level=2] [ref=e522]
+          - paragraph [ref=e523]: Бағдарламаларды, талаптарды және өтінішке не қажет болуы мүмкін екенін анықта.
+          - button "Сипаттаманы ашу" [ref=e524] [cursor=pointer]
+        - article [ref=e525]:
+          - heading "IELTS/SAT деңгейін тексеру және жаттығу" [level=2] [ref=e526]
+          - paragraph [ref=e527]: Алдымен деңгейіңді бағала, содан кейін дайындалатын тақырыптарды таңда.
+          - button "Сипаттаманы ашу" [ref=e528] [cursor=pointer]
+        - article [ref=e529]:
+          - heading "Оқуға түсу жоспары және тапсырмалар трекері" [level=2] [ref=e530]
+          - paragraph [ref=e531]: Емтихандарды, құжаттарды, мерзімдерді, эссе мен гранттарды бірден есте сақтаудың қажеті жоқ.
+          - button "Сипаттаманы ашу" [ref=e532] [cursor=pointer]
+      - button "Артқа" [ref=e533] [cursor=pointer]
