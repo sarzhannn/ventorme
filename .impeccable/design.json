@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-12T18:29:43.671Z",
+  "generatedAt": "2026-10-13T15:56:45Z",
   "title": "Design System: Ventorme",
   "extensions": {
     "colorMeta": {
@@ -183,6 +183,14 @@
       "action": {
         "displayName": "Primary action",
         "purpose": "Dominant hero CTA."
+      },
+      "headline": {
+        "displayName": "Scene headline",
+        "purpose": "Unbounded supporting-scene headings; use phone overrides below 600px."
+      },
+      "view-title": {
+        "displayName": "Task-view title",
+        "purpose": "Quiz, catalog and result titles; 27px on phones."
       }
     },
     "shadows": [
@@ -199,29 +207,64 @@
     ],
     "motion": [
       {
-        "name": "quick",
-        "value": "160ms",
-        "purpose": "Concern outline feedback."
+        "name": "hover",
+        "value": "550ms",
+        "purpose": "Hero and shared action hover feedback."
+      },
+      {
+        "name": "return",
+        "value": "700ms",
+        "purpose": "Hero and shared action return; Hero outline response."
       },
       {
         "name": "headline-enter",
-        "value": "640ms",
-        "purpose": "Once per page session, 65ms stagger."
+        "value": "900ms",
+        "purpose": "65ms stagger; ordinary return preserves bookkeeping, language changes reset it."
       },
       {
         "name": "card-enter",
+        "value": "850ms",
+        "purpose": "80ms stagger on actual card visibility."
+      },
+      {
+        "name": "selection",
         "value": "600ms",
-        "purpose": "80ms stagger, each card triggered on viewport entry."
+        "purpose": "Interruptible selected-card WAAPI response."
+      },
+      {
+        "name": "ring-response",
+        "value": "750ms",
+        "purpose": "Selection count transforms a separate orbital wrapper."
+      },
+      {
+        "name": "cta-label",
+        "value": "300ms",
+        "purpose": "Stable-size crossfade; 150ms under reduced motion."
       },
       {
         "name": "ease-out",
-        "value": "cubic-bezier(.16,1,.3,1)",
-        "purpose": "Entrance and arrow direction."
+        "value": "cubic-bezier(.22,.75,.25,1)",
+        "purpose": "Hero entrances, scene reveals and shared content motion."
       },
       {
         "name": "ease-spring",
-        "value": "cubic-bezier(.22,1.35,.5,1)",
-        "purpose": "Tactile CTA/card feedback."
+        "value": "cubic-bezier(.22,1.08,.36,1)",
+        "purpose": "Hero and shared action feedback."
+      },
+      {
+        "name": "headline-line-1",
+        "value": "9s",
+        "purpose": "Pausable sway at ±0.55 degrees around its resting angle."
+      },
+      {
+        "name": "headline-line-2",
+        "value": "7s",
+        "purpose": "Pausable sway at ±0.8 degrees around the tilted strip."
+      },
+      {
+        "name": "headline-line-3",
+        "value": "10s",
+        "purpose": "Pausable sway at ±0.55 degrees."
       },
       {
         "name": "mesh-violet",
@@ -251,22 +294,52 @@
       {
         "name": "press",
         "value": "90ms",
-        "purpose": "CTA/card press response."
+        "purpose": "Hero and shared action press response."
+      },
+      {
+        "name": "scene-reveal",
+        "value": "900ms",
+        "purpose": "Optional supporting-scene entrance."
+      },
+      {
+        "name": "note-reveal",
+        "value": "850ms",
+        "purpose": "Question-note entrance with 65ms stagger."
+      },
+      {
+        "name": "final-reveal",
+        "value": "1000ms",
+        "purpose": "Optional final-title entrance."
+      },
+      {
+        "name": "content-change",
+        "value": "600ms",
+        "purpose": "Route notebook, demo and quiz content transition."
+      },
+      {
+        "name": "journey-change",
+        "value": "550ms",
+        "purpose": "Four-step journey description change."
+      },
+      {
+        "name": "disclosure",
+        "value": "450ms",
+        "purpose": "FAQ/trust disclosure entrance and plus/minus mark."
+      },
+      {
+        "name": "poster-focus",
+        "value": "650ms",
+        "purpose": "University poster scale and review progress feedback."
       },
       {
         "name": "view-exit",
-        "value": "200ms",
-        "purpose": "Optional View Transition."
+        "value": "350ms",
+        "purpose": "Optional View Transition exit."
       },
       {
         "name": "view-enter",
-        "value": "300ms",
-        "purpose": "Optional View Transition; fallback is 260ms."
-      },
-      {
-        "name": "reduced-outline-declaration",
-        "value": "120ms",
-        "purpose": "Declared opacity transition is overridden by legacy global transition:none!important; rendered reduced state is immediate."
+        "value": "800ms",
+        "purpose": "Optional View Transition and supported WAAPI fallback entrance."
       }
     ],
     "breakpoints": [
@@ -289,55 +362,55 @@
       "name": "Primary action",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Mobile baseline; opens the existing quiz without requiring a concern.",
+      "description": "The Hero's only quiz-start CTA; accepts 0–4 selected concerns. The application crossfades three overlapping labels over 300ms (150ms reduced motion) with stable dimensions.",
       "html": "<div class=\"ds-dark\"><button class=\"ds-cta\" type=\"button\"><span>Найти свой первый шаг</span><span class=\"ds-cta-arrow\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></button></div>",
-      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-cta{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:58px;padding:10px 12px 10px 18px;border:0;border-radius:12px;background:var(--cta-bg,#d6fa64);color:var(--cta-fg,#18143d);font-size:16px;font-weight:700;line-height:1.3;letter-spacing:-.025em;cursor:pointer;box-shadow:0 7px 18px -8px #b9ed4670;transition:transform 240ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));}.ds-cta-arrow{display:grid;flex:none;place-items:center;width:35px;height:35px;border-radius:50%;background:var(--cta-fg,#18143d);color:var(--cta-bg,#d6fa64);}.ds-cta-arrow svg{width:21px;height:21px;transition:transform 240ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));}.ds-cta:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-cta:hover{transform:translateY(-3px);}.ds-cta:hover svg{transform:translateX(3px);}}.ds-cta:active{transform:translateY(3px) scale(.985);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-cta,.ds-cta svg{transform:none!important;transition:none!important;}}"
+      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-cta{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:58px;padding:10px 12px 10px 18px;border:0;border-radius:12px;background:var(--cta-bg,#d6fa64);color:var(--cta-fg,#18143d);font-size:16px;font-weight:700;line-height:1.3;letter-spacing:-.025em;cursor:pointer;box-shadow:0 7px 18px -8px #b9ed4670;transition:transform 700ms var(--ease-spring,cubic-bezier(.22,1.08,.36,1));}.ds-cta-arrow{display:grid;flex:none;place-items:center;width:35px;height:35px;border-radius:50%;background:var(--cta-fg,#18143d);color:var(--cta-bg,#d6fa64);}.ds-cta-arrow svg{width:21px;height:21px;transition:transform 700ms var(--ease-spring,cubic-bezier(.22,1.08,.36,1));}.ds-cta:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-cta:hover{transform:translateY(-3px) scale(1.015);transition-duration:550ms;}.ds-cta:hover svg{transform:translateX(5px) rotate(-8deg);transition-duration:550ms;}}.ds-cta:active{transform:translateY(3px) scale(.985);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-cta,.ds-cta svg{transform:none!important;transition:none!important;}}"
     },
     {
       "name": "Catalog bypass",
       "kind": "button",
       "refersTo": "button-catalog",
-      "description": "A visible alternative to the quiz, below the primary action and promise.",
+      "description": "Left-aligned catalog bypass below the main Hero CTA; opens available directions without the quiz.",
       "html": "<div class=\"ds-dark\"><button class=\"ds-catalog\" type=\"button\">Не хочу проходить вопросы — просто покажите возможности</button></div>",
-      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-catalog{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);display:block;width:100%;min-height:44px;padding:8px 0;border:0;background:transparent;color:var(--hero-fg,#f8f6f1);font-size:13px;line-height:1.5;text-align:center;text-decoration:underline;text-decoration-color:#a099be;text-underline-offset:4px;white-space:normal;overflow-wrap:break-word;cursor:pointer;}.ds-catalog:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-catalog:hover{color:var(--color-lime,#d6fa64);}}"
+      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-catalog{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);display:block;width:100%;min-height:44px;padding:8px 0;border:0;background:transparent;color:var(--hero-fg,#f8f6f1);font-size:14px;line-height:1.5;text-align:left;text-decoration:underline;text-decoration-color:#a099be;text-underline-offset:4px;white-space:normal;overflow-wrap:break-word;cursor:pointer;}.ds-catalog:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-catalog:hover{color:var(--color-lime,#d6fa64);}}"
     },
     {
       "name": "Career concern",
       "kind": "card",
       "refersTo": "concern-career",
-      "description": "Mobile concern button; selection adds a check and lime outline, updates the ring and stays in the hero. CTA enters the existing quiz with the choice.",
+      "description": "One of four independent Hero toggles (0–4 concerns). Selection adds a check and lime outline, updates the count/ring, and stays in the Hero. Only the main CTA enters the quiz.",
       "html": "<div class=\"ds-dark\"><button class=\"ds-card-career\" type=\"button\" aria-pressed=\"false\"><span class=\"ds-art\"><svg viewBox=\"0 0 120 100\" fill=\"none\" aria-hidden=\"true\"><path d=\"M61 84V53M61 53L29 23M61 53L93 23\" stroke=\"currentColor\" stroke-width=\"15\" stroke-linecap=\"round\"/><path d=\"M22 43V17H48M74 17H100V43\" stroke=\"currentColor\" stroke-width=\"12\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span><span class=\"ds-direction\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg><svg class=\"ds-check\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m5 12 4 4 10-10\"/></svg></span><span class=\"ds-label\">Не могу выбрать профессию</span></button></div>",
-      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-card-career{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;width:100%;min-width:0;min-height:145px;padding:14px;border:0;border-radius:12px 34px 12px 12px;background:var(--color-cream,#f8f6f1);color:var(--color-midnight,#18143d);text-align:left;transform:rotate(-2deg);transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));box-shadow:0 12px 22px -16px #09071fc9;cursor:pointer;}.ds-card-career::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--color-lime,#d6fa64);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 160ms;}.ds-card-career .ds-art{position:absolute;top:11px;right:13px;width:44px;height:37px;transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));}.ds-card-career .ds-art svg{width:100%;height:100%;}.ds-card-career .ds-direction{position:absolute;bottom:13px;right:10px;display:grid;place-items:center;width:23px;height:23px;}.ds-card-career .ds-direction svg{width:19px;height:19px;transform:rotate(-45deg);transition:transform 220ms var(--ease-out,cubic-bezier(.16,1,.3,1));}.ds-card-career .ds-check{display:none;transform:none!important;}.ds-card-career .ds-label{display:block;max-width:100%;padding-right:17px;margin-top:48px;font-size:14px;line-height:1.25;font-weight:600;letter-spacing:-.02em;}.ds-card-career[aria-pressed=\"true\"]{transform:rotate(0) scale(1.025);}.ds-card-career[aria-pressed=\"true\"]::after{opacity:1;}.ds-card-career[aria-pressed=\"true\"] .ds-direction>svg:first-child{display:none;}.ds-card-career[aria-pressed=\"true\"] .ds-check{display:block;}.ds-card-career:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-card-career:hover{transform:translateY(-6px) rotate(0) scale(1.025);}.ds-card-career:hover::after{opacity:1;}.ds-card-career:hover .ds-art{transform:rotate(-12deg) scale(1.1);}.ds-card-career:hover .ds-direction svg{transform:rotate(0);}}.ds-card-career:active{transform:scale(.95) rotate(0);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-card-career,.ds-card-career .ds-art,.ds-card-career svg{transform:none!important;transition:none!important;}.ds-card-career::after{transition:none!important;}}"
+      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-card-career{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;width:100%;min-width:0;min-height:145px;padding:14px;border:0;border-radius:12px 34px 12px 12px;background:var(--color-cream,#f8f6f1);color:var(--color-midnight,#18143d);text-align:left;transform:rotate(-2deg);transition:transform 700ms var(--ease-spring,cubic-bezier(.22,1.08,.36,1));box-shadow:0 12px 22px -16px #09071fc9;cursor:pointer;}.ds-card-career::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--color-lime,#d6fa64);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 700ms;}.ds-card-career .ds-art{position:absolute;top:11px;right:13px;width:44px;height:37px;transition:transform 700ms var(--ease-spring,cubic-bezier(.22,1.08,.36,1));}.ds-card-career .ds-art svg{width:100%;height:100%;}.ds-card-career .ds-direction{position:absolute;bottom:13px;right:10px;display:grid;place-items:center;width:23px;height:23px;}.ds-card-career .ds-direction svg{width:19px;height:19px;transform:rotate(-45deg);transition:transform 700ms var(--ease-out,cubic-bezier(.22,.75,.25,1));}.ds-card-career .ds-check{display:none;transform:none!important;}.ds-card-career .ds-label{display:block;max-width:100%;padding-right:17px;margin-top:48px;font-size:14px;line-height:1.25;font-weight:600;letter-spacing:-.02em;}.ds-card-career[aria-pressed=\"true\"]{transform:translateY(-4px) rotate(0) scale(1.02);}.ds-card-career[aria-pressed=\"true\"]::after{opacity:1;}.ds-card-career[aria-pressed=\"true\"] .ds-direction>svg:first-child{display:none;}.ds-card-career[aria-pressed=\"true\"] .ds-check{display:block;}.ds-card-career:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-card-career:hover{transform:translateY(-6px) rotate(0) scale(1.025);}.ds-card-career:hover::after{opacity:1;}.ds-card-career:hover .ds-art{transform:rotate(-12deg) scale(1.1);}.ds-card-career:hover .ds-direction svg{transform:rotate(0);}}.ds-card-career:active{transform:scale(.95) rotate(0);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-card-career,.ds-card-career .ds-art,.ds-card-career svg{transform:none!important;transition:none!important;}.ds-card-career::after{transition:none!important;}}.ds-card-career[aria-pressed=\"true\"] .ds-direction{width:25px;height:25px;border-radius:50%;background:var(--color-lime,#d6fa64);color:var(--color-midnight,#18143d);}.ds-card-career[aria-pressed=\"true\"] .ds-art{transform:rotate(-10deg) scale(1.12);}@media(hover:hover) and (pointer:fine){.ds-card-career:hover,.ds-card-career:hover::after,.ds-card-career:hover .ds-art,.ds-card-career:hover .ds-direction svg{transition-duration:550ms;}.ds-card-career:hover:not([aria-pressed=\"true\"])::after{opacity:.65;border-color:var(--color-cream,#f8f6f1);}}"
     },
     {
       "name": "Universities concern",
       "kind": "card",
       "refersTo": "concern-universities",
-      "description": "Mobile concern button; selection adds a check and lime outline, updates the ring and stays in the hero. CTA enters the existing quiz with the choice.",
+      "description": "One of four independent Hero toggles (0–4 concerns). Selection adds a check and lime outline, updates the count/ring, and stays in the Hero. Only the main CTA enters the quiz.",
       "html": "<div class=\"ds-dark\"><button class=\"ds-card-universities\" type=\"button\" aria-pressed=\"false\"><span class=\"ds-art\"><svg viewBox=\"0 0 120 100\" fill=\"none\" aria-hidden=\"true\"><ellipse cx=\"61\" cy=\"50\" rx=\"46\" ry=\"29\" transform=\"rotate(-30 61 50)\" stroke=\"currentColor\" stroke-width=\"7\"/><ellipse cx=\"61\" cy=\"50\" rx=\"46\" ry=\"29\" transform=\"rotate(30 61 50)\" stroke=\"currentColor\" stroke-width=\"7\"/><circle cx=\"61\" cy=\"50\" r=\"12\" fill=\"currentColor\"/><circle cx=\"102\" cy=\"29\" r=\"8\" fill=\"#ff754f\"/></svg></span><span class=\"ds-direction\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg><svg class=\"ds-check\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m5 12 4 4 10-10\"/></svg></span><span class=\"ds-label\">Не знаю, куда поступать</span></button></div>",
-      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-card-universities{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;width:100%;min-width:0;min-height:145px;padding:14px;border:0;border-radius:28px 12px 12px 12px;background:var(--color-coral,#ff9c85);color:var(--color-midnight,#18143d);text-align:left;transform:rotate(3deg);transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));box-shadow:0 12px 22px -16px #09071fc9;cursor:pointer;}.ds-card-universities::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--color-lime,#d6fa64);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 160ms;}.ds-card-universities .ds-art{position:absolute;top:11px;right:13px;width:44px;height:37px;transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));}.ds-card-universities .ds-art svg{width:100%;height:100%;}.ds-card-universities .ds-direction{position:absolute;bottom:13px;right:10px;display:grid;place-items:center;width:23px;height:23px;}.ds-card-universities .ds-direction svg{width:19px;height:19px;transform:rotate(-45deg);transition:transform 220ms var(--ease-out,cubic-bezier(.16,1,.3,1));}.ds-card-universities .ds-check{display:none;transform:none!important;}.ds-card-universities .ds-label{display:block;max-width:100%;padding-right:17px;margin-top:48px;font-size:14px;line-height:1.25;font-weight:600;letter-spacing:-.02em;}.ds-card-universities[aria-pressed=\"true\"]{transform:rotate(0) scale(1.025);}.ds-card-universities[aria-pressed=\"true\"]::after{opacity:1;}.ds-card-universities[aria-pressed=\"true\"] .ds-direction>svg:first-child{display:none;}.ds-card-universities[aria-pressed=\"true\"] .ds-check{display:block;}.ds-card-universities:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-card-universities:hover{transform:translateY(-6px) rotate(0) scale(1.025);}.ds-card-universities:hover::after{opacity:1;}.ds-card-universities:hover .ds-art{transform:rotate(-12deg) scale(1.1);}.ds-card-universities:hover .ds-direction svg{transform:rotate(0);}}.ds-card-universities:active{transform:scale(.95) rotate(0);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-card-universities,.ds-card-universities .ds-art,.ds-card-universities svg{transform:none!important;transition:none!important;}.ds-card-universities::after{transition:none!important;}}"
+      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-card-universities{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;width:100%;min-width:0;min-height:145px;padding:14px;border:0;border-radius:28px 12px 12px 12px;background:var(--color-coral,#ff9c85);color:var(--color-midnight,#18143d);text-align:left;transform:rotate(3deg);transition:transform 700ms var(--ease-spring,cubic-bezier(.22,1.08,.36,1));box-shadow:0 12px 22px -16px #09071fc9;cursor:pointer;}.ds-card-universities::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--color-lime,#d6fa64);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 700ms;}.ds-card-universities .ds-art{position:absolute;top:11px;right:13px;width:44px;height:37px;transition:transform 700ms var(--ease-spring,cubic-bezier(.22,1.08,.36,1));}.ds-card-universities .ds-art svg{width:100%;height:100%;}.ds-card-universities .ds-direction{position:absolute;bottom:13px;right:10px;display:grid;place-items:center;width:23px;height:23px;}.ds-card-universities .ds-direction svg{width:19px;height:19px;transform:rotate(-45deg);transition:transform 700ms var(--ease-out,cubic-bezier(.22,.75,.25,1));}.ds-card-universities .ds-check{display:none;transform:none!important;}.ds-card-universities .ds-label{display:block;max-width:100%;padding-right:17px;margin-top:48px;font-size:14px;line-height:1.25;font-weight:600;letter-spacing:-.02em;}.ds-card-universities[aria-pressed=\"true\"]{transform:translateY(-4px) rotate(0) scale(1.02);}.ds-card-universities[aria-pressed=\"true\"]::after{opacity:1;}.ds-card-universities[aria-pressed=\"true\"] .ds-direction>svg:first-child{display:none;}.ds-card-universities[aria-pressed=\"true\"] .ds-check{display:block;}.ds-card-universities:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-card-universities:hover{transform:translateY(-6px) rotate(0) scale(1.025);}.ds-card-universities:hover::after{opacity:1;}.ds-card-universities:hover .ds-art{transform:rotate(-12deg) scale(1.1);}.ds-card-universities:hover .ds-direction svg{transform:rotate(0);}}.ds-card-universities:active{transform:scale(.95) rotate(0);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-card-universities,.ds-card-universities .ds-art,.ds-card-universities svg{transform:none!important;transition:none!important;}.ds-card-universities::after{transition:none!important;}}.ds-card-universities[aria-pressed=\"true\"] .ds-direction{width:25px;height:25px;border-radius:50%;background:var(--color-lime,#d6fa64);color:var(--color-midnight,#18143d);}.ds-card-universities[aria-pressed=\"true\"] .ds-art{transform:rotate(-10deg) scale(1.12);}@media(hover:hover) and (pointer:fine){.ds-card-universities:hover,.ds-card-universities:hover::after,.ds-card-universities:hover .ds-art,.ds-card-universities:hover .ds-direction svg{transition-duration:550ms;}.ds-card-universities:hover:not([aria-pressed=\"true\"])::after{opacity:.65;border-color:var(--color-cream,#f8f6f1);}}"
     },
     {
       "name": "Grants concern",
       "kind": "card",
       "refersTo": "concern-grants",
-      "description": "Mobile concern button; selection adds a check and lime outline, updates the ring and stays in the hero. CTA enters the existing quiz with the choice.",
+      "description": "One of four independent Hero toggles (0–4 concerns). Selection adds a check and lime outline, updates the count/ring, and stays in the Hero. Only the main CTA enters the quiz.",
       "html": "<div class=\"ds-dark\"><button class=\"ds-card-grants\" type=\"button\" aria-pressed=\"false\"><span class=\"ds-art\"><svg viewBox=\"0 0 120 100\" fill=\"none\" aria-hidden=\"true\"><path d=\"M60 6L73 32L101 37L81 57L85 85L60 72L35 85L39 57L19 37L47 32Z\" fill=\"currentColor\"/><path d=\"M48 46L57 55L74 37\" stroke=\"#eeeaff\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span><span class=\"ds-direction\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg><svg class=\"ds-check\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m5 12 4 4 10-10\"/></svg></span><span class=\"ds-label\">Боюсь не получить грант</span></button></div>",
-      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-card-grants{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;width:100%;min-width:0;min-height:145px;padding:14px;border:0;border-radius:12px 12px 32px 12px;background:var(--color-lilac,#dfd3ff);color:var(--color-midnight,#18143d);text-align:left;transform:rotate(-3deg);transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));box-shadow:0 12px 22px -16px #09071fc9;cursor:pointer;}.ds-card-grants::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--color-lime,#d6fa64);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 160ms;}.ds-card-grants .ds-art{position:absolute;top:11px;right:13px;width:44px;height:37px;transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));}.ds-card-grants .ds-art svg{width:100%;height:100%;}.ds-card-grants .ds-direction{position:absolute;bottom:13px;right:10px;display:grid;place-items:center;width:23px;height:23px;}.ds-card-grants .ds-direction svg{width:19px;height:19px;transform:rotate(-45deg);transition:transform 220ms var(--ease-out,cubic-bezier(.16,1,.3,1));}.ds-card-grants .ds-check{display:none;transform:none!important;}.ds-card-grants .ds-label{display:block;max-width:100%;padding-right:17px;margin-top:48px;font-size:14px;line-height:1.25;font-weight:600;letter-spacing:-.02em;}.ds-card-grants[aria-pressed=\"true\"]{transform:rotate(0) scale(1.025);}.ds-card-grants[aria-pressed=\"true\"]::after{opacity:1;}.ds-card-grants[aria-pressed=\"true\"] .ds-direction>svg:first-child{display:none;}.ds-card-grants[aria-pressed=\"true\"] .ds-check{display:block;}.ds-card-grants:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-card-grants:hover{transform:translateY(-6px) rotate(0) scale(1.025);}.ds-card-grants:hover::after{opacity:1;}.ds-card-grants:hover .ds-art{transform:rotate(-12deg) scale(1.1);}.ds-card-grants:hover .ds-direction svg{transform:rotate(0);}}.ds-card-grants:active{transform:scale(.95) rotate(0);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-card-grants,.ds-card-grants .ds-art,.ds-card-grants svg{transform:none!important;transition:none!important;}.ds-card-grants::after{transition:none!important;}}"
+      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-card-grants{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;width:100%;min-width:0;min-height:145px;padding:14px;border:0;border-radius:12px 12px 32px 12px;background:var(--color-lilac,#dfd3ff);color:var(--color-midnight,#18143d);text-align:left;transform:rotate(-3deg);transition:transform 700ms var(--ease-spring,cubic-bezier(.22,1.08,.36,1));box-shadow:0 12px 22px -16px #09071fc9;cursor:pointer;}.ds-card-grants::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--color-lime,#d6fa64);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 700ms;}.ds-card-grants .ds-art{position:absolute;top:11px;right:13px;width:44px;height:37px;transition:transform 700ms var(--ease-spring,cubic-bezier(.22,1.08,.36,1));}.ds-card-grants .ds-art svg{width:100%;height:100%;}.ds-card-grants .ds-direction{position:absolute;bottom:13px;right:10px;display:grid;place-items:center;width:23px;height:23px;}.ds-card-grants .ds-direction svg{width:19px;height:19px;transform:rotate(-45deg);transition:transform 700ms var(--ease-out,cubic-bezier(.22,.75,.25,1));}.ds-card-grants .ds-check{display:none;transform:none!important;}.ds-card-grants .ds-label{display:block;max-width:100%;padding-right:17px;margin-top:48px;font-size:14px;line-height:1.25;font-weight:600;letter-spacing:-.02em;}.ds-card-grants[aria-pressed=\"true\"]{transform:translateY(-4px) rotate(0) scale(1.02);}.ds-card-grants[aria-pressed=\"true\"]::after{opacity:1;}.ds-card-grants[aria-pressed=\"true\"] .ds-direction>svg:first-child{display:none;}.ds-card-grants[aria-pressed=\"true\"] .ds-check{display:block;}.ds-card-grants:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-card-grants:hover{transform:translateY(-6px) rotate(0) scale(1.025);}.ds-card-grants:hover::after{opacity:1;}.ds-card-grants:hover .ds-art{transform:rotate(-12deg) scale(1.1);}.ds-card-grants:hover .ds-direction svg{transform:rotate(0);}}.ds-card-grants:active{transform:scale(.95) rotate(0);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-card-grants,.ds-card-grants .ds-art,.ds-card-grants svg{transform:none!important;transition:none!important;}.ds-card-grants::after{transition:none!important;}}.ds-card-grants[aria-pressed=\"true\"] .ds-direction{width:25px;height:25px;border-radius:50%;background:var(--color-lime,#d6fa64);color:var(--color-midnight,#18143d);}.ds-card-grants[aria-pressed=\"true\"] .ds-art{transform:rotate(-10deg) scale(1.12);}@media(hover:hover) and (pointer:fine){.ds-card-grants:hover,.ds-card-grants:hover::after,.ds-card-grants:hover .ds-art,.ds-card-grants:hover .ds-direction svg{transition-duration:550ms;}.ds-card-grants:hover:not([aria-pressed=\"true\"])::after{opacity:.65;border-color:var(--color-cream,#f8f6f1);}}"
     },
     {
       "name": "Exams concern",
       "kind": "card",
       "refersTo": "concern-exams",
-      "description": "Mobile concern button; selection adds a check and lime outline, updates the ring and stays in the hero. CTA enters the existing quiz with the choice.",
+      "description": "One of four independent Hero toggles (0–4 concerns). Selection adds a check and lime outline, updates the count/ring, and stays in the Hero. Only the main CTA enters the quiz.",
       "html": "<div class=\"ds-dark\"><button class=\"ds-card-exams\" type=\"button\" aria-pressed=\"false\"><span class=\"ds-art\"><svg viewBox=\"0 0 120 100\" fill=\"none\" aria-hidden=\"true\"><rect x=\"23\" y=\"39\" width=\"25\" height=\"45\" rx=\"6\" fill=\"currentColor\" opacity=\".45\"/><rect x=\"50\" y=\"25\" width=\"25\" height=\"59\" rx=\"6\" fill=\"currentColor\" opacity=\".7\"/><rect x=\"77\" y=\"11\" width=\"25\" height=\"73\" rx=\"6\" fill=\"currentColor\"/><path d=\"M84 35L90 41L99 28\" stroke=\"#ffdfd3\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span><span class=\"ds-direction\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg><svg class=\"ds-check\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m5 12 4 4 10-10\"/></svg></span><span class=\"ds-label\">Не знаю, как подготовиться к экзаменам</span></button></div>",
-      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-card-exams{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;width:100%;min-width:0;min-height:145px;padding:14px;border:1px solid #8e83c5;border-radius:12px;background:#31307d;color:var(--color-cream,#f8f6f1);text-align:left;transform:rotate(2deg);transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));box-shadow:none;cursor:pointer;}.ds-card-exams::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--color-lime,#d6fa64);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 160ms;}.ds-card-exams .ds-art{position:absolute;top:11px;right:13px;width:44px;height:37px;transition:transform 320ms var(--ease-spring,cubic-bezier(.22,1.35,.5,1));}.ds-card-exams .ds-art svg{width:100%;height:100%;}.ds-card-exams .ds-direction{position:absolute;bottom:13px;right:10px;display:grid;place-items:center;width:23px;height:23px;}.ds-card-exams .ds-direction svg{width:19px;height:19px;transform:rotate(-45deg);transition:transform 220ms var(--ease-out,cubic-bezier(.16,1,.3,1));}.ds-card-exams .ds-check{display:none;transform:none!important;}.ds-card-exams .ds-label{display:block;max-width:100%;padding-right:17px;margin-top:48px;font-size:14px;line-height:1.25;font-weight:600;letter-spacing:-.02em;}.ds-card-exams[aria-pressed=\"true\"]{transform:rotate(0) scale(1.025);}.ds-card-exams[aria-pressed=\"true\"]::after{opacity:1;}.ds-card-exams[aria-pressed=\"true\"] .ds-direction>svg:first-child{display:none;}.ds-card-exams[aria-pressed=\"true\"] .ds-check{display:block;}.ds-card-exams:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-card-exams:hover{transform:translateY(-6px) rotate(0) scale(1.025);}.ds-card-exams:hover::after{opacity:1;}.ds-card-exams:hover .ds-art{transform:rotate(-12deg) scale(1.1);}.ds-card-exams:hover .ds-direction svg{transform:rotate(0);}}.ds-card-exams:active{transform:scale(.95) rotate(0);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-card-exams,.ds-card-exams .ds-art,.ds-card-exams svg{transform:none!important;transition:none!important;}.ds-card-exams::after{transition:none!important;}}"
+      "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-card-exams{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;width:100%;min-width:0;min-height:145px;padding:14px;border:1px solid #8e83c5;border-radius:12px;background:#31307d;color:var(--color-cream,#f8f6f1);text-align:left;transform:rotate(2deg);transition:transform 700ms var(--ease-spring,cubic-bezier(.22,1.08,.36,1));box-shadow:none;cursor:pointer;}.ds-card-exams::after{content:\"\";position:absolute;inset:-4px;border:2px solid var(--color-lime,#d6fa64);border-radius:inherit;opacity:0;pointer-events:none;transition:opacity 700ms;}.ds-card-exams .ds-art{position:absolute;top:11px;right:13px;width:44px;height:37px;transition:transform 700ms var(--ease-spring,cubic-bezier(.22,1.08,.36,1));}.ds-card-exams .ds-art svg{width:100%;height:100%;}.ds-card-exams .ds-direction{position:absolute;bottom:13px;right:10px;display:grid;place-items:center;width:23px;height:23px;}.ds-card-exams .ds-direction svg{width:19px;height:19px;transform:rotate(-45deg);transition:transform 700ms var(--ease-out,cubic-bezier(.22,.75,.25,1));}.ds-card-exams .ds-check{display:none;transform:none!important;}.ds-card-exams .ds-label{display:block;max-width:100%;padding-right:17px;margin-top:48px;font-size:14px;line-height:1.25;font-weight:600;letter-spacing:-.02em;}.ds-card-exams[aria-pressed=\"true\"]{transform:translateY(-4px) rotate(0) scale(1.02);}.ds-card-exams[aria-pressed=\"true\"]::after{opacity:1;}.ds-card-exams[aria-pressed=\"true\"] .ds-direction>svg:first-child{display:none;}.ds-card-exams[aria-pressed=\"true\"] .ds-check{display:block;}.ds-card-exams:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}@media(hover:hover) and (pointer:fine){.ds-card-exams:hover{transform:translateY(-6px) rotate(0) scale(1.025);}.ds-card-exams:hover::after{opacity:1;}.ds-card-exams:hover .ds-art{transform:rotate(-12deg) scale(1.1);}.ds-card-exams:hover .ds-direction svg{transform:rotate(0);}}.ds-card-exams:active{transform:scale(.95) rotate(0);transition-duration:90ms;}@media(prefers-reduced-motion:reduce){.ds-card-exams,.ds-card-exams .ds-art,.ds-card-exams svg{transform:none!important;transition:none!important;}.ds-card-exams::after{transition:none!important;}}.ds-card-exams[aria-pressed=\"true\"] .ds-direction{width:25px;height:25px;border-radius:50%;background:var(--color-lime,#d6fa64);color:var(--color-midnight,#18143d);}.ds-card-exams[aria-pressed=\"true\"] .ds-art{transform:rotate(-10deg) scale(1.12);}@media(hover:hover) and (pointer:fine){.ds-card-exams:hover,.ds-card-exams:hover::after,.ds-card-exams:hover .ds-art,.ds-card-exams:hover .ds-direction svg{transition-duration:550ms;}.ds-card-exams:hover:not([aria-pressed=\"true\"])::after{opacity:.65;border-color:var(--color-cream,#f8f6f1);}}"
     },
     {
-      "name": "Language navigation — home",
+      "name": "Language navigation",
       "kind": "nav",
       "refersTo": "language-selected",
-      "description": "Home-view RU/KZ/EN controls; selected language is reversed on cream.",
+      "description": "Shared RU/KZ/EN controls in the dark header on every view; selected language is reversed on cream.",
       "html": "<div class=\"ds-dark\"><div class=\"ds-languages\" role=\"group\" aria-label=\"Выберите язык\"><button type=\"button\" aria-pressed=\"true\">RU</button><button type=\"button\" aria-pressed=\"false\">KZ</button><button type=\"button\" aria-pressed=\"false\">EN</button></div></div>",
       "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-languages{display:inline-flex;gap:2px;padding:3px;border:1px solid #5b537d;border-radius:12px;}.ds-languages button{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);min-width:44px;min-height:44px;padding:6px 8px;border:0;border-radius:8px;background:transparent;color:var(--hero-fg,#f8f6f1);font-size:13px;font-weight:600;cursor:pointer;}.ds-languages button[aria-pressed=\"true\"]{background:var(--hero-fg,#f8f6f1);color:var(--hero-bg,#18143d);}.ds-languages button:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:3px;}"
     },
@@ -350,46 +423,57 @@
       "css": ".ds-dark{background:var(--hero-bg,#18143d);padding:16px;}.ds-motion{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);display:flex;align-items:center;gap:8px;min-height:44px;max-width:100%;padding:5px 0;background:none;border:0;color:var(--hero-muted,#d0cbe5);font-size:11px;line-height:1.3;cursor:pointer;}.ds-motion-icon{display:block;width:10px;height:11px;border-inline:3px solid currentColor;}.ds-motion[aria-pressed=\"true\"] .ds-motion-icon{border:0;border-left:9px solid currentColor;border-top:5px solid transparent;border-bottom:5px solid transparent;}.ds-motion:focus-visible{outline:3px solid var(--color-lime,#d6fa64);outline-offset:6px;}.ds-motion:disabled{cursor:default;}@media(hover:hover) and (pointer:fine){.ds-motion:hover{color:var(--color-lime,#d6fa64);}}"
     },
     {
-      "name": "Selected concern",
+      "name": "Selected concern chip",
       "kind": "chip",
       "refersTo": "selected-concern",
-      "description": "Noninteractive context above the existing quiz; shown after choosing a concern.",
+      "description": "One noninteractive midnight chip per selected concern, wrapping above the quiz on its lilac background.",
       "html": "<p class=\"ds-selection\"><svg class=\"ds-check\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m5 12 4 4 10-10\"/></svg><span>Не могу выбрать профессию</span></p>",
-      "css": ".ds-selection{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);display:flex;align-items:center;gap:9px;width:fit-content;max-width:100%;padding:8px 12px;background:#e8dcff;color:#342264;border-radius:8px;font-size:13px;line-height:1.4;}.ds-selection svg{flex:none;width:18px;height:18px;}"
+      "css": ".ds-selection{font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);display:flex;align-items:center;gap:9px;width:fit-content;max-width:100%;padding:8px 12px;background:var(--color-midnight,#18143d);color:var(--color-cream,#f8f6f1);border-radius:8px;font-size:12px;line-height:1.4;}.ds-selection svg{flex:none;width:18px;height:18px;}"
+    },
+    {
+      "name": "Quiz custom-answer field",
+      "kind": "input",
+      "refersTo": "quiz-field",
+      "description": "Cream textarea on the lilac quiz surface; separate grade/barrier answers, each limited to 200 characters.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-free-text\">Свой вариант</label><textarea id=\"ds-free-text\" class=\"ds-free-text\" maxlength=\"200\" autocomplete=\"off\"></textarea></div>",
+      "css": ".ds-field{background:var(--color-lilac,#dfd3ff);color:var(--color-midnight,#18143d);padding:18px;font-family:var(--font-body,\"Golos Text\",ui-sans-serif,system-ui,sans-serif);}.ds-field label{display:inline-block;margin-bottom:8px;font-weight:700;}.ds-free-text{display:block;width:100%;max-width:100%;min-height:108px;padding:12px;border:1px solid var(--text-soft,#57516c);border-radius:12px;background:var(--color-cream,#f8f6f1);color:var(--color-midnight,#18143d);font:inherit;font-size:16px;resize:vertical;caret-color:#6334db;}.ds-free-text:focus-visible{outline:3px solid #6435cc;outline-offset:5px;}"
     }
   ],
   "narrative": {
     "northStar": "Unexplored universe",
-    "overview": "The approved world is BOLD EDITORIAL × COLORFUL FUTURE × KINETIC TYPOGRAPHY × PLAYFUL MOTION. Strong display lettering, a midnight ground, bright directional accents and tactile abstract geometry make uncertainty feel open and approachable. Movement supports attention and feedback while every choice remains usable with motion disabled.\n\nThis documents the implemented hero/header system and the selected-concern feedback chip entering the existing quiz. Golos Text is global; selection, scrollbar and caret accents also cross the hero boundary. Supporting sections, quiz fields, route views and registration buttons retain their existing layouts and legacy palette in `site/styles.css`. Their migration is a separate stage. Header geometry is shared; its dark colors apply only on the home view. Exact hero composition and visitor sequence belong in [the surface brief](docs/HERO_DIRECTION.md).",
+    "overview": "The approved world is BOLD EDITORIAL × COLORFUL FUTURE × KINETIC TYPOGRAPHY × PLAYFUL MOTION. Strong display lettering, a midnight ground, bright directional accents and tactile abstract geometry make uncertainty feel open and approachable. Movement supports attention and feedback while every choice remains usable with motion disabled.\n\nThe approved Hero is the visual source for the implemented full-site system: ten supporting scenes, the shared header, questionnaire, catalog and result views. Unbounded headings, Golos Text, the purple/lime palette and asymmetric geometry continue across these surfaces with layouts suited to each task. The current cascade is `site/styles.css`, then `site/hero.css`, then `site/experience.css`; the latter supplies the completed supporting-scene and app-view theme. Page sequence and pinned Hero behavior belong in [the surface brief](.impeccable/surfaces/site-index-html.md).\n\n**Key Characteristics:",
     "keyCharacteristics": [
       "Oversized local display type with language-specific fitting.",
       "Midnight atmosphere with lime action and distinct concern colors.",
       "Asymmetric corners and authored SVG geometry.",
-      "Visible defaults, controllable ambient motion and immediate feedback."
+      "Visible defaults, controllable ambient motion and immediate feedback.",
+      "Varied editorial scenes and compact task views within the same visual world."
     ],
     "rules": [
       {
-        "name": "The Scoped Palette Rule",
-        "body": "Apply this palette to the hero and its documented shared components; do not silently replace the legacy supporting-section palette.",
+        "name": "The Shared World Rule",
+        "body": "Carry the approved purple, lime, coral, lilac and cream palette through supporting scenes and task views while preserving the Hero's established colors and hierarchy.",
         "section": "colors"
       },
       {
         "name": "The User-Controlled Motion Rule",
-        "body": "Ambient loops stop when the user pauses, the document is hidden, the hero is offscreen, or reduced motion is requested.",
+        "body": "Hero ambient loops stop when the user pauses, the document is hidden, the Hero is offscreen, or reduced motion is requested. User pause and reduced motion also suppress optional scene reveals and content transitions.",
         "section": "components"
       }
     ],
     "dos": [
       "Do preserve local fonts and all three language-specific headline fits.",
-      "Do keep the primary action and catalog bypass before the scene on phones.",
+      "Do keep the Hero's mobile sequence: heading, story, question/cards, primary action and bypass, teaser, motion control.",
       "Do retain distinct concern colors, meaningful text and selected-state checks.",
       "Do keep content visible and motion pausable, with live reduced-motion support.",
-      "Do preserve the legacy supporting sections until their redesign is explicitly scoped."
+      "Do apply the implemented scene and task-view theme after the base stylesheet.",
+      "Do preserve midnight text on light question notes and source attribution near public evidence."
     ],
     "donts": [
       "Don't reintroduce the rejected cream/pastel hero as the new visual world.",
       "Don't make decorative SVG geometry interactive or necessary to understand a choice.",
       "Don't turn the hero's exact composition into a universal page template.",
+      "Don't make concern selection navigate, add a second Hero start action, or discard other selected concerns.",
       "Don't invent product capabilities, research findings or conversion metrics."
     ]
   }

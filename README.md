@@ -1,47 +1,30 @@
 # Ventorme — «А что после школы?»
 
-## Open locally
+Static, three-language Hacknext 2026 Team 113 landing page. No build, backend or npm installation required.
 
-Run `python -m http.server 4173 --bind 127.0.0.1` from this folder, then open
-http://127.0.0.1:4173. Use a static server because the JavaScript uses ES modules.
-No npm installation and no backend are required.
+## Run locally
 
-## Checks
+From this directory: `python -m http.server 4173 --bind 127.0.0.1`, then open http://127.0.0.1:4173/. Use HTTP because the JavaScript uses ES modules. If port 4173 is already serving the site, reuse it.
 
-Run `npm test`. It verifies the registration constant and required content model.
+## Implementation
 
-The hero's browser checks are in the workspace's `output/playwright/` directory:
-`hero-review.js` (languages, viewport sizes, static/reduced-motion fallback),
-`hero-flows.js` (existing quiz/routes and embedded-browser fallback),
-`hero-runtime.js` (motion frames, pause/resume, CDP performance trace, all five
-catalog routes, demo, FAQ and exact registration URLs), and `hero-contrast.js`
-(background-only captures for text-contrast sampling). Run these with Playwright CLI
-`run-code --filename <path>` against the local server.
+The approved purple/lime Hero keeps its 0–4 problem multi-select. Only its primary CTA starts the existing three-question quiz. The complete landing adds a seven-university drag/swipe gallery, interactive four-step explanation, five route tabs, honest mini-demo, two verified review excerpts, trust/limitations, free/paid account value, six FAQ answers and final registration.
 
-The final hero polish adds `hero-polish-qa.js` (question order, selection/CTA
-agreement, responsive ring, visible spring, navigation timing, keyboard and
-reduced motion) and `hero-polish-touch.js` (390px Chromium touch emulation).
-Cards select a concern; the primary CTA starts the existing quiz with it.
-On mobile/tablet a second continuation appears beside the selection status.
+`app.js` manages navigation and session answers; `translations.js` contains the original content; `content.js` contains verified public data and new RU/KZ/EN copy; `scenes.js` renders supporting sections; `interactions.js` provides optional motion and native-scroll controls. `experience.css` extends `hero.css` and the legacy base `styles.css`. Fonts are self-hosted with licenses under `assets/fonts/`.
 
-The first screen is styled in `hero.css`, with authored SVG and progressive motion
-in `hero.js`. Fonts and their licenses are self-hosted in `assets/fonts/`.
-The rest of the landing page retains its existing section layout.
-Detailed results and limitations: `../docs/HERO_QA.md`. The design contract and
-skills inventory live in `../docs/HERO_DIRECTION.md` and `../docs/HERO_SKILLS.md`.
+## Verify
 
-## Team registration link
+Run `npm test`: registration URL, required content, all 15 multi-select combinations/five priorities, ten new scenes and three locales. Browser scripts remain in workspace `output/playwright/redesign-*.js`; detailed evidence and limitations are in [docs/REDESIGN_QA.md](docs/REDESIGN_QA.md). No real-student research or physical-device certification is claimed.
 
-The only source is `config.js`:
+## Registration and content
 
-`REGISTRATION_URL = https://ventorme.ai/register?utm_source=hacknext&utm_campaign=team-113`
+Every registration CTA uses `REGISTRATION_URL` from `config.js`, exactly:
+`https://ventorme.ai/register?utm_source=hacknext&utm_campaign=team-113`
 
-Do not change the UTM parameters. All site-generated registration CTAs derive from this constant.
+University names, short review excerpts and free/Plus descriptions were checked on https://ventorme.ai/ on 2026-10-13. Review quotations remain in the source's English with localized attribution. They are not independent research or a guarantee. No university logos, ratings, fabricated profiles or pricing are used.
 
 ## Deploy
 
-Upload only the `site/` folder to Netlify Drop, GitHub Pages, or Vercel. Do not upload `reference/`, `docs/`, `.docx`, or `.pages` source materials. Before sharing, open the public link in an incognito window and on a phone, then click every registration CTA and confirm `team-113` remains in the address bar.
+Upload the contents of `site/` to a static hosting service. The project root has a synchronized deployment mirror for the existing workflow, but do not publish the entire workspace: `reference/`, internal `docs/`, attachments and source competition files must stay private. This task does not deploy, push or commit automatically.
 
-## Still needs a team check
-
-Test with at least five real students, confirm the current Ventorme tariff wording and external registration experience, then publish the final public URL. This repository intentionally does not claim those checks have happened.
+Before public sharing, verify the external registration flow and UTM parameters on the published URL, test an actual phone/Instagram browser and Safari, and complete the required research with at least five real students. Free/paid terms can change and link to the official source.

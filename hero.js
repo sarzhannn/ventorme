@@ -52,7 +52,7 @@ export function startHeroMotion(hero, labels) {
     button.setAttribute('aria-pressed', String(motionPaused || preference.matches));
     button.querySelector('.motion-label').textContent = preference.matches ? labels.reduced : motionPaused ? labels.resume : labels.pause;
   };
-  const toggle = () => { motionPaused = !motionPaused; sync(); };
+  const toggle = () => { motionPaused = !motionPaused; document.documentElement.dataset.motionPaused=String(motionPaused);document.dispatchEvent(new Event('site-motion-change'));sync(); };
   const select = ({ detail: card }) => {
     springs.forEach(animation => animation.cancel()); springs.clear();
     if (preference.matches || motionPaused || !card.animate || card.getAttribute('aria-pressed') !== 'true') return;
