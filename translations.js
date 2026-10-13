@@ -80,8 +80,8 @@ const en = {
 };
 
 // Hero-only interface copy. No quiz or route content is changed by the redesign.
-Object.assign(ru.hero, { chooseHint:'Выбери свою проблему. Затем нажми кнопку — найдём первый шаг с Ventorme.', selected:'Твой выбор', continue:'Продолжить с этим вопросом', motion:{pause:'Остановить движение',resume:'Включить движение',reduced:'Движение отключено'} });
-Object.assign(kz.hero, { chooseHint:'Өзіңді толғандыратын мәселені таңда. Содан кейін батырманы бас — Ventorme арқылы алғашқы қадамды табамыз.', selected:'Сенің таңдауың', continue:'Осы сұрақпен жалғастыру', motion:{pause:'Қозғалысты тоқтату',resume:'Қозғалысты қосу',reduced:'Қозғалыс өшірілген'} });
-Object.assign(en.hero, { chooseHint:'Choose what concerns you. Then press the button to find your first step with Ventorme.', selected:'Your choice', continue:'Continue with this concern', motion:{pause:'Pause motion',resume:'Resume motion',reduced:'Motion is off'} });
+Object.assign(ru.hero, { question:'Не знать, кем стать, — нормально.', journey:'3 коротких вопроса. Не экзамен.', catalog:'Сразу к возможностям — без вопросов', chooseHint:'Нажми на свою проблему — начнём с неё. Всего 3 вопроса до первого шага.', selected:'Твой выбор', continue:'Продолжить с этим вопросом', motion:{pause:'Остановить движение',resume:'Включить движение',reduced:'Движение отключено'} });
+Object.assign(kz.hero, { question:'Кім боларыңды әлі білмесең — бұл қалыпты.', journey:'3 қысқа сұрақ. Емтихан емес.', catalog:'Сұрақтарсыз бірден мүмкіндіктерге өту', chooseHint:'Өзіңді толғандыратын мәселені бас — содан бастаймыз. Алғашқы қадамға дейін 3 сұрақ қана.', selected:'Сенің таңдауың', continue:'Осы сұрақпен жалғастыру', motion:{pause:'Қозғалысты тоқтату',resume:'Қозғалысты қосу',reduced:'Қозғалыс өшірілген'} });
+Object.assign(en.hero, { question:'It’s okay not to know what comes next.', journey:'3 short questions. Not an exam.', catalog:'Straight to the options — no questions', chooseHint:'Tap what concerns you — we’ll start there. Just 3 questions to your first step.', selected:'Your choice', continue:'Continue with this concern', motion:{pause:'Pause motion',resume:'Resume motion',reduced:'Motion is off'} });
 
 export const translations = { ru, kz, en };

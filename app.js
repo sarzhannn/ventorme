@@ -73,19 +73,19 @@ function renderHome() {
       <div class="hero-story">
         <p class="hero-slogan">${t.hero.slogan.map(line => `<span>${line}</span>`).join(' ')}</p>
         <p class="hero-question">${t.hero.question}</p>
-        <button type="button" class="button hero-cta" data-action="quiz" aria-describedby="hero-choice-status"><span>${t.hero.start}</span><span class="hero-cta-arrow" aria-hidden="true">${arrow()}</span></button>
+        <button type="button" class="button hero-cta" data-action="quiz" aria-describedby="hero-journey hero-choice-status"><span>${t.hero.start}</span><span class="hero-cta-arrow" aria-hidden="true">${arrow()}</span></button>
+        <p class="hero-journey" id="hero-journey">${arrow()}<span>${t.hero.journey}</span></p>
         <p class="hero-promise">${t.hero.promise.split(' • ').map(item => `<span>${item}</span>`).join('')}</p>
-        <button type="button" class="catalog-link hero-catalog" data-action="catalog">${t.hero.catalog}</button>
+        <button type="button" class="catalog-link hero-catalog" data-action="catalog"><span>${t.hero.catalog}</span>${arrow()}</button>
       </div>
       <div class="hero-interaction">
         ${orbitArtwork()}
-        <div class="hero-intro"><h2 id="problem-prompt">${t.hero.prompt}</h2><p>${t.hero.chooseHint}</p></div>
-        <div class="problem-grid" role="group" aria-labelledby="problem-prompt">
+        <div class="hero-intro"><h2 id="problem-prompt">${t.hero.prompt}</h2><p id="hero-choice-hint">${t.hero.chooseHint}</p></div>
+        <div class="problem-grid" role="group" aria-labelledby="problem-prompt" aria-describedby="hero-choice-hint">
           ${ROUTES.slice(0, 4).map(key => `<button type="button" class="problem-card problem-${key}" data-problem="${key}" aria-pressed="${state.selectedProblem === key}"><span class="problem-art" aria-hidden="true">${problemArtwork(key)}</span><span class="problem-direction" aria-hidden="true">${arrow()}<svg class="problem-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4 10-10"/></svg></span><span class="problem-label">${t.hero.problems[key]}</span></button>`).join('')}
         </div>
         <div class="hero-choice-footer">
           <p id="hero-choice-status" class="hero-choice-status" role="status">${state.selectedProblem ? `${t.hero.selected}: ${t.hero.problems[state.selectedProblem]}` : ''}</p>
-          <button type="button" class="hero-continue" data-action="quiz" aria-describedby="hero-choice-status" ${state.selectedProblem ? '' : 'hidden'}>${t.hero.continue}${arrow()}</button>
         </div>
       </div>
       <div class="hero-bottom"><span class="hero-signature" translate="no">VENTORME / HACKNEXT 113</span><button class="motion-toggle" type="button" aria-pressed="false"><span class="motion-icon" aria-hidden="true"></span><span class="motion-label">${t.hero.motion.pause}</span></button></div>
@@ -170,8 +170,9 @@ document.addEventListener('click', event => {
     const hero = problem.closest('.hero-stage');
     hero.dataset.concern = state.selectedProblem;
     hero.querySelector('#hero-choice-status').textContent = `${text().hero.selected}: ${text().hero.problems[state.selectedProblem]}`;
-    hero.querySelector('.hero-continue').hidden = false;
     hero.dispatchEvent(new CustomEvent('hero-choice', { detail: problem }));
+    state.step = 0;
+    setView('quiz');
     return;
   }
   const demo = event.target.closest('[data-demo]');

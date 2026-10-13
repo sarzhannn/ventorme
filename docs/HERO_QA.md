@@ -105,6 +105,8 @@ Do not install a browser/package or execute third-party Skill scripts as part of
 
 ## Final art-direction polish — 2026-10-12
 
+> Superseded in part by the 2026-10-13 refinement: cards now save the concern and immediately open the existing quiz; the extra mobile continuation was removed. CTA hover/shadow, translated microcopy and subtle headline wobble were updated in both root and site/ copies. Reduced-motion and pause rules include the wobble. Relative asset/module URLs were retained for /ventorme/. Tests and browser verification were deliberately NOT run for this change, at the user's request; earlier passing results below do not certify this revision. Earlier browser scripts expecting selection-only cards or exactly five ambient loops need updating before reuse.
+
 This pass supersedes the earlier card-click navigation and entrance timings above; the approved visual direction is unchanged. Backup before this pass: `output/hero-polish-20261012-234526/`.
 
 ### Implemented, not proposed
