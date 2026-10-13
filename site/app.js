@@ -74,7 +74,8 @@ function render() {
   else if (state.view === 'catalog') renderCatalog();
   else renderHome();
   watchSections();
-  startAmbient(main,text().hero.motion,state.route);
+  // Quiz renders also happen directly on answer/back/next; renderQuiz owns its setup.
+  if(state.view!=='quiz') startAmbient(main,text().hero.motion,state.route);
 }
 
 function renderHome() {
@@ -142,12 +143,13 @@ function renderQuiz(error = '') {
   const [key, title, hint, options] = step;
   const selected = state.answers[key];
   const showFreeText = (key === 'grade' || key === 'barrier') && selected === 'other';
+  const showLead = key !== 'grade' || ['grade78','grade9','grade10','grade11','other'].includes(selected);
   const p=polishCopy[state.lang];
   main.innerHTML = `<div class="shell view quiz-view" data-current-step="${state.step}">
     ${state.selectedProblems.length ? `<div class="quiz-concerns"><p>${t.hero.selected}</p><ul>${state.selectedProblems.map(key => `<li class="hero-selection">${t.hero.problems[key]}</li>`).join('')}</ul></div>` : ''}
     <p class="eyebrow">${t.quiz.name}</p><div class="quiz-meta"><span>${fill(t.quiz.step, state.step + 1)}</span><span>${t.quiz.optional}</span></div>
     <div class="progress" aria-hidden="true"><span style="width:${((state.step + 1) / 3) * 100}%"></span></div>
-    <h1>${key==='grade'?p.gradeTitle:title}</h1>${sessionContext(state,t)}${quizArtwork(state,t)}<p class="lead">${key === 'goal' && state.selectedProblems.length > 1 ? t.hero.priorityHint : hint}</p><div class="choice-grid">
+    <h1>${key==='grade'?p.gradeTitle:title}</h1>${sessionContext(state,t)}${quizArtwork(state,t)}${showLead?`<p class="lead">${key === 'goal' && state.selectedProblems.length > 1 ? t.hero.priorityHint : hint}</p>`:''}<div class="choice-grid">
       ${options.map(option => `<button class="choice" data-answer="${key}" data-value="${option[0]}" aria-pressed="${selected === option[0]}">${option[1]}</button>`).join('')}
     </div>${showFreeText ? `<div class="free-field"><label for="free-text">${t.quiz.freeLabel}</label><textarea maxlength="200" class="free-text" id="free-text" name="free-text" autocomplete="off" aria-describedby="free-hint free-counter" aria-invalid="${Boolean(error)}">${escapeHtml(state.answers.freeTexts[key])}</textarea><p class="helper" id="free-hint">${t.quiz.freeHint} ${c.freeExplanation}</p><p class="counter" id="free-counter">${fill(t.quiz.counter, 200 - state.answers.freeTexts[key].length)}</p></div>` : ''}
     <p class="error" id="quiz-error" aria-live="polite" tabindex="-1">${error}</p><div class="button-row quiz-actions">

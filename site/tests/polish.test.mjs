@@ -6,6 +6,13 @@ import {sceneCopy} from '../content.js';
 import {routeGuides,editorialCopy} from '../route-guides.js';
 import {REGISTRATION_URL} from '../config.js';
 import {readFile} from 'node:fs/promises';
+import {runInNewContext} from 'node:vm';
+const themeSource=await readFile(new URL('../theme.js',import.meta.url),'utf8');
+for(const denied of [false,true]) {
+  const root={dataset:{theme:'light'}};
+  runInNewContext(themeSource,{document:{documentElement:root,querySelector:()=>null},localStorage:{removeItem(){if(denied)throw Error('Storage denied');}}});
+  assert.equal(root.dataset.theme,'dark');
+}
 const register=label=>`<a class="registration-cta" href="${REGISTRATION_URL}">${label}</a>`;
 for(const lang of ['ru','kz','en']) {
   const p=polishCopy[lang],t=translations[lang];

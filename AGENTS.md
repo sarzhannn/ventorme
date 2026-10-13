@@ -59,4 +59,12 @@ Installed roots: `C:/Users/Admin/.agents/skills` and `.agents/skills` in this wo
 
 ## Memory boundary
 
+### Latest explicit polish changes (2026-10-14)
+
+- Dark-only palette now supersedes previous two-theme requirements. No theme toggle; old light preference is cleared. HTML and CSS defaults are dark even without the theme script.
+- Background particles use float, sway, orbit and rise trajectories with localized decorative vocabulary. Desktop result margins have orbital arcs, monochrome university marks and localized words; narrow screens retain only faint edge arcs.
+- University assets are unchanged transparent originals; CSS white badge backgrounds were removed. Marks on dark surfaces use a white monochrome CSS treatment for contrast.
+- Aidana Adambayeva's complete English review was supplied verbatim by the user and is now displayed in all locales with a localized full-review label. Other reviews remain source-attributed excerpts. Do not reapply the external-source excerpt word limit to user-supplied text.
+- Latest checks: `docs/DARK_AMBIENT_QA.md`; browser script remains under ignored `output/playwright/dark-polish.mjs`. No localhost was started.
+
 This file is durable project context, not guaranteed account-wide memory. Another account's complete chat history is unavailable unless supplied in the active conversation or exported files. Do not imply otherwise.

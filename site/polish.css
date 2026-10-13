@@ -1,12 +1,7 @@
 /* Semantic surfaces sit above the preserved, theme-independent brand pigments. */
 :root {
-  color-scheme:light;--page-bg:#f8f6f1;--page-ink:#18143d;--page-muted:#57516c;
-  --page-card:#fffdf9;--page-soft:#e9e1f5;--page-line:#a197b1;--header-height:80px;
-  --scene-paper:#f8f6f1;--scene-lilac:#dfd3ff;--scene-coral:#ff9c85;
-  --art-accent:#d6fa64;--art-wash:#8754ef22;
+  --header-height:80px;--art-accent:#d6fa64;
   --polish-ease:cubic-bezier(.16,1,.3,1);--scene-space:clamp(64px,6.4vw,96px);
-}
-html[data-theme="dark"] {
   color-scheme:dark;--page-bg:#18143d;--page-ink:#f8f6f1;--page-muted:#c9c1dd;
   --page-card:#252044;--page-soft:#302748;--page-line:#766987;
   --scene-paper:#211b38;--scene-lilac:#32274c;--scene-coral:#482c40;
@@ -356,7 +351,8 @@ html[data-motion-paused="true"] .scene *,html[data-motion-paused="true"] .view *
   .scene-atmosphere .atmosphere-light { animation:editorial-light 14s ease-in-out infinite alternate paused; }
   .scene.is-in-view .scene-atmosphere .atmosphere-type,.scene.is-in-view .scene-atmosphere .atmosphere-light { animation-play-state:running; }
   .scene.is-in-view .atmosphere-orbit { animation:editorial-orbit 20s ease-in-out infinite alternate; }
-  .personal-map .map-emblem .scene-diagram { animation:editorial-emblem 9s ease-in-out infinite alternate; }
+  .personal-map .map-emblem .scene-diagram { animation:editorial-emblem 9s ease-in-out infinite alternate paused; }
+  .personal-map .map-emblem.particles-visible .scene-diagram { animation-play-state:running; }
   html[data-page-hidden="true"] *,html[data-page-hidden="true"] *::before,html[data-page-hidden="true"] *::after,
   html[data-motion-paused="true"] .personal-map *,html[data-motion-paused="true"] .scene-atmosphere * { animation-play-state:paused !important; }
   @keyframes editorial-drift { to { transform:translateX(3%); } }

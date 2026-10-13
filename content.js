@@ -14,7 +14,7 @@ export const universities = [
 export const testimonials = [
   {author:'Aibek', quote:'help you build a plan', language:'en',summary:'Aibek describes being unsure at the beginning. Trying the first step made the service’s practical planning support clearer to him.',photo:null},
   {author:'Dana', quote:'all the deadlines and documents live in one place', language:'en',summary:'Dana values having application information together rather than scattered across personal notes. Her review focuses on organisation, not an admission result.',photo:null},
-  {author:'Aidana Adambayeva', quote:'so much information in one place', language:'en',summary:'Writing as a parent, Aidana appreciates consolidated university information and exam preparation. She describes the difficulty of researching separate university websites and the additional work of translating them.',photo:'assets/official/aidana.png'}
+  {author:'Aidana Adambayeva', quote:"I'm genuinely thrilled with the platform: so much information in one place. There's IELTS and SAT prep and even UNT, plus university picks with all the data. As a parent of a graduate, I know how hard it is to sit and search for universities on your own, opening each site to find useful details. And if you don't know English on top of that, it's brutal: sitting and translating everything. Here it's all right there. The test itself is interesting, a bit like a shortened Gallup. We loved it", language:'en',full:true,suppliedByUser:true,summary:null,photo:'assets/official/aidana.png'}
 ];
 
 export const sceneCopy = {

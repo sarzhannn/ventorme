@@ -17,7 +17,7 @@ for(const lang of ['ru','kz','en']) {
   assert.equal((html.match(/data-route-tab=/g)||[]).length,5);
   assert.equal((html.match(/aria-controls="faq-answer-/g)||[]).length,6);
   for(const u of universities)assert.ok(html.includes(u.name));
-  for(const review of testimonials){assert.ok(html.includes(review.quote));assert.ok(html.includes(review.summary));}
+  for(const review of testimonials){assert.ok(html.includes(review.quote));if(review.summary)assert.ok(html.includes(review.summary));}
   assert.equal((html.match(/blockquote lang="en" translate="no"/g)||[]).length,testimonials.length);
   assert.equal((html.match(/class="poster-logo"/g)||[]).length,7);
   assert.ok(html.includes(mediaCopy[lang].admissions[0]));
@@ -26,7 +26,11 @@ for(const lang of ['ru','kz','en']) {
 assert.doesNotMatch(strings(sceneCopy.en).join(' '),/[А-Яа-яӘәҒғҚқҢңӨөҰұҮүҺһІі]/);
 assert.equal(CONTENT_SOURCE,'https://ventorme.ai/');
 assert.ok(testimonials.every(r=>r.language==='en'&&r.author&&r.quote));
-assert.ok(testimonials.map(r=>r.quote).join(' ').split(/\s+/).length<=25);
+assert.ok(testimonials.filter(r=>!r.suppliedByUser).map(r=>r.quote).join(' ').split(/\s+/).length<=25);
+assert.equal(testimonials.find(r=>r.full).quote,"I'm genuinely thrilled with the platform: so much information in one place. There's IELTS and SAT prep and even UNT, plus university picks with all the data. As a parent of a graduate, I know how hard it is to sit and search for universities on your own, opening each site to find useful details. And if you don't know English on top of that, it's brutal: sitting and translating everything. Here it's all right there. The test itself is interesting, a bit like a shortened Gallup. We loved it");
+assert.equal(testimonials.filter(r=>r.suppliedByUser).length,1);
+assert.ok(particleMarkup('general','ru').includes('СОЗДАВАЙ'));
+assert.ok(particleMarkup('general','kz').includes('ЖОСПАР'));
 for(const file of [...universities.map(u=>u.logo),...testimonials.map(r=>r.photo).filter(Boolean)])await access(new URL('../'+file,import.meta.url));
 assert.ok(particleMarkup('exams').includes('IELTS'));assert.ok(particleMarkup('exams').includes('SAT'));
 assert.ok(particleMarkup().includes('aria-hidden="true"'));
