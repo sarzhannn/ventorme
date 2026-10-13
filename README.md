@@ -14,14 +14,16 @@ The approved purple/lime Hero keeps its 0–4 problem multi-select. Only its pri
 
 ## Verify
 
-Run `npm test`: registration URL, required content, all 15 multi-select combinations/five priorities, ten new scenes and three locales. Browser scripts remain in workspace `output/playwright/redesign-*.js`; detailed evidence and limitations are in [docs/REDESIGN_QA.md](docs/REDESIGN_QA.md). No real-student research or physical-device certification is claimed.
+Final polish adds `theme.js` (pre-paint preference), `chrome.js` (navigation), `polish.css` (semantic themes), `polish-copy.js` (three-language copy), `graphics.js` (original SVG diagrams), and `personal-map.js` (actual-input maps). University/demo context is preserved through the same quiz. Only language and theme persist; answers are not transferred to Ventorme automatically.
+
+Run `npm test`: five suites for registration URL, content, selection, scenes/locales, maps and safe text output. New browser scripts are in workspace `output/playwright/polish-*.js`; evidence and limitations are in `docs/FINAL_POLISH_QA.md` in the workspace. No real-student research or physical-device certification is claimed.
 
 ## Registration and content
 
 Every registration CTA uses `REGISTRATION_URL` from `config.js`, exactly:
 `https://ventorme.ai/register?utm_source=hacknext&utm_campaign=team-113`
 
-University names, short review excerpts and free/Plus descriptions were checked on https://ventorme.ai/ on 2026-10-13. Review quotations remain in the source's English with localized attribution. They are not independent research or a guarantee. No university logos, ratings, fabricated profiles or pricing are used.
+University names, short review excerpts and free/Plus descriptions were checked on https://ventorme.ai/ on 2026-10-13. English excerpts have explicitly marked RU/KZ translations. They are not independent research or a guarantee. University panels link to official sites; typographic names are used where logo permission was not confirmed. No invented logos, ratings, profiles or pricing are used.
 
 ## Deploy
 

@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node tests/registration-url.test.mjs && node tests/content-model.test.mjs && node tests/selection.test.mjs && node tests/scenes.test.mjs"
+    "test": "node tests/registration-url.test.mjs && node tests/content-model.test.mjs && node tests/selection.test.mjs && node tests/scenes.test.mjs && node tests/polish.test.mjs"
   }
 }

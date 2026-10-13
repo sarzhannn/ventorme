@@ -3,6 +3,7 @@ import {sceneCopy,universities,testimonials,CONTENT_SOURCE} from '../content.js'
 import {translations} from '../translations.js';
 import {renderScenes} from '../scenes.js';
 import {REGISTRATION_URL} from '../config.js';
+import {polishCopy} from '../polish-copy.js';
 const strings=v=>typeof v==='string'?[v]:Array.isArray(v)?v.flatMap(strings):Object.values(v).flatMap(strings);
 for(const lang of ['ru','kz','en']) {
   const c=sceneCopy[lang];
@@ -14,7 +15,7 @@ for(const lang of ['ru','kz','en']) {
   assert.equal((html.match(/data-route-tab=/g)||[]).length,5);
   assert.equal((html.match(/aria-controls="faq-answer-/g)||[]).length,6);
   for(const u of universities)assert.ok(html.includes(u.name));
-  for(const review of testimonials)assert.ok(html.includes(review.quote));
+  for(const quote of polishCopy[lang].quotes)assert.ok(html.includes(quote));
 }
 assert.doesNotMatch(strings(sceneCopy.en).join(' '),/[А-Яа-яӘәҒғҚқҢңӨөҰұҮүҺһІі]/);
 assert.equal(CONTENT_SOURCE,'https://ventorme.ai/');

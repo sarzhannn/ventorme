@@ -5,6 +5,11 @@ import { renderScenes, routePanel, demoPanel } from './scenes.js';
 import { startScenes, stopScenes, animateContent } from './interactions.js';
 import { normalizeProblems, resolveRoutes } from './selection.js';
 import { problemArtwork, orbitArtwork, startHeroMotion, stopHeroMotion, transitionFromHero } from './hero.js';
+import { syncNavigation, watchSections, closeMenu } from './chrome.js';
+import { polishCopy, universityDetails } from './polish-copy.js';
+import { universities } from './content.js';
+import { diagram } from './graphics.js';
+import { personalMap, actualInputs, sessionContext, quizArtwork } from './personal-map.js';
 
 // Some embedded/private browsers expose localStorage but deny access to it.
 const savedLanguage = (() => { try { return localStorage.getItem('ventorme-lang'); } catch { return null; } })();
@@ -12,7 +17,7 @@ const savedLanguage = (() => { try { return localStorage.getItem('ventorme-lang'
 const ROUTES = ['career', 'universities', 'grants', 'exams', 'plan'];
 const state = {
   lang: translations[savedLanguage] ? savedLanguage : 'ru',
-  view: 'home', step: 0, selectedProblems: [], route: null, demo: null, demoText:'', demoSubmitted:false, showcase:'career',
+  view: 'home', step: 0, selectedProblems: [], route: null, demo: null, demoText:'', demoSubmitted:false, showcase:'career', university:null, interest:null,
   answers: { grade: null, barrier: null, goal: null, freeText: '', freeTexts:{grade:'',barrier:''} }
 };
 
@@ -21,6 +26,7 @@ const mobileCta = document.querySelector('#mobile-cta');
 const text = () => translations[state.lang];
 const fill = (value, n) => value.replace('{n}', String(n));
 const escapeHtml = value => String(value).replace(/[&<>'"]/g, character => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' })[character]);
+let lastQuizStep = -1;
 
 function arrow() {
   return '<svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
@@ -31,6 +37,7 @@ function registrationLink(label = text().common.register) {
 }
 
 function setView(view) {
+  if(view!=='quiz'||state.view!=='quiz') lastQuizStep=-1;
   const fromHero = state.view === 'home' && view !== 'home';
   const update = () => {
     state.view = view;
@@ -44,6 +51,7 @@ function setView(view) {
 
 function syncChrome() {
   const t = text();
+  syncNavigation(state.lang);
   document.documentElement.lang = t.locale;
   document.title = t.meta[0];
   document.querySelector('meta[name="description"]').content = t.meta[1];
@@ -58,13 +66,13 @@ function render() {
   stopScenes();
   syncChrome();
   document.body.classList.toggle('on-home', state.view === 'home');
-  document.querySelector('meta[name="theme-color"]').content = '#18143d';
   mobileCta.hidden = state.view !== 'result';
-  mobileCta.innerHTML = state.view === 'result' ? registrationLink() : '';
+  mobileCta.innerHTML = state.view === 'result' ? registrationLink(polishCopy[state.lang].continue) : '';
   if (state.view === 'quiz') renderQuiz();
   else if (state.view === 'result') renderResult();
   else if (state.view === 'catalog') renderCatalog();
   else renderHome();
+  watchSections();
 }
 
 function renderHome() {
@@ -103,7 +111,7 @@ function renderHome() {
     ${supportSections()}
   </div>`;
   startHeroMotion(main.querySelector('.hero-stage'), t.hero.motion);
-  startScenes(main,sceneCopy[state.lang]);
+  startScenes(main,sceneCopy[state.lang],null,state.lang,registrationLink);
 }
 
 function updateHeroSelection() {
@@ -124,23 +132,29 @@ function supportSections() {
 }
 
 function renderQuiz(error = '') {
+  const direction=lastQuizStep>state.step?-1:1,entering=lastQuizStep!==state.step;
+  lastQuizStep=state.step;
   const t = text();
   const c = sceneCopy[state.lang];
   const step = t.quiz.steps[state.step];
   const [key, title, hint, options] = step;
   const selected = state.answers[key];
   const showFreeText = (key === 'grade' || key === 'barrier') && selected === 'other';
+  const p=polishCopy[state.lang];
   main.innerHTML = `<div class="shell view quiz-view" data-current-step="${state.step}">
     ${state.selectedProblems.length ? `<div class="quiz-concerns"><p>${t.hero.selected}</p><ul>${state.selectedProblems.map(key => `<li class="hero-selection">${t.hero.problems[key]}</li>`).join('')}</ul></div>` : ''}
     <p class="eyebrow">${t.quiz.name}</p><div class="quiz-meta"><span>${fill(t.quiz.step, state.step + 1)}</span><span>${t.quiz.optional}</span></div>
     <div class="progress" aria-hidden="true"><span style="width:${((state.step + 1) / 3) * 100}%"></span></div>
-    <h1>${title}</h1><p class="lead">${key === 'goal' && state.selectedProblems.length > 1 ? t.hero.priorityHint : hint}</p><div class="choice-grid">
+    <h1>${key==='grade'?p.gradeTitle:title}</h1>${sessionContext(state,t)}${quizArtwork(state,t)}<p class="lead">${key === 'goal' && state.selectedProblems.length > 1 ? t.hero.priorityHint : hint}</p><div class="choice-grid">
       ${options.map(option => `<button class="choice" data-answer="${key}" data-value="${option[0]}" aria-pressed="${selected === option[0]}">${option[1]}</button>`).join('')}
     </div>${showFreeText ? `<div class="free-field"><label for="free-text">${t.quiz.freeLabel}</label><textarea maxlength="200" class="free-text" id="free-text" name="free-text" autocomplete="off" aria-describedby="free-hint free-counter" aria-invalid="${Boolean(error)}">${escapeHtml(state.answers.freeTexts[key])}</textarea><p class="helper" id="free-hint">${t.quiz.freeHint} ${c.freeExplanation}</p><p class="counter" id="free-counter">${fill(t.quiz.counter, 200 - state.answers.freeTexts[key].length)}</p></div>` : ''}
     <p class="error" id="quiz-error" aria-live="polite" tabindex="-1">${error}</p><div class="button-row quiz-actions">
       <button class="button ghost" data-action="back">${t.common.back}</button><button class="button secondary" data-action="skip">${t.common.skip}</button><button class="button primary" data-action="next">${state.step === 2 ? t.quiz.show : t.common.next}${arrow()}</button>
     </div></div>`;
   if(error) main.querySelector(showFreeText?'#free-text':'#quiz-error').focus({preventScroll:true});
+  if(entering&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&document.documentElement.dataset.motionPaused!=='true'){
+    main.querySelectorAll('.quiz-visual,.quiz-view .choice').forEach((el,i)=>el.animate?.([{opacity:.3,transform:`translateX(${direction*16}px)`},{opacity:1,transform:'none'}],{duration:550,delay:i*30,easing:'cubic-bezier(.16,1,.3,1)'}));
+  }
 }
 
 function determineRoute() {
@@ -154,18 +168,14 @@ function renderResult() {
   const candidates = resolveRoutes(state.answers, state.selectedProblems);
   if (!state.route && candidates.length > 1) {
     main.innerHTML = `<div class="shell view result-view multi-result-view"><h1>${t.hero.multipleTitle}</h1><p class="lead">${t.hero.multipleLead}</p>
-      <div class="routes section">${candidates.map(key => { const route = t.routes[key]; return `<article class="route-card"><h2>${route[1]}</h2><p>${route[2]}</p><button class="button secondary" data-route="${key}">${t.common.open}</button></article>`; }).join('')}</div>
+      ${actualInputs(state,t)}<div class="routes section">${candidates.map(key => { const route = t.routes[key]; return `<article class="route-card">${diagram(key)}<h2>${route[1]}</h2><p>${route[2]}</p><button class="button secondary" data-route="${key}">${t.common.open}</button></article>`; }).join('')}</div>
       <div class="button-row"><button class="button ghost" data-action="edit">${t.common.edit}</button><button class="button ghost" data-action="home">${t.common.back}</button></div></div>`;
     return;
   }
-  const route = t.routes[state.route || determineRoute()];
   const hasAnswer=['grade','barrier','goal'].some(key=>state.answers[key]&&state.answers[key]!=='skipped');
   const reason=state.routeOrigin==='explore'?c.reasonExplore:state.answers.goal===(state.route||determineRoute())?c.reasonPriority:state.selectedProblems.includes(state.route||determineRoute())?c.reasonSelected:hasAnswer?c.reasonFallback:c.reasonEmpty;
   const personalized=state.routeOrigin!=='explore'&&(hasAnswer||state.selectedProblems.length);
-  main.innerHTML = `<div class="shell view result-view"><p class="eyebrow">${personalized?t.result.eyebrow:c.routeOverview}</p><h1>${route[0]}</h1><p class="lead">${personalized?t.result.lead:c.routeNeutral}</p><p class="result-reason"><strong>${c.answerReason}</strong> — ${reason}</p>
-    <section class="panel route-detail"><h2>${route[1]}</h2><p>${route[2]}</p><h3>${t.result.actions}</h3><ul>${route[3].map(item => `<li>${item}</li>`).join('')}</ul><p class="notice">${route[4]}</p>
-      <div class="button-row">${registrationLink()}<button class="button secondary" data-action="catalog">${t.common.another}</button><button class="button ghost" data-action="edit">${t.common.edit}</button><button class="button ghost" data-action="restart">${t.common.restart}</button></div>
-    </section></div>`;
+  main.innerHTML = personalMap(state,t,c,state.route||determineRoute(),reason,personalized,registrationLink);
 }
 
 function renderCatalog() {
@@ -176,11 +186,33 @@ function renderCatalog() {
 }
 
 function restart() {
-  Object.assign(state, { view:'home', step:0, selectedProblems:[], route:null, demo:null, demoText:'', demoSubmitted:false, showcase:'career', answers:{ grade:null, barrier:null, goal:null, freeText:'',freeTexts:{grade:'',barrier:''} } });
+  Object.assign(state, { view:'home', step:0, selectedProblems:[], route:null, routeOrigin:null, university:null, interest:null, demo:null, demoText:'', demoSubmitted:false, showcase:'career', answers:{ grade:null, barrier:null, goal:null, freeText:'',freeTexts:{grade:'',barrier:''} } });
   render(); window.scrollTo(0, 0);
 }
 
+function openUniversity(index, trigger) {
+  const u=universities[index],d=universityDetails[index],p=polishCopy[state.lang];
+  if(!u||!d)return;
+  document.querySelector('#university-dialog')?.remove();
+  const dialog=document.createElement('dialog');dialog.id='university-dialog';dialog.className='university-dialog';
+  dialog.setAttribute('aria-labelledby','university-dialog-title');
+  dialog.innerHTML=`<button type="button" class="dialog-close" data-dialog-close aria-label="${p.close}"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button><div class="dialog-art">${diagram('universities')}</div><p>${d.country[state.lang]}</p><h2 id="university-dialog-title" translate="no">${u.name}</h2><p>${p.universityFact}</p><p class="helper">${sceneCopy[state.lang].universitySource}</p><a class="source-link" href="${d.url}" target="_blank" rel="noopener">${p.official}${arrow()}</a><button type="button" class="button primary" data-university-start="${index}">${p.universityStart}${arrow()}</button>`;
+  document.body.append(dialog);
+  dialog.addEventListener('close',()=>{dialog.remove();if(trigger.isConnected)trigger.focus({preventScroll:true});});
+  dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
+  dialog.showModal();
+}
+
 document.addEventListener('click', event => {
+  const anchor=event.target.closest('[data-anchor]');
+  if(anchor && !event.ctrlKey && !event.metaKey && !event.shiftKey && event.button===0){event.preventDefault();closeMenu();if(state.view!=='home'){state.view='home';render();}const target=document.getElementById(anchor.dataset.anchor);target?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches||document.documentElement.dataset.motionPaused==='true'?'instant':'smooth'});target?.setAttribute('tabindex','-1');target?.focus({preventScroll:true});history.replaceState(null,'',`#${anchor.dataset.anchor}`);return;}
+  const university=event.target.closest('[data-university]');
+  if(university){openUniversity(Number(university.dataset.university),university);return;}
+  if(event.target.closest('[data-dialog-close]')){document.querySelector('#university-dialog')?.close();return;}
+  const universityStart=event.target.closest('[data-university-start]');
+  if(universityStart){state.university=Number(universityStart.dataset.universityStart);state.selectedProblems=normalizeProblems([...state.selectedProblems,'universities']);document.querySelector('#university-dialog')?.close();state.step=0;state.route=null;state.routeOrigin='quiz';setView('quiz');return;}
+  const concern=event.target.closest('[data-concern-start]');
+  if(concern){state.selectedProblems=normalizeProblems([...state.selectedProblems,concern.dataset.concernStart]);state.step=0;state.route=null;state.routeOrigin='quiz';setView('quiz');return;}
   const language = event.target.closest('[data-lang]');
   if (language) { const previousY=window.scrollY; state.lang = language.dataset.lang; try { localStorage.setItem('ventorme-lang', state.lang); } catch { /* Language still works for this visit. */ } render(); window.scrollTo({top:previousY,behavior:'instant'});document.querySelector(`[data-lang="${state.lang}"]`).focus({preventScroll:true}); return; }
   const problem = event.target.closest('[data-problem]');
@@ -203,6 +235,7 @@ document.addEventListener('click', event => {
   if (route) { state.routeOrigin=state.view==='home'||state.view==='catalog'?'explore':'quiz';state.route = route.dataset.route; setView('result'); return; }
   const action = event.target.closest('[data-action]')?.dataset.action;
   if (!action) return;
+  if(action==='demo-quiz'){state.interest=state.demo;state.selectedProblems=normalizeProblems([...state.selectedProblems,'career']);state.step=0;state.route=null;state.routeOrigin='quiz';setView('quiz');return;}
   if(action==='demo-submit'){const input=main.querySelector('#demo-text');const error=main.querySelector('#demo-error');if(!state.demoText.trim()){error.textContent=sceneCopy[state.lang].demoRequired;input.setAttribute('aria-invalid','true');input.focus();return;}state.demoSubmitted=true;input.removeAttribute('aria-invalid');error.textContent='';main.querySelector('#demo-custom-result').hidden=false;main.querySelector('.demo-registration').hidden=false;animateContent(main.querySelector('#demo-custom-result'));return;}
   if (action === 'home') setView('home');
   if (action === 'quiz') { state.step = 0; state.route = null;state.routeOrigin='quiz'; setView('quiz'); }

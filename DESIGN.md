@@ -244,6 +244,12 @@ Supporting scene reveals use 900ms; question notes use 850ms with a 65ms stagger
 
 ## Do's and Don'ts
 
+### Final-polish layer (2026-10-13)
+
+The current `polish.css` layer supersedes the earlier single-theme header/task surface descriptions above. Primitive colors and Hero layout remain unchanged. Semantic tokens: `--page-bg`, `--page-ink`, `--page-muted`, `--page-card`, `--page-soft`, `--page-line`, and paper/lilac/coral scene surfaces. Light uses cream/ink; dark uses midnight/lavender. Colored brand anchors retain intentional contrast instead of being inverted. Theme initialization precedes styles.
+
+Navigation adds five anchors, registration, language, theme and mobile disclosure controls. Header height feeds scroll padding. Diagrams are original SVG geometry, not university marks. The result is a three-checkpoint map with factual session inputs, not an AI profile. New copy is in `polish-copy.js`; motion uses 450–650ms interactions and 7–14s visible-only loops. See `docs/FINAL_POLISH_QA.md` for sources and tested states.
+
 ### Do
 
 - Do preserve local fonts and all three language-specific headline fits.

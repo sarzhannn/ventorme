@@ -72,7 +72,7 @@ export function startHeroMotion(hero, labels) {
     revealedCards.add(card.dataset.problem);
     if (!preference.matches && !motionPaused) card.classList.add('card-enter');
   };
-  const cardObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+  const cardObserver = typeof IntersectionObserver==='function' ? new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) { revealCard(entry.target); cardObserver.unobserve(entry.target); }
     });
@@ -83,7 +83,7 @@ export function startHeroMotion(hero, labels) {
   button.addEventListener('click', toggle);
   document.addEventListener('visibilitychange', sync);
   preference.addEventListener?.('change', sync);
-  const observer = 'IntersectionObserver' in window ? new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }) : null;
+  const observer = typeof IntersectionObserver==='function' ? new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }) : null;
   observer?.observe(hero);
   sync();
   cleanup = () => { observer?.disconnect(); cardObserver?.disconnect(); springs.forEach(animation => animation.cancel()); hero.removeEventListener('hero-choice', select); button.removeEventListener('click', toggle); document.removeEventListener('visibilitychange', sync); preference.removeEventListener?.('change', sync); };
