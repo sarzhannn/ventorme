@@ -1,5 +1,7 @@
 # HERO reinvention — verification record
 
+Latest Hero behavior and timings: [Final multi-select polish, 2026-10-13](HERO_MULTISELECT_QA.md). The historical implementation notes below are retained; their single-selection behavior and older durations are superseded.
+
 Date: 2026-10-12. Scope: first screen, header, design tokens and selected-concern transition feedback. No deployment.
 Local URL: http://127.0.0.1:4173/
 Backup: output/hero-checkpoint-20261012-230649 — 45 site files copied and hash-compared before editing, zero mismatches.

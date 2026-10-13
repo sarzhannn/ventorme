@@ -80,8 +80,41 @@ const en = {
 };
 
 // Hero-only interface copy. No quiz or route content is changed by the redesign.
-Object.assign(ru.hero, { question:'Не знать, кем стать, — нормально.', journey:'3 коротких вопроса. Не экзамен.', catalog:'Сразу к возможностям — без вопросов', chooseHint:'Нажми на свою проблему — начнём с неё. Всего 3 вопроса до первого шага.', selected:'Твой выбор', continue:'Продолжить с этим вопросом', motion:{pause:'Остановить движение',resume:'Включить движение',reduced:'Движение отключено'} });
-Object.assign(kz.hero, { question:'Кім боларыңды әлі білмесең — бұл қалыпты.', journey:'3 қысқа сұрақ. Емтихан емес.', catalog:'Сұрақтарсыз бірден мүмкіндіктерге өту', chooseHint:'Өзіңді толғандыратын мәселені бас — содан бастаймыз. Алғашқы қадамға дейін 3 сұрақ қана.', selected:'Сенің таңдауың', continue:'Осы сұрақпен жалғастыру', motion:{pause:'Қозғалысты тоқтату',resume:'Қозғалысты қосу',reduced:'Қозғалыс өшірілген'} });
-Object.assign(en.hero, { question:'It’s okay not to know what comes next.', journey:'3 short questions. Not an exam.', catalog:'Straight to the options — no questions', chooseHint:'Tap what concerns you — we’ll start there. Just 3 questions to your first step.', selected:'Your choice', continue:'Continue with this concern', motion:{pause:'Pause motion',resume:'Resume motion',reduced:'Motion is off'} });
+Object.assign(ru.hero, {
+  slogan:['Не нужен ответ на всю жизнь.','Нужен следующий шаг.'],
+  question:'Профессия, университет, грант или экзамены — выбери, с чего разобраться с Ventorme.',
+  prompt:'Что не даёт определиться?', chooseHint:'Можно выбрать сразу несколько.',
+  startOne:'Разобраться с этим', startMany:'Разобраться с моими вопросами', count:'Выбрано: {n}',
+  catalog:'Сразу к возможностям — без вопросов', selected:'Твои вопросы', continue:'Продолжить с этим вопросом',
+  priorityHint:'С чего начнём? Выбери главный приоритет. Если пока не знаешь или пропустишь вопрос — покажем все выбранные направления.',
+  multipleTitle:'Не обязательно выбирать что-то одно',
+  multipleLead:'У тебя несколько вопросов, и ты пока не выделил главный. Вот направления по твоему выбору — открой любое и посмотри первый шаг.',
+  universities:'Университеты на сайте Ventorme',
+  motion:{pause:'Остановить движение',resume:'Включить движение',reduced:'Движение отключено'}
+});
+Object.assign(kz.hero, {
+  slogan:['Бүкіл өміріңді қазір шешу міндет емес.','Алдымен келесі қадамды тап.'],
+  question:'Мамандық, университет, грант немесе емтихандар — Ventorme арқылы неден бастайтыныңды таңда.',
+  prompt:'Таңдау жасауға не кедергі?', chooseHint:'Бірнешеуін қатар таңдауға болады.',
+  startOne:'Осы сұрақты қарастыру', startMany:'Сұрақтарымды бірге қарастыру', count:'Таңдалды: {n}',
+  catalog:'Сұрақтарсыз бірден мүмкіндіктерге өту', selected:'Сенің сұрақтарың', continue:'Осы сұрақпен жалғастыру',
+  priorityHint:'Неден бастаймыз? Ең маңыздысын таңда. Әлі білмесең немесе сұрақты өткізіп жіберсең, таңдаған бағыттарыңның бәрін көрсетеміз.',
+  multipleTitle:'Біреуін ғана таңдау міндетті емес',
+  multipleLead:'Сенде бірнеше сұрақ бар, бірақ ең маңыздысын әлі таңдамадың. Таңдауыңа сай бағыттар осында — кез келгенін ашып, алғашқы қадамды қара.',
+  universities:'Ventorme сайтындағы университеттер',
+  motion:{pause:'Қозғалысты тоқтату',resume:'Қозғалысты қосу',reduced:'Қозғалыс өшірілген'}
+});
+Object.assign(en.hero, {
+  slogan:['You don’t need a lifelong answer.','You need a next step.'],
+  question:'A career, a university, a grant or exams — choose what to work out with Ventorme.',
+  prompt:'What’s making it hard to decide?', chooseHint:'You can choose more than one.',
+  startOne:'Work this out', startMany:'Work through my questions', count:'Selected: {n}',
+  catalog:'Straight to the options — no questions', selected:'Your questions', continue:'Continue with this concern',
+  priorityHint:'Where shall we start? Choose your main priority. If you’re unsure or skip this question, we’ll show all your selected directions.',
+  multipleTitle:'You don’t have to pick just one',
+  multipleLead:'You have several questions and haven’t picked a priority yet. Here are the directions you selected — open any one to see a first step.',
+  universities:'Universities shown on Ventorme',
+  motion:{pause:'Pause motion',resume:'Resume motion',reduced:'Motion is off'}
+});
 
 export const translations = { ru, kz, en };

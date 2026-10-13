@@ -15,7 +15,7 @@ for (const locale of ['ru', 'kz', 'en']) {
   for (const key of ['pause', 'resume', 'reduced']) {
     assert.ok(text.hero.motion[key]?.trim(), `${locale}: missing motion label ${key}`);
   }
-  for (const key of ['chooseHint', 'selected', 'continue']) {
+  for (const key of ['chooseHint', 'selected', 'continue', 'startOne', 'startMany', 'count', 'priorityHint', 'multipleTitle', 'multipleLead', 'universities']) {
     assert.ok(text.hero[key]?.trim(), `${locale}: missing selection label ${key}`);
   }
 }

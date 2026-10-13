@@ -55,12 +55,12 @@ export function startHeroMotion(hero, labels) {
   const toggle = () => { motionPaused = !motionPaused; sync(); };
   const select = ({ detail: card }) => {
     springs.forEach(animation => animation.cancel()); springs.clear();
-    if (preference.matches || motionPaused || !card.animate) return;
+    if (preference.matches || motionPaused || !card.animate || card.getAttribute('aria-pressed') !== 'true') return;
     const spring = card.animate([
-      { transform:'rotate(0deg) scale(.95)', offset:0 },
-      { transform:'rotate(-1deg) scale(1.06)', offset:.52 },
-      { transform:'rotate(.3deg) scale(1.015)', offset:.8 },
-      { transform:'rotate(0deg) scale(1.025)', offset:1 }
+      { transform:'translateY(0) rotate(0deg) scale(.95)', offset:0 },
+      { transform:'translateY(-7px) rotate(-1deg) scale(1.055)', offset:.52 },
+      { transform:'translateY(-3px) rotate(.3deg) scale(1.01)', offset:.8 },
+      { transform:'translateY(-4px) rotate(0deg) scale(1.02)', offset:1 }
     ], { duration:600, easing:'cubic-bezier(.22,.75,.3,1)' });
     springs.add(spring);
     spring.finished.catch(() => {}).finally(() => springs.delete(spring));

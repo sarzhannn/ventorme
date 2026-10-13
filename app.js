@@ -1,5 +1,6 @@
 import { REGISTRATION_URL } from './config.js';
 import { translations } from './translations.js';
+import { normalizeProblems, resolveRoutes } from './selection.js';
 import { problemArtwork, orbitArtwork, startHeroMotion, stopHeroMotion, transitionFromHero } from './hero.js';
 
 // Some embedded/private browsers expose localStorage but deny access to it.
@@ -8,7 +9,7 @@ const savedLanguage = (() => { try { return localStorage.getItem('ventorme-lang'
 const ROUTES = ['career', 'universities', 'grants', 'exams', 'plan'];
 const state = {
   lang: translations[savedLanguage] ? savedLanguage : 'ru',
-  view: 'home', step: 0, selectedProblem: null, route: null, demo: null,
+  view: 'home', step: 0, selectedProblems: [], route: null, demo: null,
   answers: { grade: null, barrier: null, goal: null, freeText: '' }
 };
 
@@ -64,7 +65,9 @@ function render() {
 
 function renderHome() {
   const t = text();
-  main.innerHTML = `<section class="hero-stage" id="start" aria-labelledby="hero-title" data-concern="${state.selectedProblem || ''}">
+  const count = state.selectedProblems.length;
+  const ctaIndex = Math.min(count, 2);
+  main.innerHTML = `<section class="hero-stage" id="start" aria-labelledby="hero-title" data-selection-count="${count}">
     <div class="hero-atmosphere" aria-hidden="true"><div class="mesh-layer mesh-violet"></div><div class="mesh-layer mesh-coral"></div><div class="hero-meridian"></div></div>
     <div class="hero-layout">
       <div class="hero-editorial">
@@ -73,21 +76,23 @@ function renderHome() {
       <div class="hero-story">
         <p class="hero-slogan">${t.hero.slogan.map(line => `<span>${line}</span>`).join(' ')}</p>
         <p class="hero-question">${t.hero.question}</p>
-        <button type="button" class="button hero-cta" data-action="quiz" aria-describedby="hero-journey hero-choice-status"><span>${t.hero.start}</span><span class="hero-cta-arrow" aria-hidden="true">${arrow()}</span></button>
-        <p class="hero-journey" id="hero-journey">${arrow()}<span>${t.hero.journey}</span></p>
-        <p class="hero-promise">${t.hero.promise.split(' • ').map(item => `<span>${item}</span>`).join('')}</p>
-        <button type="button" class="catalog-link hero-catalog" data-action="catalog"><span>${t.hero.catalog}</span>${arrow()}</button>
       </div>
       <div class="hero-interaction">
         ${orbitArtwork()}
         <div class="hero-intro"><h2 id="problem-prompt">${t.hero.prompt}</h2><p id="hero-choice-hint">${t.hero.chooseHint}</p></div>
         <div class="problem-grid" role="group" aria-labelledby="problem-prompt" aria-describedby="hero-choice-hint">
-          ${ROUTES.slice(0, 4).map(key => `<button type="button" class="problem-card problem-${key}" data-problem="${key}" aria-pressed="${state.selectedProblem === key}"><span class="problem-art" aria-hidden="true">${problemArtwork(key)}</span><span class="problem-direction" aria-hidden="true">${arrow()}<svg class="problem-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4 10-10"/></svg></span><span class="problem-label">${t.hero.problems[key]}</span></button>`).join('')}
-        </div>
-        <div class="hero-choice-footer">
-          <p id="hero-choice-status" class="hero-choice-status" role="status">${state.selectedProblem ? `${t.hero.selected}: ${t.hero.problems[state.selectedProblem]}` : ''}</p>
+          ${ROUTES.slice(0, 4).map(key => `<button type="button" class="problem-card problem-${key}" data-problem="${key}" aria-pressed="${state.selectedProblems.includes(key)}"><span class="problem-art" aria-hidden="true">${problemArtwork(key)}</span><span class="problem-direction" aria-hidden="true">${arrow()}<svg class="problem-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4 10-10"/></svg></span><span class="problem-label">${t.hero.problems[key]}</span></button>`).join('')}
         </div>
       </div>
+      <div class="hero-actions">
+        <button type="button" class="button hero-cta" data-action="quiz" aria-describedby="hero-choice-status"><span class="hero-cta-labels">${[t.hero.start, t.hero.startOne, t.hero.startMany].map((label, index) => `<span data-cta-label="${index}" aria-hidden="${index !== ctaIndex}">${label}</span>`).join('')}</span><span class="hero-cta-arrow" aria-hidden="true">${arrow()}</span></button>
+        <p id="hero-choice-status" class="hero-choice-status" role="status" aria-atomic="true">${fill(t.hero.count, count)}</p>
+        <button type="button" class="catalog-link hero-catalog" data-action="catalog"><span>${t.hero.catalog}</span>${arrow()}</button>
+      </div>
+      <aside class="university-teaser" aria-label="${t.hero.universities}">
+        <a href="https://ventorme.ai/" target="_blank" rel="noopener">${t.hero.universities}${arrow()}</a>
+        <ul translate="no"><li>Taylor’s University</li><li>Arizona State University</li><li>Curtin University</li></ul>
+      </aside>
       <div class="hero-bottom"><span class="hero-signature" translate="no">VENTORME / HACKNEXT 113</span><button class="motion-toggle" type="button" aria-pressed="false"><span class="motion-icon" aria-hidden="true"></span><span class="motion-label">${t.hero.motion.pause}</span></button></div>
     </div>
   </section><div class="shell home-support">
@@ -95,6 +100,19 @@ function renderHome() {
     <footer class="footer">Ventorme · ${t.final.note}</footer>
   </div>`;
   startHeroMotion(main.querySelector('.hero-stage'), t.hero.motion);
+}
+
+function updateHeroSelection() {
+  const hero = main.querySelector('.hero-stage');
+  const count = state.selectedProblems.length;
+  hero.dataset.selectionCount = String(count);
+  hero.querySelectorAll('[data-problem]').forEach(button => {
+    button.setAttribute('aria-pressed', String(state.selectedProblems.includes(button.dataset.problem)));
+  });
+  hero.querySelectorAll('[data-cta-label]').forEach(label => {
+    label.setAttribute('aria-hidden', String(Number(label.dataset.ctaLabel) !== Math.min(count, 2)));
+  });
+  hero.querySelector('#hero-choice-status').textContent = fill(text().hero.count, count);
 }
 
 function supportSections() {
@@ -121,10 +139,10 @@ function renderQuiz(error = '') {
   const selected = state.answers[key];
   const showFreeText = (key === 'grade' || key === 'barrier') && selected === 'other';
   main.innerHTML = `<div class="shell view quiz-view">
-    ${state.selectedProblem ? `<p class="hero-selection"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4 10-10"/></svg>${t.hero.problems[state.selectedProblem]}</p>` : ''}
+    ${state.selectedProblems.length ? `<div class="quiz-concerns"><p>${t.hero.selected}</p><ul>${state.selectedProblems.map(key => `<li class="hero-selection">${t.hero.problems[key]}</li>`).join('')}</ul></div>` : ''}
     <p class="eyebrow">${t.quiz.name}</p><div class="quiz-meta"><span>${fill(t.quiz.step, state.step + 1)}</span><span>${t.quiz.optional}</span></div>
     <div class="progress" aria-hidden="true"><span style="width:${((state.step + 1) / 3) * 100}%"></span></div>
-    <h1>${title}</h1><p class="lead">${hint}</p><div class="choice-grid">
+    <h1>${title}</h1><p class="lead">${key === 'goal' && state.selectedProblems.length > 1 ? t.hero.priorityHint : hint}</p><div class="choice-grid">
       ${options.map(option => `<button class="choice" data-answer="${key}" data-value="${option[0]}" aria-pressed="${selected === option[0]}">${option[1]}</button>`).join('')}
     </div>${showFreeText ? `<div class="free-field"><label for="free-text">${t.quiz.freeLabel}</label><textarea maxlength="200" class="free-text" id="free-text" name="free-text" autocomplete="off" aria-describedby="free-hint free-counter">${escapeHtml(state.answers.freeText)}</textarea><p class="helper" id="free-hint">${t.quiz.freeHint}</p><p class="counter" id="free-counter">${fill(t.quiz.counter, 200 - state.answers.freeText.length)}</p></div>` : ''}
     <p class="error" id="quiz-error" aria-live="polite">${error}</p><div class="button-row quiz-actions">
@@ -133,14 +151,19 @@ function renderQuiz(error = '') {
 }
 
 function determineRoute() {
-  const goal = state.answers.goal;
-  if (goal && !['undecided', 'skipped'].includes(goal)) return goal;
-  if (state.selectedProblem) return state.selectedProblem;
-  return ({ where:'universities', money:'grants', exam:'exams' })[state.answers.barrier] || 'career';
+  const routes = resolveRoutes(state.answers, state.selectedProblems);
+  return routes.length === 1 ? routes[0] : null;
 }
 
 function renderResult() {
   const t = text();
+  const candidates = resolveRoutes(state.answers, state.selectedProblems);
+  if (!state.route && candidates.length > 1) {
+    main.innerHTML = `<div class="shell view result-view multi-result-view"><h1>${t.hero.multipleTitle}</h1><p class="lead">${t.hero.multipleLead}</p>
+      <div class="routes section">${candidates.map(key => { const route = t.routes[key]; return `<article class="route-card"><h2>${route[1]}</h2><p>${route[2]}</p><button class="button secondary" data-route="${key}">${t.common.open}</button></article>`; }).join('')}</div>
+      <div class="button-row"><button class="button ghost" data-action="edit">${t.common.edit}</button><button class="button ghost" data-action="home">${t.common.back}</button></div></div>`;
+    return;
+  }
   const route = t.routes[state.route || determineRoute()];
   main.innerHTML = `<div class="shell view result-view"><p class="eyebrow">${t.result.eyebrow}</p><h1>${route[0]}</h1><p class="lead">${t.result.lead}</p>
     <section class="panel route-detail"><h2>${route[1]}</h2><p>${route[2]}</p><h3>${t.result.actions}</h3><ul>${route[3].map(item => `<li>${item}</li>`).join('')}</ul><p class="notice">${route[4]}</p>
@@ -156,7 +179,7 @@ function renderCatalog() {
 }
 
 function restart() {
-  Object.assign(state, { view:'home', step:0, selectedProblem:null, route:null, demo:null, answers:{ grade:null, barrier:null, goal:null, freeText:'' } });
+  Object.assign(state, { view:'home', step:0, selectedProblems:[], route:null, demo:null, answers:{ grade:null, barrier:null, goal:null, freeText:'' } });
   render(); window.scrollTo(0, 0);
 }
 
@@ -165,14 +188,12 @@ document.addEventListener('click', event => {
   if (language) { state.lang = language.dataset.lang; try { localStorage.setItem('ventorme-lang', state.lang); } catch { /* Language still works for this visit. */ } render(); return; }
   const problem = event.target.closest('[data-problem]');
   if (problem) {
-    state.selectedProblem = problem.dataset.problem;
-    document.querySelectorAll('[data-problem]').forEach(button => button.setAttribute('aria-pressed', String(button === problem)));
+    const key = problem.dataset.problem;
+    state.selectedProblems = normalizeProblems(state.selectedProblems.includes(key) ? state.selectedProblems.filter(value => value !== key) : [...state.selectedProblems, key]);
+    state.route = null;
     const hero = problem.closest('.hero-stage');
-    hero.dataset.concern = state.selectedProblem;
-    hero.querySelector('#hero-choice-status').textContent = `${text().hero.selected}: ${text().hero.problems[state.selectedProblem]}`;
+    updateHeroSelection();
     hero.dispatchEvent(new CustomEvent('hero-choice', { detail: problem }));
-    state.step = 0;
-    setView('quiz');
     return;
   }
   const demo = event.target.closest('[data-demo]');
@@ -184,7 +205,7 @@ document.addEventListener('click', event => {
   const action = event.target.closest('[data-action]')?.dataset.action;
   if (!action) return;
   if (action === 'home') setView('home');
-  if (action === 'quiz') { state.step = 0; setView('quiz'); }
+  if (action === 'quiz') { state.step = 0; state.route = null; setView('quiz'); }
   if (action === 'catalog') setView('catalog');
   if (action === 'edit') { state.step = 0; setView('quiz'); }
   if (action === 'restart') restart();
