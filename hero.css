@@ -98,7 +98,9 @@ textarea,input { caret-color:#6334db; }
 .hero-cta { position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px;width:100%;margin-top:18px;padding:10px 12px 10px 18px;border-radius:12px;background:var(--cta-bg);color:var(--cta-fg);font-size:16px;font-weight:700;line-height:1.3;letter-spacing:-.025em;transition:transform 700ms var(--ease-spring);box-shadow:0 7px 18px -8px #b9ed4670; }
 .hero-cta-arrow { display:grid;flex:none;place-items:center;width:35px;height:35px;border-radius:50%;background:var(--cta-fg);color:var(--cta-bg); }
 .hero-cta-arrow svg { width:21px;height:21px;transition:transform 700ms var(--ease-spring); }
-.hero-catalog { margin-inline:0;display:flex;align-items:center;justify-content:flex-start;gap:10px;text-align:left;width:100%;max-width:100%;min-height:44px;margin-top:12px;padding:8px 0;color:var(--hero-fg);font-size:14px;line-height:1.5;text-underline-offset:4px;text-decoration-color:#a099be;white-space:normal;overflow-wrap:break-word; }
+.hero-catalog { margin-inline:0;display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:left;width:100%;max-width:100%;min-height:52px;margin-top:12px;padding:14px 18px;border:1px solid #c9b7f0;border-radius:12px;background:#dfd3ff1f;color:var(--hero-fg);font-size:15px;font-weight:600;line-height:1.5;text-decoration:none;white-space:normal;overflow-wrap:break-word; }
+.hero-catalog:focus-visible { outline:3px solid var(--color-lime);outline-offset:4px; }
+.hero-catalog:active { background:#dfd3ff38; }
 .hero-catalog svg { flex:none;width:18px;height:18px; }
 .hero-cta::after,.problem-card::before { content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity 700ms var(--ease-out); }
 .hero-cta::after { box-shadow:0 14px 28px -10px #b9ed4670; }
@@ -162,7 +164,8 @@ html[lang="kk"] .title-spark,html[lang="en"] .title-spark { top:48px;width:48px;
   .problem-card:hover .problem-direction>svg { transform:translateX(2px) rotate(0); }
   .hero-cta:hover { transform:translateY(-3px) scale(1.015); }
   .hero-cta:hover .hero-cta-arrow svg { transform:translateX(5px) rotate(-8deg); }
-  .hero-catalog:hover,.motion-toggle:hover { color:var(--color-lime); }
+  .hero-catalog:hover { color:var(--color-lime);border-color:var(--color-lime);background:#dfd3ff30; }
+  .motion-toggle:hover { color:var(--color-lime); }
 }
 .problem-card:active { transform:scale(.95) rotate(0);transition-duration:90ms; }
 .hero-cta:active { transform:translateY(3px) scale(.985);transition-duration:90ms; }
@@ -176,7 +179,7 @@ html[lang="kk"] .title-spark,html[lang="en"] .title-spark { top:48px;width:48px;
   .hero-slogan { font-size:21px; }
   .hero-question { font-size:16px; }
   .hero-cta { max-width:450px;font-size:20px;min-height:64px; }
-  .hero-catalog { width:fit-content;max-width:480px;text-align:left;font-size:14px; }
+  .hero-catalog { width:100%;max-width:480px;text-align:left;font-size:15px; }
   .hero-intro h2 { font-size:25px; }
   .hero-intro p { font-size:15px; }
   .hero-universe { inset:-35px 0 auto;height:580px; }
