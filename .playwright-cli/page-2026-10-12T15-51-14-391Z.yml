@@ -1,0 +1,30 @@
+- generic [active] [ref=e1]:
+  - link "Негізгі мазмұнға өту" [ref=e85] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - link "Ventorme — басты бетке" [ref=e86] [cursor=pointer]:
+      - /url: "#start"
+      - text: V•ntorme
+    - group "Тілді таңдаңыз" [ref=e87]:
+      - button "RU" [ref=e6] [cursor=pointer]
+      - button "KZ" [pressed] [ref=e7] [cursor=pointer]
+      - button "EN" [ref=e8] [cursor=pointer]
+  - main [ref=e9]:
+    - generic [ref=e185]:
+      - paragraph [ref=e186]: Бірге анықтайық
+      - generic [ref=e187]:
+        - generic [ref=e188]: 1-қадам / 3
+        - generic [ref=e189]: Өткізіп жіберуге болады
+      - heading "Оқуға түсуге дейін қанша уақытың бар?" [level=1] [ref=e192]
+      - paragraph [ref=e193]: Бұл саған лайықты келесі қадамды көрсетуге көмектеседі.
+      - generic [ref=e194]:
+        - button "7–8 сынып — Қызығушылықтарымды зерттеп жүрмін" [ref=e195] [cursor=pointer]
+        - button "9 сынып — Тоғызыншы сыныптан кейін не істейтінімді ойлап жүрмін" [ref=e196] [cursor=pointer]
+        - button "10 сынып — Оқуға түсуге дайындала бастадым" [ref=e197] [cursor=pointer]
+        - button "11 сынып — Оқуға түсу уақыты жақын" [ref=e198] [cursor=pointer]
+        - button "Басқа — Өз нұсқамды жазамын" [ref=e199] [cursor=pointer]
+      - paragraph [ref=e200]: Кемінде бір нұсқаны таңда немесе сұрақты өткізіп жібер.
+      - generic [ref=e201]:
+        - button "Артқа" [ref=e202] [cursor=pointer]
+        - button "Өткізіп жіберу" [ref=e203] [cursor=pointer]
+        - button "Әрі қарай" [ref=e204] [cursor=pointer]

@@ -1,0 +1,80 @@
+- generic [ref=e1]:
+  - link "Негізгі мазмұнға өту" [ref=e85] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - link "Ventorme — басты бетке" [ref=e86] [cursor=pointer]:
+      - /url: "#start"
+      - text: V•ntorme
+    - group "Тілді таңдаңыз" [ref=e87]:
+      - button "RU" [ref=e6] [cursor=pointer]
+      - button "KZ" [active] [pressed] [ref=e7] [cursor=pointer]
+      - button "EN" [ref=e8] [cursor=pointer]
+  - main [ref=e9]:
+    - generic [ref=e88]:
+      - generic [ref=e89]:
+        - generic [ref=e90]:
+          - paragraph [ref=e91]: Ventorme
+          - heading "МЕКТЕПТЕН КЕЙІН НЕ БОЛАДЫ?" [level=1] [ref=e92]
+          - paragraph [ref=e93]: Бәрі сенен кім болатыныңды сұрайды. Ал сен әлі білмейсің бе?
+          - paragraph [ref=e94]: Дайын жоспардың болмауы қалыпты. Қазір не мазалайтынын таңда да, неден бастауға болатынын біл.
+        - generic [ref=e95]:
+          - strong [ref=e96]: Қазір не қиынырақ?
+          - generic [ref=e97]:
+            - button "Мамандықты таңдай алмаймын" [ref=e98] [cursor=pointer]
+            - button "Қайда түсу керегін білмеймін" [ref=e99] [cursor=pointer]
+            - button "Грант ала алмай қаламын деп қорқамын" [ref=e100] [cursor=pointer]
+            - button "Емтиханға қалай дайындалуды білмеймін" [ref=e101] [cursor=pointer]
+          - button "Алғашқы қадамды табу" [ref=e102] [cursor=pointer]
+      - button "Сұрақтарға жауап бергім келмейді — мүмкіндіктерді көрсетіңіз" [ref=e105] [cursor=pointer]
+      - paragraph [ref=e106]: Күрделі терминдерсіз · Өз қарқыныңмен
+      - generic [ref=e107]:
+        - heading "Алдымен шағын сұраққа жауап беріп көр" [level=2] [ref=e108]
+        - paragraph [ref=e109]: Бұл тек мысал, кәсіптік бағдарлау қорытындысы емес.
+        - generic [ref=e110]:
+          - paragraph [ref=e111]: 1 / 1
+          - heading "Қай іс саған қызығырақ?" [level=3] [ref=e112]
+          - generic [ref=e113]:
+            - button "Адамдармен сөйлесу және оларға көмектесу" [ref=e114] [cursor=pointer]
+            - button "Технологияларды түсіну және есептерді шешу" [ref=e115] [cursor=pointer]
+            - button "Ойлап табу, сурет салу және жаңа нәрсе жасау" [ref=e116] [cursor=pointer]
+            - button "Зерттеу, талдау және жауап іздеу" [ref=e117] [cursor=pointer]
+            - button "Менің өз нұсқам бар" [ref=e118] [cursor=pointer]
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - heading "Ventorme маған не сәйкес келетінін қайдан біледі?" [level=2] [ref=e121]
+          - paragraph [ref=e122]: Ұсынымдар қызығушылықтар мен бағыттарды зерттеуге көмектеседі; олар тағдырыңды шешпейді және оқуға түсуге кепілдік бермейді.
+        - group [ref=e124]:
+          - generic "Ақпаратты қалай тексеруге болады?" [ref=e125]
+      - generic [ref=e126]:
+        - heading "Әлі шешім қабылдамаған болсам, аккаунт не үшін керек?" [level=2] [ref=e127]
+        - paragraph [ref=e128]: Бір құралдан баста. Жоспарда кәсіптік бағдар, IELTS және SAT бойынша тегін шағын тесттер, сондай-ақ білім профилі көрсетілген. Басқа құралдарға жазылым қажет болуы мүмкін — қазіргі шарттарды Ventorme сайтынан тексер.
+        - link "Тегін тіркелуге өту" [ref=e130] [cursor=pointer]:
+          - /url: https://ventorme.ai/register?utm_source=hacknext&utm_campaign=team-113
+      - generic [ref=e133]:
+        - heading "Жолың жүз ашық қойындыдан басталмауы керек" [level=2] [ref=e134]
+        - list [ref=e135]:
+          - listitem [ref=e136]: Негізгі сұрағыңды таңда.
+          - listitem [ref=e137]: Лайықты құралды тап.
+          - listitem [ref=e138]: Аккаунт ашып, қолжетімді мүмкіндіктерді байқап көр.
+          - listitem [ref=e139]: Жоспарды біртіндеп құр.
+        - button "Өз мәселемнен бастағым келеді" [ref=e140] [cursor=pointer]
+      - generic [ref=e141]:
+        - heading "Қоюға болатын сұрақтар" [level=2] [ref=e142]
+        - group [ref=e143]:
+          - generic "Кім болғым келетінін мүлде білмеймін. Ventorme маған жарай ма?" [ref=e144] [cursor=pointer]
+        - group [ref=e145]:
+          - generic "Бағаларым төмен. Байқап көрудің мәні бар ма?" [ref=e146] [cursor=pointer]
+        - group [ref=e147]:
+          - generic "Ағылшын тілін білмеймін. Лендингті қолдана аламын ба?" [ref=e148] [cursor=pointer]
+        - group [ref=e149]:
+          - generic "Ұсынымдар міндетті түрде дұрыс па?" [ref=e150] [cursor=pointer]
+        - group [ref=e151]:
+          - generic "Бірден төлеу керек пе?" [ref=e152] [cursor=pointer]
+        - group [ref=e153]:
+          - generic "Жауаптарым не болады?" [ref=e154] [cursor=pointer]
+      - generic [ref=e155]:
+        - heading "Бүгін бүкіл болашағыңды шешудің қажеті жоқ" [level=2] [ref=e156]
+        - paragraph [ref=e157]: Батырманы басқаннан кейін Ventorme ресми сайтына өтесің. Сол жерде аккаунт ашып, қолжетімді құралдарды пайдалана бастай аласың.
+        - link "Тегін бастау" [ref=e159] [cursor=pointer]:
+          - /url: https://ventorme.ai/register?utm_source=hacknext&utm_campaign=team-113
+      - generic [ref=e162]: Ventorme · Тіркелу Ventorme ресми сайтында өтеді.

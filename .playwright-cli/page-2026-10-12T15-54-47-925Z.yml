@@ -1,0 +1,81 @@
+- generic [ref=e1]:
+  - link "Skip to main content" [ref=e401] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - link "Ventorme — home" [ref=e402] [cursor=pointer]:
+      - /url: "#start"
+      - text: V•ntorme
+    - group "Choose language" [ref=e403]:
+      - button "RU" [ref=e6] [cursor=pointer]
+      - button "KZ" [ref=e7] [cursor=pointer]
+      - button "EN" [active] [pressed] [ref=e8] [cursor=pointer]
+  - main [ref=e9]:
+    - generic [ref=e404]:
+      - paragraph [ref=e405]: Here is a good place to start
+      - heading "A grant is more than luck. Start with the requirements" [level=1] [ref=e406]
+      - paragraph [ref=e407]: We chose this direction from your answers. It is not a final career decision — only a first step.
+      - generic [ref=e408]:
+        - heading "Grant and scholarship search" [level=2] [ref=e409]
+        - paragraph [ref=e410]: Understand programmes, criteria and what may be needed for an application.
+        - heading "What you can do" [level=3] [ref=e411]
+        - list [ref=e412]:
+          - listitem [ref=e413]: Explore programmes
+          - listitem [ref=e414]: Check requirements
+          - listitem [ref=e415]: Identify documents and exams
+        - paragraph [ref=e416]: No calculator guarantees a grant. Verify current conditions with the organiser.
+        - generic [ref=e417]:
+          - link "Go to official Ventorme registration" [ref=e418] [cursor=pointer]:
+            - /url: https://ventorme.ai/register?utm_source=hacknext&utm_campaign=team-113
+          - button "Choose another route" [ref=e421] [cursor=pointer]
+          - button "Edit answers" [ref=e422] [cursor=pointer]
+          - button "Start over" [ref=e423] [cursor=pointer]
+      - generic [ref=e424]:
+        - heading "Try one small question first" [level=2] [ref=e425]
+        - paragraph [ref=e426]: This is only a demonstration, not a career diagnosis.
+        - generic [ref=e427]:
+          - paragraph [ref=e428]: 1 / 1
+          - heading "Which activity interests you more?" [level=3] [ref=e429]
+          - generic [ref=e430]:
+            - button "Talking to people and helping them" [ref=e431] [cursor=pointer]
+            - button "Understanding technology and solving problems" [ref=e432] [cursor=pointer]
+            - button "Inventing, drawing and creating something new" [ref=e433] [cursor=pointer]
+            - button "Researching, analysing and looking for answers" [ref=e434] [cursor=pointer]
+            - button "I have my own answer" [ref=e435] [cursor=pointer]
+      - generic [ref=e436]:
+        - generic [ref=e437]:
+          - heading "How does Ventorme know what may suit me?" [level=2] [ref=e438]
+          - paragraph [ref=e439]: Recommendations help you explore interests and directions; they do not decide your future or guarantee admission.
+        - group [ref=e441]:
+          - generic "How can I verify the information?" [ref=e442]
+      - generic [ref=e443]:
+        - heading "Why create an account if I have not decided yet?" [level=2] [ref=e444]
+        - paragraph [ref=e445]: Start with one tool. The plan lists free mini-tests for career exploration, IELTS and SAT, plus an education profile. Other tools may require a subscription — check the current terms on Ventorme.
+        - link "Go to free registration" [ref=e447] [cursor=pointer]:
+          - /url: https://ventorme.ai/register?utm_source=hacknext&utm_campaign=team-113
+      - generic [ref=e450]:
+        - heading "Your path should not begin with a hundred open tabs" [level=2] [ref=e451]
+        - list [ref=e452]:
+          - listitem [ref=e453]: Choose your main question.
+          - listitem [ref=e454]: Find the right tool.
+          - listitem [ref=e455]: Create an account and try the available features.
+          - listitem [ref=e456]: Build your plan gradually.
+        - button "Start with my concern" [ref=e457] [cursor=pointer]
+      - generic [ref=e458]:
+        - heading "Questions you can ask" [level=2] [ref=e459]
+        - group [ref=e460]:
+          - generic "I have no idea what I want to become. Is Ventorme for me?" [ref=e461] [cursor=pointer]
+        - group [ref=e462]:
+          - generic "My grades are not strong. Is it still worth trying?" [ref=e463] [cursor=pointer]
+        - group [ref=e464]:
+          - generic "I do not know English. Can I use this landing page?" [ref=e465] [cursor=pointer]
+        - group [ref=e466]:
+          - generic "Are the recommendations definitely correct?" [ref=e467] [cursor=pointer]
+        - group [ref=e468]:
+          - generic "Do I have to pay immediately?" [ref=e469] [cursor=pointer]
+        - group [ref=e470]:
+          - generic "What happens to my answers?" [ref=e471] [cursor=pointer]
+      - generic [ref=e472]:
+        - heading "You do not have to decide your whole future today" [level=2] [ref=e473]
+        - paragraph [ref=e474]: After clicking, you will go to the official Ventorme website, where you can create an account and start using the available tools.
+        - link "Start for free" [ref=e476] [cursor=pointer]:
+          - /url: https://ventorme.ai/register?utm_source=hacknext&utm_campaign=team-113
