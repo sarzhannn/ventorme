@@ -8,6 +8,7 @@ import { problemArtwork, orbitArtwork, startHeroMotion, stopHeroMotion, transiti
 import { syncNavigation, watchSections, closeMenu } from './chrome.js';
 import { polishCopy, universityDetails } from './polish-copy.js';
 import { universities } from './content.js';
+import { startAmbient } from './ambient.js';
 import { diagram } from './graphics.js';
 import { personalMap, actualInputs, sessionContext, quizArtwork } from './personal-map.js';
 
@@ -73,6 +74,7 @@ function render() {
   else if (state.view === 'catalog') renderCatalog();
   else renderHome();
   watchSections();
+  startAmbient(main,text().hero.motion,state.route);
 }
 
 function renderHome() {
@@ -103,7 +105,7 @@ function renderHome() {
       </div>
       <aside class="university-teaser" aria-label="${t.hero.universities}">
         <a href="https://ventorme.ai/" target="_blank" rel="noopener">${t.hero.universities}${arrow()}</a>
-        <ul translate="no"><li>Taylor’s University</li><li>Arizona State University</li><li>Curtin University</li></ul>
+        <ul translate="no">${universities.slice(4).map(u=>`<li><img class="teaser-logo" src="${u.logo}" alt="" width="56" height="38" decoding="async">${u.name}</li>`).join('')}</ul>
       </aside>
       <div class="hero-bottom"><span class="hero-signature" translate="no">VENTORME / HACKNEXT 113</span><button class="motion-toggle" type="button" aria-pressed="false"><span class="motion-icon" aria-hidden="true"></span><span class="motion-label">${t.hero.motion.pause}</span></button></div>
     </div>
@@ -152,6 +154,7 @@ function renderQuiz(error = '') {
       <button class="button ghost" data-action="back">${t.common.back}</button><button class="button secondary" data-action="skip">${t.common.skip}</button><button class="button primary" data-action="next">${state.step === 2 ? t.quiz.show : t.common.next}${arrow()}</button>
     </div></div>`;
   if(error) main.querySelector(showFreeText?'#free-text':'#quiz-error').focus({preventScroll:true});
+  startAmbient(main,t.hero.motion);
   if(entering&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&document.documentElement.dataset.motionPaused!=='true'){
     main.querySelectorAll('.quiz-visual,.quiz-view .choice').forEach((el,i)=>el.animate?.([{opacity:.3,transform:`translateX(${direction*16}px)`},{opacity:1,transform:'none'}],{duration:550,delay:i*30,easing:'cubic-bezier(.16,1,.3,1)'}));
   }

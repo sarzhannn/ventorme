@@ -1,0 +1,53 @@
+/* Quiet educational confetti, behind the existing composition. */
+.ambient-host { position:relative;isolation:isolate; }
+.particle-field { position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1;contain:paint; }
+.ambient-particle { position:absolute;left:var(--px);top:var(--py);color:currentColor;opacity:.18;font:500 20px/1 var(--font-display);user-select:none; }
+.ambient-particle:nth-child(3n) { font-size:30px;opacity:.13; }
+.ambient-particle:nth-child(4n) { font-size:12px;opacity:.25; }
+.hero-stage>.particle-field { z-index:0;color:var(--hero-fg); }
+.hero-stage>.hero-layout { position:relative;z-index:1; }
+.scene>.particle-field { z-index:0; }
+.particle-exams .ambient-particle { font-size:16px;letter-spacing:.04em; }
+.route-notebook { position:relative;isolation:isolate; }
+.route-notebook>.particle-field { z-index:1; }
+.route-notebook>.particle-field .ambient-particle { opacity:.1; }
+.ambient-pause { display:block;margin:0 0 18px auto;padding:9px 12px;border:1px solid var(--page-line);border-radius:20px;background:var(--page-bg);color:var(--page-muted);font-size:12px;min-height:40px; }
+.ambient-pause:disabled { opacity:.7; }
+.poster-logo { display:flex;align-items:center;justify-content:center;align-self:flex-start;width:min(100%,240px);height:112px;padding:14px 20px;background:#fff;border-radius:12px;position:relative;z-index:1; }
+.poster-logo img { display:block;width:100%;height:100%;object-fit:contain; }
+.university-teaser li { display:flex;align-items:center;gap:9px;font-size:12px; }
+.teaser-logo { width:56px;height:38px;padding:5px;background:#fff;border-radius:5px;object-fit:contain;flex:none; }
+.review-poster { display:grid;grid-template-columns:minmax(0,1fr) 185px;column-gap:36px;row-gap:20px;padding:30px 36px; }
+.review-theme { grid-column:1;margin:0;font-size:14px; }
+.review-poster blockquote { grid-column:1;grid-row:2;margin:0;padding-left:36px;font-size:clamp(24px,2.9vw,40px); }
+.review-summary { grid-column:1;margin:0;max-width:64ch;font-size:16px;line-height:1.65;color:var(--hero-muted); }
+.review-summary>span:first-child { display:block;margin-bottom:8px;font-size:12px;opacity:.85; }
+.review-poster figcaption { grid-column:2;grid-row:1 / 5;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:12px;padding:0; }
+.review-face { width:145px;height:165px;object-fit:cover;border-radius:60px 12px 60px 12px; }
+.review-poster .review-initial { display:grid;place-items:center;width:145px;height:145px;background:#dfd3ff1f;color:#d6fa64;border:1px solid #dfd3ff44;border-radius:50%;font:700 65px/1 var(--font-display); }
+.review-poster figcaption>strong { font-size:18px;line-height:1.4; }
+.review-poster figcaption>.source-link { font-size:13px; }
+.review-poster figcaption>.review-language { color:var(--hero-muted);font-size:12px; }
+@media (prefers-reduced-motion:no-preference) {
+  .ambient-particle { animation:particle-float var(--pd) ease-in-out var(--delay) infinite paused; }
+  .particles-visible>.particle-field>.ambient-particle,.scene.is-in-view .route-notebook>.particle-field>.ambient-particle { animation-play-state:running; }
+  html[data-motion-paused="true"] .ambient-particle,html[data-page-hidden="true"] .ambient-particle { animation-play-state:paused !important; }
+  @keyframes particle-float { 0%,100% { transform:translate(0,0) rotate(0); } 35% { transform:translate(12px,-24px) rotate(var(--turn)); } 70% { transform:translate(-10px,12px) rotate(0); } }
+}
+@media (max-width:599px) {
+  .ambient-particle:nth-child(n+7) { display:none; }
+  .ambient-particle { font-size:14px;opacity:.13; }
+  .ambient-particle:nth-child(3n) { font-size:20px; }
+  .particle-exams .ambient-particle { font-size:12px; }
+  .poster-logo { height:96px;width:210px; }
+  .university-teaser ul { gap:12px 16px; }
+  .university-teaser li { font-size:11px; }
+  .teaser-logo { width:44px;height:34px; }
+  .review-poster { grid-template-columns:minmax(0,1fr);padding:24px;gap:18px; }
+  .review-poster blockquote { font-size:26px;padding-left:24px; }
+  .review-poster figcaption { grid-column:1;grid-row:auto;display:grid;grid-template-columns:64px minmax(0,1fr);gap:6px 14px;align-items:center; }
+  .review-face,.review-poster .review-initial { grid-row:1 / 4;width:64px;height:72px;border-radius:24px 6px 24px 6px;font-size:30px; }
+  .review-poster figcaption>.source-link { grid-column:2; }
+  .review-summary { font-size:15px; }
+}
+@media (prefers-reduced-motion:reduce) { .ambient-particle { animation:none !important;transform:none; } }

@@ -28,6 +28,7 @@ let cleanup;
 export function stopHeroMotion() { cleanup?.(); cleanup = null; }
 export function startHeroMotion(hero, labels) {
   if (!hero) return;
+  motionPaused=document.documentElement.dataset.motionPaused==='true';
   const language = document.documentElement.lang;
   if (lastHeroLanguage !== null && lastHeroLanguage !== language) {
     introHasPlayed = false;

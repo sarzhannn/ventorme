@@ -2,18 +2,19 @@
 import { editorialCopy } from './route-guides.js';
 export const CONTENT_SOURCE = 'https://ventorme.ai/';
 export const universities = [
-  {name:'University College London', mark:'UCL'},
-  {name:"King’s College London", mark:'KCL'},
-  {name:'Bocconi University', mark:'Bocconi'},
-  {name:'Nazarbayev University', mark:'NU'},
-  {name:"Taylor’s University", mark:'Taylor’s'},
-  {name:'Arizona State University', mark:'ASU'},
-  {name:'Curtin University', mark:'Curtin'}
+  {name:'University College London', mark:'UCL',logo:'assets/official/ucl.webp'},
+  {name:"King’s College London", mark:'KCL',logo:'assets/official/kings.webp'},
+  {name:'Bocconi University', mark:'Bocconi',logo:'assets/official/bocconi.webp'},
+  {name:'Nazarbayev University', mark:'NU',logo:'assets/official/nazarbayev.webp'},
+  {name:"Taylor’s University", mark:'Taylor’s',logo:'assets/official/taylors.webp'},
+  {name:'Arizona State University', mark:'ASU',logo:'assets/official/arizona.webp'},
+  {name:'Curtin University', mark:'Curtin',logo:'assets/official/curtin.webp'}
 ];
 // Short verbatim excerpts, not full reviews or translated quotations.
 export const testimonials = [
-  {author:'Aibek', quote:'help you build a plan', language:'en'},
-  {author:'Dana', quote:'all the deadlines and documents live in one place', language:'en'}
+  {author:'Aibek', quote:'help you build a plan', language:'en',summary:'Aibek describes being unsure at the beginning. Trying the first step made the service’s practical planning support clearer to him.',photo:null},
+  {author:'Dana', quote:'all the deadlines and documents live in one place', language:'en',summary:'Dana values having application information together rather than scattered across personal notes. Her review focuses on organisation, not an admission result.',photo:null},
+  {author:'Aidana Adambayeva', quote:'so much information in one place', language:'en',summary:'Writing as a parent, Aidana appreciates consolidated university information and exam preparation. She describes the difficulty of researching separate university websites and the additional work of translating them.',photo:'assets/official/aidana.png'}
 ];
 
 export const sceneCopy = {

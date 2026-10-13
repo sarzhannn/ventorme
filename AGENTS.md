@@ -34,6 +34,13 @@ User preference: for every website creation/change task, select applicable insta
 
 ## Skills routing
 
+### Follow-up baseline (2026-10-14)
+
+- `ambient.js` / `ambient.css` add small CSS particles to home scenes and focused views, plus IELTS/SAT motifs for exams. View-local pause controls share the Hero pause state; preserve reduced motion/offscreen/hidden-tab stopping and immediate quiz interactions.
+- `media-copy.js` supplies localized admissions background words and review labels. Gallery and Hero teaser now use local university images from Ventorme; do not replace with fabricated emblems. `docs/AMBIENT_MEDIA_QA.md` records sources and reuse-permission limitations.
+- Three review cards use short original English excerpts in every locale (latest explicit user preference), separately labelled English summaries, and source links. Aidana's source portrait is included; Aibek/Dana have initials. Full externally sourced reviews were not copied; user-supplied full text can be formatted later.
+- Latest browser QA used request interception without a server. The user asked not to start localhost; do not start one automatically for follow-up work.
+
 Installed roots: `C:/Users/Admin/.agents/skills` and `.agents/skills` in this workspace. Use current session catalog and actual files, not historical aliases.
 
 - Visual UI: `frontend-design`, `ui-ux-pro-max`, `impeccable` as applicable.
