@@ -1,5 +1,11 @@
 # Final creative polish — Team 113
 
+## Latest follow-up completed — 2026-10-13
+
+Attachment `ba04e085-6502-4721-900c-029326f5cf8d`: editorial/motion refinement of the implemented site. University hierarchy/hover, ambient scene layers, compact review carousel, quiz helpers and all five localized route guides completed; Hero and core selection/quiz behavior preserved. Root/site mirrors synchronized. Unit suites and bounded serverless browser checks passed; **localhost was not started**, as requested. See `docs/EDITORIAL_POLISH_QA.md` for current evidence and limitations. No commit/push/deployment.
+
+The checkpoint below records the preceding task, not additional work to repeat.
+
 Checkpoint: 2026-10-13. Latest brief: attachment 61a098e6-26cc-46ac-bce8-6867e031fcc7.
 
 Baseline is the completed static full redesign, not a blank project. Working tree was clean before this task. Preserve Hero, selection rules, 3 quiz steps, 5 routes, official reference files and exact registration constant. No deployment or commit authorized.

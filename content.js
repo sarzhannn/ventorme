@@ -1,4 +1,5 @@
 // Public, source-verified facts only. Internal Hacknext data never ships here.
+import { editorialCopy } from './route-guides.js';
 export const CONTENT_SOURCE = 'https://ventorme.ai/';
 export const universities = [
   {name:'University College London', mark:'UCL'},
@@ -56,3 +57,6 @@ export const sceneCopy = {
     faqTitle:'Yes, you can ask.',finalTitle:['Not your whole life.','Your next step.'],finalLead:'Create a Ventorme account and start with one tool. The rest doesn’t need deciding right now.',footer:'An educational project by Team 113 for Hacknext 2026',backHome:'Back to your questions',answerReason:'Why this direction',reasonSelected:'You picked this concern on the first screen.',reasonPriority:'You chose this as your first result in question three.',reasonFallback:'This is a starting point based on your answers. You can explore any other route.',freeExplanation:'We don’t analyse this text automatically. Choose the closest goal in question three or open the catalog.',demoRequired:'Write your activity — up to 200 characters.',demoSaved:'Your answer is kept only for this session.',faqOpen:'Verify the information',routeCatalog:'All five directions'
   }
 };
+
+// Editorial phrasing only; verified evidence and free/paid facts stay above.
+for (const lang of Object.keys(sceneCopy)) Object.assign(sceneCopy[lang],editorialCopy[lang].scene);

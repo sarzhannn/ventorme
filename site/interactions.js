@@ -2,6 +2,10 @@
 import { journeyPanel } from './scenes.js';
 import { polishCopy } from './polish-copy.js';
 let dispose;
+// CSS loops pause even when the current view is not the home scene collection.
+const syncVisibility=()=>{document.documentElement.dataset.pageHidden=String(document.hidden);};
+document.addEventListener('visibilitychange',syncVisibility);
+syncVisibility();
 export const stopScenes = () => { dispose?.(); dispose=null; };
 export function startScenes(root,c,onState,lang='ru',register=()=> '') {
   const cleanups=[],animations=new Set(),mq=matchMedia('(prefers-reduced-motion: reduce)');
@@ -31,12 +35,19 @@ export function startScenes(root,c,onState,lang='ru',register=()=> '') {
   root.querySelectorAll('[data-carousel]').forEach(carousel=>{
     const track=carousel.querySelector('[data-track]'),slides=[...track.querySelectorAll('[data-slide]')],prev=carousel.querySelector('[data-delta="-1"]'),next=carousel.querySelector('[data-delta="1"]'),count=carousel.querySelector('.rail-count');
     let index=0,raf=0,drag=null,moved=false;
+    const fitReview=()=>{
+      if(track.classList.contains('review-rail')){
+        const height=`${Math.ceil(slides[index].getBoundingClientRect().height)}px`;
+        if(track.style.height!==height)track.style.height=height;
+      }
+    };
     const positions=()=>slides.map(el=>el.offsetLeft);
     const update=()=>{raf=0;const pos=positions();index=pos.reduce((best,p,i)=>Math.abs(p-track.scrollLeft)<Math.abs(pos[best]-track.scrollLeft)?i:best,0);
       slides.forEach((el,i)=>el.classList.toggle('is-current',i===index));
       prev.disabled=track.scrollLeft<3;next.disabled=track.scrollLeft>=track.scrollWidth-track.clientWidth-3;
       count.textContent=c.slide.replace('{n}',index+1).replace('{total}',slides.length);
       const progress=carousel.querySelector('.review-progress span');if(progress)progress.style.transform=`scaleX(${(index+1)/slides.length})`;
+      fitReview();
       onState?.(track.id,index);
     };
     const go=delta=>{const target=Math.max(0,Math.min(slides.length-1,index+delta));track.scrollTo({left:positions()[target],behavior:reduced()?'instant':'smooth'});};
@@ -50,6 +61,11 @@ export function startScenes(root,c,onState,lang='ru',register=()=> '') {
     listen(track,'pointerup',end);listen(track,'pointercancel',end);listen(track,'lostpointercapture',end);
     listen(track,'click',e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
     const resize=()=>update();listen(window,'resize',resize);
+    // Natural slide height changes with translation, fonts and width; no height tween.
+    if(track.classList.contains('review-rail')&&typeof ResizeObserver==='function'){
+      const sizeObserver=new ResizeObserver(fitReview);
+      slides.forEach(slide=>sizeObserver.observe(slide));cleanups.push(()=>sizeObserver.disconnect());
+    }
     update();cleanups.push(()=>cancelAnimationFrame(raf));
   });
 
