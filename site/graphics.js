@@ -12,4 +12,13 @@ export function diagram(key = 'plan', className = '') {
   return `<svg class="scene-diagram ${className}" viewBox="0 0 240 200" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${drawings[key] || drawings.plan}</svg>`;
 }
 export const arrow = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>';
+// Lightweight outline marks; visible platform names provide the link names.
+export function contactIcon(key) {
+  const paths={
+    telegram:'<path d="m3 11 18-7-4 16-6-5-4 3 1-6 9-5-6 8M3 11l5 1"/>',
+    instagram:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/>',
+    whatsapp:'<path d="M4.3 16.6a9 9 0 1 1 3.1 3.1L3 21Z"/><path d="m8 7 2 3-1.2 1.2a8 8 0 0 0 4 4L14 14l3 2c-1 3-4 2-7-1S6 8 8 7Z"/>'
+  };
+  return `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[key]||''}</svg>`;
+}
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);

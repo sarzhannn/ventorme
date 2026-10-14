@@ -1,0 +1,35 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {trackEvent,setAnalyticsAdapter} from '../analytics.js';
+import {OFFICIAL_CONTACTS,REGISTRATION_URL} from '../config.js';
+import {renderScenes} from '../scenes.js';
+import {translations} from '../translations.js';
+import {mediaCopy} from '../media-copy.js';
+assert.deepEqual(OFFICIAL_CONTACTS.map(c=>c.url),['https://t.me/VentormeAI','https://instagram.com/ventorme.ai','https://wa.me/77019202323']);
+for(const lang of ['ru','kz','en']) {
+  const html=renderScenes(translations[lang],{lang,showcase:'career',demo:null},label=>`<a class="registration-cta" href="${REGISTRATION_URL}">${label}</a>`);
+  for(const contact of OFFICIAL_CONTACTS)assert.ok(html.includes(`href="${contact.url}"`));
+  assert.ok(html.includes(mediaCopy[lang].contactsTitle));
+  assert.ok(html.includes(mediaCopy[lang].teamNote));
+  assert.ok(html.includes(mediaCopy[lang].attribution));
+  assert.equal((html.match(/id="contacts"/g)||[]).length,1);
+}
+const events=[];
+setAnalyticsAdapter(event=>events.push(event));
+assert.equal(trackEvent('unknown',{email:'private'}),false);
+trackEvent('quiz_step_completed',{locale:'ru',step:2,status:'answered',freeText:'private',email:'private',grade:'grade11',goal:'grants',url:'secret'});
+assert.deepEqual(events[0],{name:'quiz_step_completed',properties:{locale:'ru',status:'answered',step:2}});
+trackEvent('result_viewed',{locale:'bad',step:999,count:-1,mode:'explore',placement:'secret'});
+assert.deepEqual(events[1].properties,{mode:'explore'});
+assert.ok(Object.isFrozen(events[0])&&Object.isFrozen(events[0].properties));
+setAnalyticsAdapter(()=>{throw Error('offline');});
+assert.doesNotThrow(()=>trackEvent('quiz_completed'));
+setAnalyticsAdapter(()=>Promise.reject(Error('offline')));
+trackEvent('quiz_completed');
+await new Promise(resolve=>setTimeout(resolve,0));
+setAnalyticsAdapter(null);
+assert.equal(trackEvent('quiz_started'),true);
+assert.equal(events.length,2);
+const source=await readFile(new URL('../analytics.js',import.meta.url),'utf8');
+assert.doesNotMatch(source,/fetch\(|sendBeacon\(|localStorage|sessionStorage/);
+console.log('Verified contact destinations/locales and privacy-safe, optional local funnel hooks passed.');

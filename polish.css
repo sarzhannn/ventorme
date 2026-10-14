@@ -127,6 +127,27 @@ textarea { caret-color:#8754ef; }
 .site-footer nav,.footer-routes { display:flex;flex-direction:column;align-items:flex-start; }
 .site-footer nav a { color:#f8f6f1;min-height:44px;display:flex;align-items:center;text-decoration:none;font-size:14px; }
 .site-footer nav a:hover { text-decoration:underline; }
+.footer-contacts { grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:32px;padding-bottom:32px;border-bottom:1px solid var(--page-line); }
+.footer-contacts h2 { margin:0;font:600 clamp(22px,2.4vw,32px)/1.3 var(--font-display);max-width:22ch; }
+.site-footer .footer-contacts p { max-width:48ch;font-size:16px;line-height:1.6;margin:14px 0 10px; }
+.contacts-caption { color:var(--page-muted);font-size:12px; }
+.contact-links { display:flex;flex-wrap:wrap;gap:12px;padding:0;margin:0;list-style:none; }
+.contact-links li { flex:1 1 150px;min-width:0; }
+.contact-links a { display:flex;align-items:center;gap:12px;min-height:56px;padding:14px 16px;border:1px solid var(--page-line);border-radius:12px;color:var(--page-ink);text-decoration:none;font-weight:500; }
+.contact-links a svg { flex:none; }
+.contact-links a svg:last-child { width:18px;height:18px;margin-left:auto;transform:rotate(-45deg); }
+.contact-links a:hover,.contact-links a:focus-visible { color:var(--color-lime);border-color:var(--color-lime);background:var(--page-soft); }
+.contact-links a:focus-visible { outline:2px solid var(--color-lime);outline-offset:4px; }
+.contact-links a:active { background:var(--page-card); }
+.site-footer .footer-attribution { grid-column:1/-1;max-width:none;margin:0;padding-top:20px;border-top:1px solid var(--page-line);font-size:13px; }
+@media (prefers-reduced-motion:no-preference) {
+  .contact-links a { transition:color 250ms ease,border-color 250ms ease,background-color 250ms ease; }
+}
+@media (max-width:767px) {
+  .site-footer .footer-identity { grid-column:1/-1; }
+  .footer-contacts { grid-template-columns:minmax(0,1fr);gap:20px;padding-bottom:24px; }
+  .contact-links li { flex-basis:100%; }
+}
 
 /* The focused quiz and result use the same semantic surfaces in both themes. */
 .view .eyebrow,.view .ghost { color:var(--page-ink); }
@@ -329,6 +350,8 @@ html[data-motion-paused="true"] .scene *,html[data-motion-paused="true"] .view *
 .checkpoint-copy { border-bottom:1px solid var(--page-line);padding-bottom:22px; }
 .checkpoint-copy p { margin:0 0 16px;max-width:65ch;font-size:17px;line-height:1.65; }
 .checkpoint-copy p:last-child { margin-bottom:0; }
+.map-checkpoints article:first-child .checkpoint-copy { border:1px solid var(--page-line);border-left:3px solid var(--color-lime);border-radius:0 12px 12px 0;padding:20px;background:var(--page-card); }
+.map-checkpoints article:first-child .checkpoint-copy p:first-child { font-weight:600;color:var(--page-ink); }
 .checkpoint-copy .checkpoint-context { color:var(--page-muted);font-size:14px; }
 .route-takeaway { font-family:var(--font-display);font-weight:600;font-size:clamp(20px,2.2vw,28px);line-height:1.45;max-width:45ch;margin:22px 0 32px; }
 .map-destination { position:relative;overflow:hidden;padding:30px 36px;background:var(--page-soft); }

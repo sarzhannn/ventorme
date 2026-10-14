@@ -68,3 +68,11 @@ Installed roots: `C:/Users/Admin/.agents/skills` and `.agents/skills` in this wo
 - Latest checks: `docs/DARK_AMBIENT_QA.md`; browser script remains under ignored `output/playwright/dark-polish.mjs`. No localhost was started.
 
 This file is durable project context, not guaranteed account-wide memory. Another account's complete chat history is unavailable unless supplied in the active conversation or exported files. Do not imply otherwise.
+
+### Latest conversion refinement (2026-10-14)
+
+- Footer now has verified official contacts (OFFICIAL_CONTACTS in config.js), localized platform/team distinction and MINDSET attribution. Exact URLs were checked in the official footer HTML; see README.
+- Quiz label is “Получи свой маршрут” and demo “Попробуй на примере” with KZ/EN equivalents. Hero hints explain selection → green CTA. Existing multi-selection and routing semantics remain.
+- Existing roadmap precedes the answer recap; its first action is highlighted. No duplicate recommendation system.
+- analytics.js emits only local allowlisted funnel events; no provider, external collection, answer data, identifiers or persistence. Do not claim analytics are collecting conversion data remotely. Integration semantics and verification are in README.
+- npm test now runs six suites, including contacts and analytics privacy. Serverless browser evidence is under ignored output/playwright/conversion-*. No commit/deploy/localhost or new dependency was authorized by this polish.

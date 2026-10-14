@@ -2,7 +2,7 @@ const ru = {
   locale:'ru', meta:['А что после школы? — Ventorme','Найдите свой первый шаг после школы вместе с Ventorme.','Перейти к содержанию','Ventorme — на главную','Выберите язык'],
   common:{next:'Дальше',back:'Назад',skip:'Пропустить',restart:'Начать заново',register:'Перейти к официальной регистрации Ventorme',open:'Открыть описание',edit:'Изменить ответы',another:'Выбрать другой маршрут'},
   hero:{title:'А ЧТО ПОСЛЕ ШКОЛЫ?',titleLines:['А ЧТО','ПОСЛЕ','ШКОЛЫ?'],slogan:['Необязательно знать своё будущее.','Достаточно понять, с чего начать.'],question:'Все спрашивают, кем ты станешь. А ты пока не знаешь?',lead:'Выбери, что волнует тебя сейчас, и найди свой первый шаг с Ventorme.',prompt:'Что сейчас сложнее всего?',problems:{career:'Не могу выбрать профессию',universities:'Не знаю, куда поступать',grants:'Боюсь не получить грант',exams:'Не знаю, как подготовиться к экзаменам'},start:'Найти свой первый шаг',catalog:'Не хочу проходить вопросы — просто покажите возможности',promise:'Бесплатно начать • Без сложных терминов • В своём темпе'},
-  quiz:{name:'Давай разберёмся',step:'Шаг {n} из 3',optional:'Можно пропустить',show:'Показать мой следующий шаг',freeLabel:'Расскажи своими словами',freeHint:'Одного предложения достаточно. До 200 символов.',counter:'Осталось символов: {n}',steps:[
+  quiz:{name:'Получи свой маршрут',step:'Шаг {n} из 3',optional:'Можно пропустить',show:'Показать мой следующий шаг',freeLabel:'Расскажи своими словами',freeHint:'Одного предложения достаточно. До 200 символов.',counter:'Осталось символов: {n}',steps:[
     ['grade','Сколько времени у тебя до поступления?','Это поможет нам показать подходящий следующий шаг.',[['grade78','7–8 класс — Пока изучаю свои интересы'],['grade9','9 класс — Думаю, что делать после девятого'],['grade10','10 класс — Начинаю готовиться к поступлению'],['grade11','11 класс — Поступление уже близко'],['other','Другое — Укажу свой вариант']]],
     ['barrier','Что сейчас не даёт тебе определиться?','Выбери то, что ближе всего к твоей ситуации.',[['many','Мне нравится много профессий, не могу выбрать одну'],['unknown','Вообще не понимаю, что мне интересно'],['where','Есть любимая профессия, но не знаю, где ей учиться'],['money','Боюсь, что не хватит баллов или денег'],['exam','Не понимаю, какие экзамены нужны'],['other','У меня другая ситуация']]],
     ['goal','Какой результат ты хочешь получить первым?','Мы покажем один прозрачный следующий шаг.',[['career','Разобраться в своих интересах'],['universities','Найти подходящие университеты'],['grants','Узнать о грантах и стоимости'],['exams','Понять, как готовиться к экзаменам'],['plan','Составить план поступления'],['undecided','Пока не знаю — помогите выбрать']]]
@@ -29,7 +29,7 @@ const kz = {
   locale:'kk', meta:['Мектептен кейін не болады? — Ventorme','Мектептен кейінгі алғашқы қадамыңды Ventorme-мен бірге тап.','Негізгі мазмұнға өту','Ventorme — басты бетке','Тілді таңдаңыз'],
   common:{next:'Әрі қарай',back:'Артқа',skip:'Өткізіп жіберу',restart:'Қайта бастау',register:'Ventorme ресми тіркелуіне өту',open:'Сипаттаманы ашу',edit:'Жауаптарды өзгерту',another:'Басқа бағытты таңдау'},
   hero:{title:'МЕКТЕПТЕН КЕЙІН НЕ БОЛАДЫ?',titleLines:['МЕКТЕПТЕН','КЕЙІН НЕ','БОЛАДЫ?'],slogan:['Болашағыңды қазір білу міндетті емес.','Неден бастау керегін түсінсең жеткілікті.'],question:'Бәрі сенен кім болатыныңды сұрайды. Ал сен әлі білмейсің бе?',lead:'Қазір не мазалайтынын таңда да, Ventorme-мен алғашқы қадамыңды тап.',prompt:'Қазір не қиынырақ?',problems:{career:'Мамандықты таңдай алмаймын',universities:'Қайда түсу керегін білмеймін',grants:'Грант ала алмай қаламын деп қорқамын',exams:'Емтиханға қалай дайындалуды білмеймін'},start:'Алғашқы қадамды табу',catalog:'Сұрақтарға жауап бергім келмейді — мүмкіндіктерді көрсетіңіз',promise:'Тегін бастау • Күрделі терминдерсіз • Өз қарқыныңмен'},
-  quiz:{name:'Бірге анықтайық',step:'{n}-қадам / 3',optional:'Өткізіп жіберуге болады',show:'Келесі қадамымды көрсету',freeLabel:'Жағдайыңды өз сөзіңмен жаз',freeHint:'Бір сөйлем жеткілікті. 200 таңбаға дейін.',counter:'Қалған таңба: {n}',steps:[
+  quiz:{name:'Өз бағытыңды тап',step:'{n}-қадам / 3',optional:'Өткізіп жіберуге болады',show:'Келесі қадамымды көрсету',freeLabel:'Жағдайыңды өз сөзіңмен жаз',freeHint:'Бір сөйлем жеткілікті. 200 таңбаға дейін.',counter:'Қалған таңба: {n}',steps:[
     ['grade','Оқуға түсуге дейін қанша уақытың бар?','Бұл саған лайықты келесі қадамды көрсетуге көмектеседі.',[['grade78','7–8 сынып — Қызығушылықтарымды зерттеп жүрмін'],['grade9','9 сынып — Тоғызыншы сыныптан кейін не істейтінімді ойлап жүрмін'],['grade10','10 сынып — Оқуға түсуге дайындала бастадым'],['grade11','11 сынып — Оқуға түсу уақыты жақын'],['other','Басқа — Өз нұсқамды жазамын']]],
     ['barrier','Қазір шешім қабылдауға не кедергі?','Жағдайыңа ең жақын нұсқаны таңда.',[['many','Көп мамандық ұнайды, біреуін таңдай алмаймын'],['unknown','Маған не қызық екенін мүлде түсінбеймін'],['where','Ұнайтын мамандығым бар, бірақ оны қайда оқу керегін білмеймін'],['money','Баллым немесе қаражатым жетпей қала ма деп қорқамын'],['exam','Қандай емтихандар керек екенін түсінбеймін'],['other','Менің жағдайым басқа']]],
     ['goal','Алдымен қандай нәтиже алғың келеді?','Бір түсінікті келесі қадамды көрсетеміз.',[['career','Қызығушылықтарымды түсіну'],['universities','Лайықты университеттерді табу'],['grants','Гранттар мен оқу құнын білу'],['exams','Емтиханға қалай дайындалуды түсіну'],['plan','Оқуға түсу жоспарын құру'],['undecided','Әлі білмеймін — таңдауға көмектесіңіз']]]
@@ -56,7 +56,7 @@ const en = {
   locale:'en', meta:['What happens after school? — Ventorme','Find your first step after school with Ventorme.','Skip to main content','Ventorme — home','Choose language'],
   common:{next:'Continue',back:'Back',skip:'Skip',restart:'Start over',register:'Go to official Ventorme registration',open:'Open details',edit:'Edit answers',another:'Choose another route'},
   hero:{title:'WHAT HAPPENS AFTER SCHOOL?',titleLines:['WHAT HAPPENS','AFTER','SCHOOL?'],slogan:['You don’t have to know your future.','Just find a place to start.'],question:'Everyone asks what you’ll become. Still figuring it out?',lead:'Pick what concerns you now and find your first step with Ventorme.',prompt:'What feels hardest right now?',problems:{career:'I cannot choose a career',universities:'I do not know where to apply',grants:'I worry I will not get a grant',exams:'I do not know how to prepare for exams'},start:'Find my first step',catalog:'I do not want questions — just show me the options',promise:'Free to start • No jargon • At your own pace'},
-  quiz:{name:'Let’s figure it out',step:'Step {n} of 3',optional:'You can skip this',show:'Show my next step',freeLabel:'Describe it in your own words',freeHint:'One sentence is enough. Up to 200 characters.',counter:'Characters left: {n}',steps:[
+  quiz:{name:'Find your route',step:'Step {n} of 3',optional:'You can skip this',show:'Show my next step',freeLabel:'Describe it in your own words',freeHint:'One sentence is enough. Up to 200 characters.',counter:'Characters left: {n}',steps:[
     ['grade','How much time do you have before applying?','This helps us show a useful next step.',[['grade78','Grades 7–8 — I am exploring my interests'],['grade9','Grade 9 — I am thinking about what comes next'],['grade10','Grade 10 — I am starting to prepare'],['grade11','Grade 11 — Admission is close'],['other','Other — I will describe it']]],
     ['barrier','What is making it hard to decide right now?','Choose the option closest to your situation.',[['many','I like many careers and cannot choose one'],['unknown','I do not understand what interests me'],['where','I have a favourite career but do not know where to study it'],['money','I worry my scores or money will not be enough'],['exam','I do not know which exams I need'],['other','My situation is different']]],
     ['goal','What result would help you first?','We will show one clear next step.',[['career','Understand my interests'],['universities','Find suitable universities'],['grants','Learn about grants and costs'],['exams','Understand how to prepare for exams'],['plan','Make an admission plan'],['undecided','I do not know yet — help me choose']]]
@@ -83,7 +83,7 @@ const en = {
 Object.assign(ru.hero, {
   slogan:['Не нужен ответ на всю жизнь.','Нужен следующий шаг.'],
   question:'Профессия, университет, грант или экзамены — выбери, с чего разобраться с Ventorme.',
-  prompt:'Что не даёт определиться?', chooseHint:'Можно выбрать сразу несколько.',
+  prompt:'Что не даёт определиться?', chooseHint:'Выбери один или несколько вопросов, затем нажми зелёную кнопку — учтём твой выбор в маршруте.',
   startOne:'Разобраться с этим', startMany:'Разобраться с моими вопросами', count:'Выбрано: {n}',
   catalog:'Сразу к возможностям — без вопросов', selected:'Твои вопросы', continue:'Продолжить с этим вопросом',
   priorityHint:'С чего начнём? Выбери главный приоритет. Если пока не знаешь или пропустишь вопрос — покажем все выбранные направления.',
@@ -95,7 +95,7 @@ Object.assign(ru.hero, {
 Object.assign(kz.hero, {
   slogan:['Бүкіл өміріңді қазір шешу міндет емес.','Алдымен келесі қадамды тап.'],
   question:'Мамандық, университет, грант немесе емтихандар — Ventorme арқылы неден бастайтыныңды таңда.',
-  prompt:'Таңдау жасауға не кедергі?', chooseHint:'Бірнешеуін қатар таңдауға болады.',
+  prompt:'Таңдау жасауға не кедергі?', chooseHint:'Бір не бірнеше сұрақты таңдап, жасыл батырманы бас — бағытыңды таңдауыңа қарай ұсынамыз.',
   startOne:'Осы сұрақты қарастыру', startMany:'Сұрақтарымды бірге қарастыру', count:'Таңдалды: {n}',
   catalog:'Сұрақтарсыз бірден мүмкіндіктерге өту', selected:'Сенің сұрақтарың', continue:'Осы сұрақпен жалғастыру',
   priorityHint:'Неден бастаймыз? Ең маңыздысын таңда. Әлі білмесең немесе сұрақты өткізіп жіберсең, таңдаған бағыттарыңның бәрін көрсетеміз.',
@@ -107,7 +107,7 @@ Object.assign(kz.hero, {
 Object.assign(en.hero, {
   slogan:['You don’t need a lifelong answer.','You need a next step.'],
   question:'A career, a university, a grant or exams — choose what to work out with Ventorme.',
-  prompt:'What’s making it hard to decide?', chooseHint:'You can choose more than one.',
+  prompt:'What’s making it hard to decide?', chooseHint:'Choose one or more concerns, then tap the green button — your choices help shape your route.',
   startOne:'Work this out', startMany:'Work through my questions', count:'Selected: {n}',
   catalog:'Straight to the options — no questions', selected:'Your questions', continue:'Continue with this concern',
   priorityHint:'Where shall we start? Choose your main priority. If you’re unsure or skip this question, we’ll show all your selected directions.',

@@ -1,3 +1,4 @@
+import { trackEvent } from './analytics.js';
 import { REGISTRATION_URL } from './config.js';
 import { translations } from './translations.js';
 import { sceneCopy } from './content.js';
@@ -41,8 +42,10 @@ function setView(view) {
   if(view!=='quiz'||state.view!=='quiz') lastQuizStep=-1;
   const fromHero = state.view === 'home' && view !== 'home';
   const update = () => {
+    if(view==='quiz'&&state.view!=='quiz')trackEvent('quiz_started',{locale:state.lang,count:state.selectedProblems.length});
     state.view = view;
     render();
+    if(view==='result')trackEvent('result_viewed',{locale:state.lang,mode:state.routeOrigin==='explore'?'explore':'quiz'});
     window.scrollTo({ top: 0, behavior: 'instant' });
     main.focus({ preventScroll: true });
   };
@@ -148,7 +151,7 @@ function renderQuiz(error = '') {
   main.innerHTML = `<div class="shell view quiz-view" data-current-step="${state.step}">
     ${state.selectedProblems.length ? `<div class="quiz-concerns"><p>${t.hero.selected}</p><ul>${state.selectedProblems.map(key => `<li class="hero-selection">${t.hero.problems[key]}</li>`).join('')}</ul></div>` : ''}
     <p class="eyebrow">${t.quiz.name}</p><div class="quiz-meta"><span>${fill(t.quiz.step, state.step + 1)}</span><span>${t.quiz.optional}</span></div>
-    <div class="progress" aria-hidden="true"><span style="width:${((state.step + 1) / 3) * 100}%"></span></div>
+    <div class="progress" role="progressbar" aria-label="${t.quiz.name}" aria-valuemin="1" aria-valuemax="3" aria-valuenow="${state.step+1}" aria-valuetext="${fill(t.quiz.step,state.step+1)}"><span style="width:${((state.step + 1) / 3) * 100}%"></span></div>
     <h1>${key==='grade'?p.gradeTitle:title}</h1>${sessionContext(state,t)}${quizArtwork(state,t)}${showLead?`<p class="lead">${key === 'goal' && state.selectedProblems.length > 1 ? t.hero.priorityHint : hint}</p>`:''}<div class="choice-grid">
       ${options.map(option => `<button class="choice" data-answer="${key}" data-value="${option[0]}" aria-pressed="${selected === option[0]}">${option[1]}</button>`).join('')}
     </div>${showFreeText ? `<div class="free-field"><label for="free-text">${t.quiz.freeLabel}</label><textarea maxlength="200" class="free-text" id="free-text" name="free-text" autocomplete="off" aria-describedby="free-hint free-counter" aria-invalid="${Boolean(error)}">${escapeHtml(state.answers.freeTexts[key])}</textarea><p class="helper" id="free-hint">${t.quiz.freeHint} ${c.freeExplanation}</p><p class="counter" id="free-counter">${fill(t.quiz.counter, 200 - state.answers.freeTexts[key].length)}</p></div>` : ''}
@@ -209,6 +212,11 @@ function openUniversity(index, trigger) {
 }
 
 document.addEventListener('click', event => {
+  const registration=event.target.closest('.registration-cta');
+  if(registration&&registration.href===REGISTRATION_URL) {
+    const placement=registration.closest('.topbar')?'header':registration.closest('#mobile-cta')?'sticky':registration.closest('.result-view')?'result':registration.closest('.final-scene')?'final':registration.closest('.account-scene')?'account':'other';
+    trackEvent('registration_cta_clicked',{locale:state.lang,placement});
+  }
   const anchor=event.target.closest('[data-anchor]');
   if(anchor && !event.ctrlKey && !event.metaKey && !event.shiftKey && event.button===0){event.preventDefault();closeMenu();if(state.view!=='home'){state.view='home';render();}const target=document.getElementById(anchor.dataset.anchor);target?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches||document.documentElement.dataset.motionPaused==='true'?'instant':'smooth'});target?.setAttribute('tabindex','-1');target?.focus({preventScroll:true});history.replaceState(null,'',`#${anchor.dataset.anchor}`);return;}
   const university=event.target.closest('[data-university]');
@@ -225,6 +233,7 @@ document.addEventListener('click', event => {
     const key = problem.dataset.problem;
     state.selectedProblems = normalizeProblems(state.selectedProblems.includes(key) ? state.selectedProblems.filter(value => value !== key) : [...state.selectedProblems, key]);
     state.route = null;
+    trackEvent('hero_problem_selected',{locale:state.lang,count:state.selectedProblems.length,selected:state.selectedProblems.includes(key)});
     const hero = problem.closest('.hero-stage');
     updateHeroSelection();
     hero.dispatchEvent(new CustomEvent('hero-choice', { detail: problem }));
@@ -250,14 +259,16 @@ document.addEventListener('click', event => {
   if (action === 'back') { if (state.step > 0) { state.step -= 1; renderQuiz();main.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});animateContent(main.querySelector('.quiz-view')); } else setView('home'); }
   if (action === 'skip') {
     const key = text().quiz.steps[state.step][0]; state.answers[key] = 'skipped';
-    if (state.step < 2) { state.step += 1; renderQuiz(); main.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});animateContent(main.querySelector('.quiz-view')); } else { state.route = determineRoute(); setView('result'); }
+    trackEvent('quiz_step_completed',{locale:state.lang,step:state.step+1,status:'skipped'});
+    if (state.step < 2) { state.step += 1; renderQuiz(); main.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});animateContent(main.querySelector('.quiz-view')); } else { trackEvent('quiz_completed',{locale:state.lang});state.route = determineRoute(); setView('result'); }
   }
   if (action === 'next') {
     const [key] = text().quiz.steps[state.step];
     if (!state.answers[key]) { renderQuiz(text().errors.choose); return; }
     if ((key === 'grade' || key === 'barrier') && state.answers[key] === 'other' && !state.answers.freeTexts[key].trim()) { renderQuiz(text().errors.free); return; }
     if (state.answers.freeText.length > 200) { renderQuiz(text().errors.long); return; }
-    if (state.step < 2) { state.step += 1; renderQuiz();main.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});animateContent(main.querySelector('.quiz-view')); } else { state.route = determineRoute(); setView('result'); }
+    trackEvent('quiz_step_completed',{locale:state.lang,step:state.step+1,status:state.answers[key]==='skipped'?'skipped':'answered'});
+    if (state.step < 2) { state.step += 1; renderQuiz();main.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});animateContent(main.querySelector('.quiz-view')); } else { trackEvent('quiz_completed',{locale:state.lang});state.route = determineRoute(); setView('result'); }
   }
 });
 

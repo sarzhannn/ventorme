@@ -20,7 +20,7 @@ Clarify a visitor's immediate question and direct them to the official Ventorme 
 
 ## Capabilities and Constraints
 
-Three-question route finder, five deterministic routes, a pre-registration demo, and RU/KZ/EN. No backend, tracking, account creation, or storage of free-text answers. Every registration CTA uses team 113's supplied URL.
+Three-question route finder, five deterministic routes, a pre-registration demo, and RU/KZ/EN. No backend, remote tracking, account creation, or storage of free-text answers. Optional local funnel hooks contain no answers or identifiers; no analytics provider is connected. Every registration CTA uses team 113's supplied URL. Official contact links in the footer are distinct from registration.
 
 ## Evidence on Hand
 
