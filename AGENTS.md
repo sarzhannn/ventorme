@@ -73,6 +73,6 @@ This file is durable project context, not guaranteed account-wide memory. Anothe
 
 - Footer now has verified official contacts (OFFICIAL_CONTACTS in config.js), localized platform/team distinction and MINDSET attribution. Exact URLs were checked in the official footer HTML; see README.
 - Quiz label is “Получи свой маршрут” and demo “Попробуй на примере” with KZ/EN equivalents. Hero hints explain selection → green CTA. Existing multi-selection and routing semantics remain.
-- Existing roadmap precedes the answer recap; its first action is highlighted. No duplicate recommendation system.
-- analytics.js emits only local allowlisted funnel events; no provider, external collection, answer data, identifiers or persistence. Do not claim analytics are collecting conversion data remotely. Integration semantics and verification are in README.
+- Result order is direction → one first move (existing preview[0]) → registration → native “Plan and details” disclosure. All original route guidance and answer recap remain available; edit/catalog/restart stay outside. Disclosure state survives language switching for the same route. No duplicate recommendation system.
+- analytics.js emits only local allowlisted funnel events; no provider, external collection, answer data, identifiers or persistence. Do not claim analytics are collecting conversion data remotely. Integration semantics and verification are in site/README.md; root README is separately authored and must not be overwritten by the site README.
 - npm test now runs six suites, including contacts and analytics privacy. Serverless browser evidence is under ignored output/playwright/conversion-*. No commit/deploy/localhost or new dependency was authorized by this polish.

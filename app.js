@@ -66,6 +66,7 @@ function syncChrome() {
 }
 
 function render() {
+  const previousDetails=main.querySelector('.map-details');
   stopHeroMotion();
   stopScenes();
   syncChrome();
@@ -76,6 +77,8 @@ function render() {
   else if (state.view === 'result') renderResult();
   else if (state.view === 'catalog') renderCatalog();
   else renderHome();
+  const nextDetails=main.querySelector('.map-details');
+  if(previousDetails&&nextDetails&&previousDetails.dataset.routeKey===nextDetails.dataset.routeKey)nextDetails.open=previousDetails.open;
   watchSections();
   // Quiz renders also happen directly on answer/back/next; renderQuiz owns its setup.
   if(state.view!=='quiz') startAmbient(main,text().hero.motion,state.route);

@@ -36,6 +36,18 @@ for(const lang of ['ru','kz','en']) {
     assert.ok(!neutral.includes('answer-summary'));assert.ok(!neutral.includes('map-pace'));
     assert.ok(html.includes(p.transfer));assert.ok(html.includes(p.continue));assert.ok(html.includes(REGISTRATION_URL));
     assert.equal((html.match(/checkpoint-index/g)||[]).length,3);
+    assert.equal((html.match(/class="first-move"/g)||[]).length,1);
+    assert.ok(html.includes(`<h1>${t.routes[key][1]}</h1>`));
+    assert.ok(html.includes(t.routes[key][0]));
+    assert.ok(html.includes(p.firstMove)&&html.includes(p.detailsTitle));
+    assert.ok(html.includes(`<p class="first-move-action">${guide.preview[0]}</p>`));
+    assert.ok(html.indexOf('class="first-move"')<html.indexOf('class="map-destination"'));
+    assert.ok(html.indexOf('class="map-destination"')<html.indexOf('class="map-details"'));
+    assert.ok(html.indexOf('class="registration-cta"')<html.indexOf('class="map-details"'));
+    assert.ok(html.indexOf('class="answer-summary"')>html.indexOf('class="map-details"'));
+    assert.equal(html.split(p.ventormeValue[['career','universities','grants','exams','plan'].indexOf(key)]).length-1,1);
+    assert.ok(html.includes('data-action="edit"')&&html.includes('data-action="catalog"'));
+    assert.doesNotMatch(html,/<details[^>]*\bopen\b/);
   }
   const free={...state,answers:{grade:'other',barrier:'skipped',goal:'skipped',freeTexts:{grade:'<img src=x onerror=alert(1)>'}}};
   assert.ok(actualInputs(free,t).includes('&lt;img'));assert.ok(!actualInputs(free,t).includes('<img'));

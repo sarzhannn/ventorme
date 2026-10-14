@@ -25,14 +25,21 @@ export function gradeGuidance(state) {
 export function personalMap(state,t,c,key,reason,personalized,register) {
   const p=polishCopy[state.lang],r=t.routes[key],other=state.selectedProblems.filter(k=>k!==key);
   const guide=routeGuides[state.lang][key],editorial=editorialCopy[state.lang];
-  return `<div class="shell view result-view personal-map"><div class="map-heading"><div><p class="map-label">${personalized?p.resultTitle:c.routeOverview}</p><h1>${r[0]}</h1><p class="lead">${personalized?p.resultNote:c.routeNeutral}</p></div><div class="map-emblem">${diagram(key)}</div></div><p class="result-reason"><strong>${c.answerReason}</strong> — ${reason}</p>
-  <p class="route-framing">${guide.why}</p>
-  ${personalized&&gradeGuidance(state)?`<p class="map-pace">${gradeGuidance(state)}</p>`:''}
-  <section class="map-checkpoints" aria-label="${t.result.actions}">${[guide.now,guide.next,[p.ventormeValue[keys.indexOf(key)],guide.handoff]].map((paragraphs,i)=>`<article><div class="checkpoint-heading"><span class="checkpoint-index" aria-hidden="true">${i+1}</span><h2>${[p.now,p.next,p.inVentorme][i]}</h2>${diagram(i===0?key:i===1?'plan':'universities')}</div><div class="checkpoint-copy">${paragraphs.map(paragraph=>`<p>${paragraph}</p>`).join('')}${i===1&&personalized&&universities[state.university]?`<p class="checkpoint-context"><span translate="no">${universities[state.university].name}</span>: ${p.universityCheck}</p>`:''}</div></article>`).join('')}</section>
-  ${personalized?actualInputs(state,t):''}
-  <p class="route-takeaway">${guide.takeaway}</p>
-  ${personalized&&other.length?`<section class="additional-concerns"><h2>${p.additional}</h2>${other.map(k=>`<article><h3>${c.routeLabels[keys.indexOf(k)]}</h3><p>${t.routes[k][3][0]}</p><button class="text-action" data-route="${k}">${t.common.open}</button></article>`).join('')}</section>`:''}
-  <div class="map-destination"><div class="destination-heading"><h2>${editorial.destinationTitle}</h2>${diagram(key)}</div><p>${editorial.destinationNote}</p>${register(p.continue)}<p class="transfer-note">${p.transfer}</p><p class="notice">${r[4]}</p><div class="button-row"><button class="button ghost" data-action="edit">${t.common.edit}</button><button class="button ghost" data-action="catalog">${t.common.another}</button><button class="button ghost" data-action="restart">${t.common.restart}</button></div></div></div>`;
+  return `<div class="shell view result-view personal-map">
+  <div class="map-heading"><div><p class="map-label">${personalized?p.resultTitle:c.routeOverview}</p><h1>${r[1]}</h1></div><div class="map-emblem">${diagram(key)}</div></div>
+  <p class="result-reason"><strong>${c.answerReason}</strong> — ${reason}</p>
+  <section class="first-move" aria-labelledby="first-move-title"><h2 id="first-move-title">${p.firstMove}<span aria-hidden="true">→</span></h2><p class="first-move-action">${guide.preview[0]}</p></section>
+  <div class="map-destination"><div class="destination-heading"><h2>${editorial.destinationTitle}</h2>${diagram(key)}</div><p>${editorial.destinationNote}</p><p class="destination-tool">${p.ventormeValue[keys.indexOf(key)]}</p>${register(p.continue)}<p class="transfer-note">${p.transfer}</p><p class="notice">${r[4]}</p></div>
+  <details class="map-details" data-route-key="${key}"><summary>${p.detailsTitle}</summary>
+    <div class="map-detail-intro"><h2>${r[0]}</h2><p class="lead">${personalized?p.resultNote:c.routeNeutral}</p><p class="route-framing">${guide.why}</p></div>
+    ${personalized&&gradeGuidance(state)?`<p class="map-pace">${gradeGuidance(state)}</p>`:''}
+    <section class="map-checkpoints" aria-label="${t.result.actions}">${[guide.now,guide.next,[guide.handoff]].map((paragraphs,i)=>`<article><div class="checkpoint-heading"><span class="checkpoint-index" aria-hidden="true">${i+1}</span><h2>${[p.now,p.next,p.inVentorme][i]}</h2>${diagram(i===0?key:i===1?'plan':'universities')}</div><div class="checkpoint-copy">${paragraphs.map(paragraph=>`<p>${paragraph}</p>`).join('')}${i===1&&personalized&&universities[state.university]?`<p class="checkpoint-context"><span translate="no">${universities[state.university].name}</span>: ${p.universityCheck}</p>`:''}</div></article>`).join('')}</section>
+    ${personalized?actualInputs(state,t):''}
+    <p class="route-takeaway">${guide.takeaway}</p>
+    ${personalized&&other.length?`<section class="additional-concerns"><h2>${p.additional}</h2>${other.map(k=>`<article><h3>${c.routeLabels[keys.indexOf(k)]}</h3><p>${t.routes[k][3][0]}</p><button class="text-action" data-route="${k}">${t.common.open}</button></article>`).join('')}</section>`:''}
+  </details>
+  <div class="button-row map-navigation"><button class="button ghost" data-action="edit">${t.common.edit}</button><button class="button ghost" data-action="catalog">${t.common.another}</button><button class="button ghost" data-action="restart">${t.common.restart}</button></div>
+  </div>`;
 }
 export function quizArtwork(state,t) {
   const c=polishCopy[state.lang],key=t.quiz.steps[state.step][0],index=grades.indexOf(state.answers.grade);
